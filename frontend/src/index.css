@@ -73,12 +73,9 @@ main {
     justify-content: space-between;
 }
 
-.navbar button {
-    margin: 1rem;
-}
-
 .navbar a {
     font-size: 3rem;
+    margin: 1rem;
 }
 
 .button.red {

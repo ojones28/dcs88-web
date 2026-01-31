@@ -1,3 +1,5 @@
+import { NavLink } from "react-router";
+
 export default function Button(props) {
     let className = "button"
     if (props.color) {
@@ -5,7 +7,7 @@ export default function Button(props) {
     }
     return (
         props.href
-        ? <a className={className} href={props.href}>{props.children}</a>
+        ? <NavLink className={className} to={props.href} end>{props.children}</NavLink>
         : <button className={className} onClick={props.onClick}>{props.children}</button>
     )
 }
