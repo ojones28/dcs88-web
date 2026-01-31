@@ -1,17 +1,17 @@
 @font-face {
-  font-family: "HornetDisplay";
-  src: url("./assets/fonts/HornetDisplay-Regular.woff2") format("woff2");
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
+    font-family: "HornetDisplay";
+    src: url("./assets/fonts/HornetDisplay-Regular.woff2") format("woff2");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
 }
 
 @font-face {
-  font-family: "HornetDisplay";
-  src: url("./assets/fonts/HornetDisplay-Bold.woff2") format("woff2");
-  font-weight: 700;
-  font-style: normal;
-  font-display: swap;
+    font-family: "HornetDisplay";
+    src: url("./assets/fonts/HornetDisplay-Bold.woff2") format("woff2");
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
 }
 
 :root {
@@ -19,6 +19,19 @@
     --primary: #FFFFFF;
     --secondary: #000000;
     --highlight: #F8FC2A;
+    --red: #BC3B3B;
+}
+
+html {
+    height: 100%;
+    box-sizing: border-box;
+}
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+html, a, button, input, textarea, select {
+    cursor: url("./assets/images/cursor.svg") 16 16, auto;
 }
 
 body {
@@ -31,6 +44,13 @@ body {
 
 #root {
     padding: 1rem;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    height: 100%;
 }
 
 .nav-container {
@@ -44,14 +64,39 @@ body {
     justify-content: space-between;
 }
 
-.navbar a {
-    text-decoration: none;
-    font-size: 3rem;
+.navbar button {
     margin: 1rem;
+}
+
+.navbar a {
+    font-size: 3rem;
+}
+
+.button.red {
+    color: var(--red);
 }
 
 .button {
     color: var(--primary);
+    padding: 0.5rem;
+    font-weight: bold;
+    font-family: inherit;
+    font-size: 2rem;
+    border: none;
+    background-color: transparent;
+    text-decoration: none;
+}
+
+.button a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.button:has(a) {
+    padding: 0;
+}
+
+.button > a {
     padding: 0.5rem;
 }
 
@@ -64,7 +109,8 @@ body {
     color: var(--primary);
 }
 
-.button.active {
+.button.active,
+.button:has(.active) {
     background-color: var(--primary);
-    color: var(--secondary)
+    color: var(--secondary);
 }
