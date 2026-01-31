@@ -1,0 +1,12 @@
+.profileLogin {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    padding: 10% 0;
+    height: 100%;
+}
+
+.profileLogin a {
+    margin: 0 auto;
+    font-size: 3rem;
+}
