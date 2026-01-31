@@ -3,17 +3,21 @@ import ReactDOM from 'react-dom/client'
 import { createBrowserRouter } from 'react-router'
 import { RouterProvider } from 'react-router/dom'
 
+
 import './index.css'
 import Root from './pages/Root'
 import Home from './pages/Home'
 import News from './pages/News'
 import Profile from './pages/Profile'
 import LoginRegister from './pages/profile/LoginRegister'
+import ErrorPage from './pages/ErrorPage'
+import NewsArticle from './components/NewsArticle'
 
 const router = createBrowserRouter([
     {
         path: "/",
         Component: Root,
+        ErrorBoundary: ErrorPage,
         children: [
             { index: true, Component: Home },
             { path: "news", Component: News },
