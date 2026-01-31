@@ -1,0 +1,21 @@
+{
+  "name": "dcs88-web-backend",
+  "version": "0.1.0",
+  "description": "Website backend for DCS 88",
+  "keywords": [
+    "dcs"
+  ],
+  "license": "ISC",
+  "author": "Bobthe28th",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "cors": "^2.8.6",
+    "dotenv": "^17.2.3",
+    "express": "^5.2.1",
+    "mysql2": "^3.16.2"
+  }
+}
