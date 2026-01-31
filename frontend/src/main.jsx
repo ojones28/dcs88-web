@@ -7,6 +7,7 @@ import './index.css'
 import Root from './pages/Root'
 import Home from './pages/Home'
 import News from './pages/News'
+import NewsArticle from './components/NewsArticle'
 
 const router = createBrowserRouter([
     {
@@ -15,6 +16,13 @@ const router = createBrowserRouter([
         children: [
             { index: true, Component: Home },
             { path: "news", Component: News }
+        ]
+    },
+    {
+        path: "/news",
+        Component: News,
+        children: [
+            { index: true, Component: NewsArticle }
         ]
     }
 ])
