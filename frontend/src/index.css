@@ -29,6 +29,15 @@ body {
     margin: 0;
 }
 
+.h1 {
+    font-size: 3rem;
+    font-weight: bold;
+}
+
+.p {
+    font-size: 1rem;
+}
+
 #root {
     padding: 1rem;
 }
@@ -67,6 +76,11 @@ body {
 .button.active {
     background-color: var(--primary);
     color: var(--secondary)
+}
+
+.error-container {
+    text-align: center;
+    margin-top: 5rem;
 }
 
 .news-article {

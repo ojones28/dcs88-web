@@ -4,7 +4,6 @@ import NewsArticle from "../components/NewsArticle";
 export default function News() {
     return (
         <>
-            <Navbar />
             <div className="news-articles-list">
                 <NewsArticle
                     title="Sample News Article"
