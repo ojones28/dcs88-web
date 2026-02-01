@@ -32,6 +32,7 @@ html {
 
 html, a, button, input, textarea, select {
     cursor: url("./assets/images/cursor.svg") 16 16, auto;
+    font-family: inherit;
 }
 
 body {
@@ -43,7 +44,17 @@ body {
 }
 
 .h1 {
+    font-size: 4rem;
+    font-weight: bold;
+}
+
+.h2 {
     font-size: 3rem;
+    font-weight: bold;
+}
+
+.h3 {
+    font-size: 2rem;
     font-weight: bold;
 }
 
@@ -86,7 +97,6 @@ main {
     color: var(--primary);
     padding: 0.5rem;
     font-weight: bold;
-    font-family: inherit;
     font-size: 2rem;
     border: none;
     background-color: transparent;
@@ -191,4 +201,77 @@ main {
     width: 50%;
     margin: 2rem auto;
     position: relative;
+}
+
+.login-register {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5rem;
+}
+
+.text-input-wrapper {
+    display: inline-block;
+    position: relative;
+}
+
+.text-input-mirror {
+    position: absolute;
+    visibility: hidden;
+    height: 0;
+    overflow: hidden;
+    white-space: pre;
+    font-family: inherit;
+    font-weight: bold;
+    font-size: 2rem;
+    padding: 0.25rem;
+}
+
+.text-input {
+    border-width: 1px;
+    border-style: solid;
+    border-color: var(--primary);
+
+    font-family: inherit;
+    font-weight: bold;
+
+    color: var(--primary);
+    background-color: transparent;
+
+    font-size: 2rem;
+    padding: 0.5rem;
+
+    caret-color: transparent;
+}
+
+.text-input:active, .text-input:focus {
+    background-color: var(--primary);
+    color: var(--secondary);
+    outline: none;
+}
+
+.fake-cursor {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+
+    color: var(--secondary);
+    font-size: 2rem;
+
+    animation: blink 1s steps(1, start) infinite;
+    pointer-events: none;
+}
+
+.text-input:not(:focus) + .fake-cursor {
+    display: none;
+}
+
+@keyframes blink {
+    50% { opacity: 0; }
+
 }
