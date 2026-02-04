@@ -1,4 +1,4 @@
-import Navbar from "../components/Navbar";
+import '../assets/styles/news.css'
 import NewsArticle from "../components/NewsArticle";
 
 export default function News() {

@@ -1,4 +1,4 @@
-.profileLogin {
+.profileLogin, .login-register {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -9,4 +9,8 @@
 .profileLogin a {
     margin: 0 auto;
     font-size: 3rem;
+}
+
+.login-register * {
+    margin: 0 auto;
 }

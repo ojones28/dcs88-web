@@ -20,6 +20,23 @@
     --secondary: #000000;
     --highlight: #F8FC2A;
     --red: #BC3B3B;
+    --cyan: #49d1d9;
+    --magenta: #781f80;
+}
+
+
+*::selection {
+    background-color: var(--cyan);
+    color: var(--secondary);
+}
+
+.noselect {
+  -webkit-touch-callout: none;
+    -webkit-user-select: none;
+     -khtml-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none;
 }
 
 html {
@@ -136,88 +153,10 @@ main {
     margin-top: 5rem;
 }
 
-.news-article {
-    display: flex;
-    align-items: flex-start;
-    gap: 1rem;
-
-    width: 50%;
-    margin: 2rem auto;
-    position: relative;
-}
-
-.news-article-title {
-    font-size: 2rem;
-    margin-bottom: 0;
-    margin-top: 0;
-    font-weight: bold;
-}
-
-.news-article-title-underline {
-    font-size: 2rem;
-    margin-top: 0;
-    margin-bottom: 0;
-    font-weight: bold;
-}
-
-.news-article-content {
-    font-size: 1rem;
-    margin-top: 0;
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
-
-.news-article-dropdown-button {
-    position: absolute;
-    top: .5rem;
-    right: .5rem;
-}
-
-.news-article-image-container {
-    position: static;
-    width: 10rem;
-    height: 10rem;
-    object-fit: cover;
-}
-
-.news-article-image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-.news-article-text-container {
-    flex: 1;
-    min-width: 0;
-}
-
-.news-article-divider {
-    height: 1px;
-    background-color: var(--primary);
-
-    display: flex;
-    gap: 1rem;
-
-    width: 50%;
-    margin: 2rem auto;
-    position: relative;
-}
-
-.login-register {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 5rem;
-}
-
 .text-input-wrapper {
     display: inline-block;
     position: relative;
+    overflow: hidden;
 }
 
 .text-input-mirror {
@@ -245,6 +184,7 @@ main {
 
     font-size: 2rem;
     padding: 0.5rem;
+    padding-right: 1.5rem;
 
     caret-color: transparent;
 }
@@ -257,11 +197,13 @@ main {
 
 .fake-cursor {
     position: absolute;
-    top: 50%;
+    top: 60%;
     transform: translateY(-50%);
 
     color: var(--secondary);
     font-size: 2rem;
+
+    opacity: 0;
 
     animation: blink 1s steps(1, start) infinite;
     pointer-events: none;
@@ -272,6 +214,5 @@ main {
 }
 
 @keyframes blink {
-    50% { opacity: 0; }
-
+    50% { opacity: 1; }
 }
