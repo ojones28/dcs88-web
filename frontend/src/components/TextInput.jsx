@@ -59,7 +59,7 @@ export default function TextInput(props) {
                         if (inputRef.current) setCursorPos(inputRef.current.selectionEnd);
                     }}/>
                 <span ref={mirrorRef} className="text-input-mirror">{value || ""}</span>
-                {focused && <span ref={cursorRef} className="fake-cursor">_</span>}
+                {focused && <span key={cursorPos} ref={cursorRef} className="fake-cursor">_</span>}
             </div>
         </>
     )

@@ -203,6 +203,8 @@ main {
     color: var(--secondary);
     font-size: 2rem;
 
+    opacity: 0;
+
     animation: blink 1s steps(1, start) infinite;
     pointer-events: none;
 }
@@ -212,5 +214,5 @@ main {
 }
 
 @keyframes blink {
-    50% { opacity: 0; }
+    50% { opacity: 1; }
 }
