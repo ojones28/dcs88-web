@@ -1,9 +1,9 @@
-import { NavLink } from "react-router";
+import { NavLink } from "react-router"
 
 export default function Button(props) {
     let className = "button noselect"
     if (props.color) {
-        className += " " + props.color;
+        className += " " + props.color
     }
     return (
         props.href

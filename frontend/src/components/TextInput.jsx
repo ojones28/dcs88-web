@@ -1,38 +1,39 @@
-import { useLayoutEffect, useRef, useState } from "react";
+import { useLayoutEffect, useRef, useState } from "react"
 
 export default function TextInput(props) {
-    const [value, setValue] = useState(props.value || "");
-    const [focused, setFocused] = useState(false);
-    const [ cursorPos, setCursorPos ] = useState(0);
+    // const [value, setValue] = useState(props.value || "")
+    const value = props.value ?? ""
+    const [focused, setFocused] = useState(false)
+    const [ cursorPos, setCursorPos ] = useState(0)
 
-    const inputRef = useRef(null);
-    const mirrorRef = useRef(null);
-    const cursorRef = useRef(null);
+    const inputRef = useRef(null)
+    const mirrorRef = useRef(null)
+    const cursorRef = useRef(null)
 
     let className = "text-input"
     if (props.color) {
-        className += " " + props.color;
+        className += " " + props.color
     }
 
     useLayoutEffect(() => {
         if (mirrorRef.current && cursorRef.current && inputRef.current) {
-            const selEnd = cursorPos ?? inputRef.current.selectionEnd ?? 0;
+            const selEnd = cursorPos ?? inputRef.current.selectionEnd ?? 0
 
-            mirrorRef.current.textContent = (value || "").slice(0, selEnd);
+            mirrorRef.current.textContent = (value || "").slice(0, selEnd)
 
-            const cs = getComputedStyle(inputRef.current);
-            const paddingRight = parseFloat(cs.paddingRight || "0");
+            const cs = getComputedStyle(inputRef.current)
+            const paddingRight = parseFloat(cs.paddingRight || "0")
 
-            const mirrorWidth = mirrorRef.current.getBoundingClientRect().width;
-            const inputWidth = inputRef.current.clientWidth;
-            const cursorWidth = cursorRef.current.getBoundingClientRect().width;
+            const mirrorWidth = mirrorRef.current.getBoundingClientRect().width
+            const inputWidth = inputRef.current.clientWidth
+            const cursorWidth = cursorRef.current.getBoundingClientRect().width
             
-            const cursorLeft = mirrorWidth - inputRef.current.scrollLeft;
-            const clampedLeft = Math.max(0, Math.min(cursorLeft, inputWidth - cursorWidth + paddingRight));
+            const cursorLeft = mirrorWidth - inputRef.current.scrollLeft
+            const clampedLeft = Math.max(0, Math.min(cursorLeft, inputWidth - cursorWidth + paddingRight))
 
-            cursorRef.current.style.left = `${clampedLeft}px`;
+            cursorRef.current.style.left = `${clampedLeft}px`
         }
-    }, [value, focused, cursorPos]);
+    }, [value, focused, cursorPos])
 
     return (
         <>
@@ -44,19 +45,26 @@ export default function TextInput(props) {
                     className={className}
                     value={value}
                     onChange={(e) => {
-                        setValue(e.target.value);
-                        setCursorPos(e.target.selectionEnd);
+                        setCursorPos(e.target.selectionEnd)
+                        if (props.onChange) {
+                            props.onChange(e)
+                        }
                     }}
                     onFocus={() => {
-                        setFocused(true);
-                        if (inputRef.current) setCursorPos(inputRef.current.selectionEnd);
+                        setFocused(true)
+                        if (inputRef.current) setCursorPos(inputRef.current.selectionEnd)
                     }}
-                    onBlur={() => setFocused(false)}
+                    onBlur={() => {
+                        setFocused(false)
+                        if (props.onBlur) {
+                            props.onBlur()
+                        }
+                    }}
                     onSelect={(e) => {
-                        setCursorPos(e.target.selectionEnd);
+                        setCursorPos(e.target.selectionEnd)
                     }}
                     onScroll={() => {
-                        if (inputRef.current) setCursorPos(inputRef.current.selectionEnd);
+                        if (inputRef.current) setCursorPos(inputRef.current.selectionEnd)
                     }}/>
                 <span ref={mirrorRef} className="text-input-mirror">{value || ""}</span>
                 {focused && <span key={cursorPos} ref={cursorRef} className="fake-cursor">_</span>}

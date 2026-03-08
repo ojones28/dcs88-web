@@ -1,5 +1,4 @@
-import { NavLink } from "react-router";
-import React from "react";
+import React from "react"
 
 
 const DropdownButton = ({ isOpen, toggleDropdown }) => {
@@ -7,15 +6,15 @@ const DropdownButton = ({ isOpen, toggleDropdown }) => {
         <button className="news-article-dropdown-button" onClick={toggleDropdown}>
             {isOpen ? "▬" : "▼"}
         </button>
-    );
-};
+    )
+}
 
 export default function NewsArticle(props) {
-    const [isOpen, setIsOpen] = React.useState(false);
+    const [isOpen, setIsOpen] = React.useState(false)
 
     const toggleDropdown = () => {
-        setIsOpen(!isOpen);
-    };
+        setIsOpen(!isOpen)
+    }
 
     return (
         <>
