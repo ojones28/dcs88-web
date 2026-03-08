@@ -1,5 +1,5 @@
 import '../assets/styles/news.css'
-import NewsArticle from "../components/NewsArticle";
+import NewsArticle from "../components/NewsArticle"
 
 export default function News() {
     return (

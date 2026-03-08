@@ -11,7 +11,6 @@ import News from './pages/News'
 import Profile from './pages/Profile'
 import LoginRegister from './pages/profile/LoginRegister'
 import ErrorPage from './pages/ErrorPage'
-import NewsArticle from './components/NewsArticle'
 
 const router = createBrowserRouter([
     {
