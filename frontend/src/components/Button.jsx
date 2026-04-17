@@ -5,6 +5,9 @@ export default function Button(props) {
     if (props.color) {
         className += " " + props.color
     }
+    if (props.className) {
+        className += " " + props.className
+    }
     return (
         props.href
         ? <NavLink draggable="false" className={className} to={props.href} end>{props.children}</NavLink>

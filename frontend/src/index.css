@@ -14,6 +14,14 @@
     font-display: swap;
 }
 
+@font-face {
+    font-family: "ACES07";
+    src: url("./assets/fonts/ACES07_Regular.ttf") format("truetype");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
 :root {
     --bg-color: #131613;
     --primary: #FFFFFF;
@@ -22,6 +30,7 @@
     --red: #BC3B3B;
     --cyan: #49d1d9;
     --magenta: #781f80;
+    --green: #00b865;
 }
 
 
@@ -30,13 +39,30 @@
     color: var(--secondary);
 }
 
+*::-webkit-scrollbar {
+    width: 2px;
+}
+
+*::-webkit-scrollbar-track {
+    background: var(--bg-color);
+}
+
+*::-webkit-scrollbar-thumb {
+    background: var(--primary);
+    border-radius: 0.1rem;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+    background: var(--highlight);
+}
+
 .noselect {
-  -webkit-touch-callout: none;
+    -webkit-touch-callout: none;
     -webkit-user-select: none;
-     -khtml-user-select: none;
-       -moz-user-select: none;
-        -ms-user-select: none;
-            user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 
 html {
@@ -88,22 +114,79 @@ body {
 
 main {
     height: 100%;
+    padding-top: 6rem;
 }
 
 .nav-container {
+    position: fixed;
+    background-color: var(--bg-color);
+    top: 0;
+    left: 0;
+    z-index: 1000;
     display: flex;
     justify-content: center;
+    width: 100%;
+    align-items: center;
+    padding: 0.5rem 0;
 }
 
 .navbar {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    align-items: center;
 }
 
 .navbar a {
     font-size: 3rem;
     margin: 1rem;
+}
+
+.navbar button {
+    font-size: 3rem;
+    margin: 1rem;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    flex-direction: column;
+    background-color: var(--bg-color);
+    border: 1px solid var(--primary);
+    z-index: 1000;
+}
+
+.dropdown:hover .dropdown-menu {
+    display: flex;
+}
+
+.dropdown-menu .button {
+    text-align: center;
+    font-size: 1.5rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    margin: 0;
+}
+
+.username, .money {
+    position: absolute;
+    margin: 2rem;
+    font-size: 2rem;
+}
+
+.money {
+    right: 1rem;
+}
+
+.username {
+    left: 1rem;
 }
 
 .button.red {
@@ -140,6 +223,14 @@ main {
 .button:active {
     background-color: var(--primary);
     color: var(--primary);
+}
+
+.dropdown-toggle:active {
+    background-color: transparent;
+}
+
+.dropdown:hover .dropdown-toggle {
+    color: var(--highlight);
 }
 
 .button.active,
@@ -215,4 +306,9 @@ main {
 
 @keyframes blink {
     50% { opacity: 1; }
+}
+
+.aces {
+    font-family: 'ACES07', system-ui, sans-serif;
+    font-weight: normal;
 }
