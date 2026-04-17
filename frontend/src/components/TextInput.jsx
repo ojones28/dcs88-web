@@ -14,6 +14,9 @@ export default function TextInput(props) {
     if (props.color) {
         className += " " + props.color
     }
+    if (props.className) {
+        className += " " + props.className
+    }
 
     useLayoutEffect(() => {
         if (mirrorRef.current && cursorRef.current && inputRef.current) {

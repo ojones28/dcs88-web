@@ -1,25 +1,36 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import { createBrowserRouter } from 'react-router'
+import { createBrowserRouter, Navigate } from 'react-router'
 import { RouterProvider } from 'react-router/dom'
 
-
 import './index.css'
-import Root from './pages/Root'
+import Root, { loader as rootLoader } from './pages/Root'
 import Home from './pages/Home'
 import News from './pages/News'
 import Profile from './pages/Profile'
 import LoginRegister from './pages/profile/LoginRegister'
 import ErrorPage from './pages/ErrorPage'
+import Shop, { loader as shopLoader } from './pages/Shop'
+import Cart, { loader as cartLoader } from './pages/shop/Cart'
+import Storage from './pages/Storage'
 
 const router = createBrowserRouter([
     {
         path: "/",
         Component: Root,
+        loader: rootLoader,
         ErrorBoundary: ErrorPage,
         children: [
             { index: true, Component: Home },
-            { path: "news", Component: News },
+            { path: "info", children: [
+                { index: true, element: <Navigate to="/" replace />},
+                { path: "news", Component: News }
+            ]},
+            { path: "shop", children: [
+                { index: true, Component: Shop, loader: shopLoader },
+                { path: "cart", Component: Cart, loader: cartLoader }
+            ]},
+            { path: "arms", Component: Storage },
             { path: "profile", children: [
                 { index: true, Component: Profile },
                 { path: "login", Component: () => <LoginRegister mode="login" /> },

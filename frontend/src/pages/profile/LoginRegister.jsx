@@ -1,15 +1,18 @@
 import { useState } from "react"
 import Button from "../../components/Button"
 import TextInput from "../../components/TextInput"
+import { useNavigate, useOutletContext, useRevalidator } from "react-router"
 
 export default function LoginRegister(props) {
     const allowedSpecial = "_-/\\()+*"
     const allowedSetRegex = new RegExp(`^[a-z0-9${allowedSpecial.replace(/[-\\^]/g, "\\$&")}]+$`)
     const [username, setUsername] = useState("")
     const [password, setPassword] = useState("")
-    const [usernameTouched, setUsernameTouched] = useState(false);
-    const [passwordTouched, setPasswordTouched] = useState(false);
-    const [submitError, setSubmitError] = useState(null);
+    const [usernameTouched, setUsernameTouched] = useState(false)
+    const [passwordTouched, setPasswordTouched] = useState(false)
+    const [submitError, setSubmitError] = useState(null)
+    const revalidator = useRevalidator()
+    const navigate = useNavigate()
 
     const usernameRules = [
         {
@@ -69,7 +72,7 @@ export default function LoginRegister(props) {
             setPasswordTouched(true);
 
 
-            if (usernameFailed.length > 0 || passwordFailed > 0) {
+            if (usernameFailed.length > 0 || passwordFailed.length > 0) {
                 return
             }
 
@@ -85,7 +88,9 @@ export default function LoginRegister(props) {
                     setSubmitError(data.error || "Server error")
                     return
                 }
-                // TODO: redirect to ProfileUser
+                console.log(data.user)
+                revalidator.revalidate()
+                navigate("/profile")
             } catch (err) {
                 console.error(err)
                 setSubmitError("Network or server error")
