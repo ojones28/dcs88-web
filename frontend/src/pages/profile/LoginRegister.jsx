@@ -99,7 +99,10 @@ export default function LoginRegister(props) {
             <TextInput
                 placeholder="USERNAME"
                 value={username}
-                onChange={(e) => setUsername(e.target.value.trim().toLowerCase())}
+                onChange={(e) => {
+                    setUsernameTouched(true)
+                    setUsername(e.target.value.trim().toLowerCase())
+                }}
                 onBlur={() => {
                     setUsernameTouched(true)
                 }}
@@ -108,7 +111,10 @@ export default function LoginRegister(props) {
             <TextInput
                 placeholder="PASSWORD"
                 value={password}
-                onChange={(e) => setPassword(e.target.value.trim().toLowerCase())}
+                onChange={(e) => {
+                    setPasswordTouched(true)
+                    setPassword(e.target.value.trim().toLowerCase())
+                }}
                 onBlur={() => {
                     setPasswordTouched(true)
                 }}

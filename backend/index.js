@@ -74,6 +74,28 @@ app.get('/api/items', async (req, res) => {
     }
 })
 
+app.get('/api/transactions', async (req, res) => {
+    const { session } = req.cookies
+    if (!session) {
+        return res.status(401).json({ error: 'Not logged in' })
+    }
+
+    const user = await getUserFromSessionToken(session)
+    if (!user) {
+        return res.status(401).json({ error: 'Invalid session' })
+    }
+
+    const [rows] = await pool.execute(
+        `SELECT *
+        FROM user_money_history
+        WHERE user_id = ?
+        ORDER BY time ASC`,
+        [user.id]
+    )
+
+    res.json(rows.reverse())
+})
+
 app.get('/api/me', async (req, res) => {
     const cookies = req.cookies
     if (cookies.session) {
@@ -110,6 +132,7 @@ app.get('/api/user-items', async (req, res) => {
         'SELECT item_id, quantity FROM user_items WHERE user_id = ?',
         [user.id]
     )
+    console.log("Getting my items")
 
     res.json(rows)
 })
@@ -135,7 +158,15 @@ app.post('/api/purchase', async (req, res) => {
 
         let total = 0
         const resolvedItems = []
+        
+        const [historyResult] = await connection.execute(
+            `INSERT INTO user_money_history (user_id, type, total_value, money_after)
+            VALUES (?, 'shop', ?, 0)`,
+            [user.id, total]
+        )
 
+        const transactionId = historyResult.insertId
+        
         for (const entry of cart) {
             const { id, quantity, price } = entry
             const qty = Number(quantity)
@@ -179,8 +210,8 @@ app.post('/api/purchase', async (req, res) => {
             )
 
             await connection.execute(
-                'INSERT INTO user_purchases (user_id, item_id, quantity, cost) VALUES (?, ?, ?, ?)',
-                [user.id, id, qty, cost]
+                'INSERT INTO user_purchases (user_id, item_id, quantity, cost, transaction_id) VALUES (?, ?, ?, ?, ?)',
+                [user.id, id, qty, cost, transactionId]
             )
 
             await connection.execute(
@@ -207,8 +238,10 @@ app.post('/api/purchase', async (req, res) => {
         )
 
         await connection.execute(
-            `INSERT INTO user_money_history (user_id, type, total_value, money_after) VALUES (?, 'shop', ?, ?)`,
-            [user.id, total, user.money - total]
+            `UPDATE user_money_history
+            SET total_value = ?, money_after = ?
+            WHERE id = ?`,
+            [-total, currentMoney - total, transactionId]
         )
 
         await connection.commit()

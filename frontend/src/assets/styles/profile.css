@@ -32,3 +32,11 @@
 .submit-error {
     color: var(--red);
 }
+
+.transaction-positive {
+    color: var(--green);
+}
+
+.transaction-negative {
+    color: var(--red);
+}

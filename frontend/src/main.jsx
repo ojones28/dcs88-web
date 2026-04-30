@@ -7,12 +7,12 @@ import './index.css'
 import Root, { loader as rootLoader } from './pages/Root'
 import Home from './pages/Home'
 import News from './pages/News'
-import Profile from './pages/Profile'
+import Profile, { loader as profileLoader } from './pages/Profile'
 import LoginRegister from './pages/profile/LoginRegister'
 import ErrorPage from './pages/ErrorPage'
 import Shop, { loader as shopLoader } from './pages/Shop'
 import Cart, { loader as cartLoader } from './pages/shop/Cart'
-import Storage from './pages/Storage'
+import Storage, { loader as storageLoader } from './pages/Storage'
 
 const router = createBrowserRouter([
     {
@@ -30,9 +30,9 @@ const router = createBrowserRouter([
                 { index: true, Component: Shop, loader: shopLoader },
                 { path: "cart", Component: Cart, loader: cartLoader }
             ]},
-            { path: "arms", Component: Storage },
+            { path: "arms", Component: Storage, loader: storageLoader },
             { path: "profile", children: [
-                { index: true, Component: Profile },
+                { index: true, Component: Profile, loader: profileLoader },
                 { path: "login", Component: () => <LoginRegister mode="login" /> },
                 { path: "register", Component: () => <LoginRegister mode="register" /> },
             ] },

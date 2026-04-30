@@ -2,7 +2,7 @@ import '../../assets/styles/shop.css'
 import { useEffect, useMemo, useState } from "react"
 import Item from "../../components/Item"
 import Button from '../../components/Button'
-import { useLoaderData, useNavigate, useOutletContext } from 'react-router'
+import { useLoaderData, useNavigate, useOutletContext, useRevalidator } from 'react-router'
 
 export async function loader() {
     const [itemsRes, userItemsRes] = await Promise.all([
@@ -35,6 +35,7 @@ export default function Cart() {
 
     const { loadUser } = useOutletContext()
 
+    const revalidator = useRevalidator()
     const navigate = useNavigate()
 
     useEffect(() => {
@@ -131,7 +132,7 @@ export default function Cart() {
                             })
                             return
                         }
-                        await loadUser()
+                        revalidator.revalidate()
                         setCart([])
                         setModal({
                             open: true,

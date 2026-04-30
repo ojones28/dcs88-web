@@ -88,7 +88,7 @@
     object-fit: contain;
 }
 
-.shop, .cart {
+.shop, .cart, .storage {
     padding: 1rem 3rem 0rem 3rem;
     display: flex;
     gap: 3rem;
@@ -160,11 +160,13 @@
     border-right: 1px solid var(--primary);
     padding-right: 4px;
     overflow: hidden;
+    height: 100%;
 }
 
 .filter-categories {
     padding-right: 3rem;
     padding-top: 1rem;
+    padding-bottom: 6rem;
     overflow-y: auto;
     min-height: 0;
     height: 100%;
