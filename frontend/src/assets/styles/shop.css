@@ -29,11 +29,18 @@
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
-    align-self: flex-start;
-    min-width: 0;
+    /* align-self: flex-start; */
+    /* min-width: 0; */
     flex: 1;
     height: 100%;
-    justify-content: space-between;
+}
+
+.item-meta {
+    /* padding-top: 0.5rem; */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    flex: 2;
 }
 
 .item-name {
@@ -44,6 +51,7 @@
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 2;
     line-clamp: 2;
+    min-height: 3rem;
     overflow: hidden;
 }
 

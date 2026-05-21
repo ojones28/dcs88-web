@@ -100,6 +100,7 @@ export default function Storage() {
                                 {subcategories[c] && <ul>
                                     {subcategories[c].map(s => <li key={s}><Button className={"subcategory" + ((subcategory == s && category == c) ? " active" : "")} onClick={() => setSubcategory((sub) => {
                                         if (sub == s) {
+                                            setCategory("all")
                                             return "all"
                                         }
                                         if (category != c) {

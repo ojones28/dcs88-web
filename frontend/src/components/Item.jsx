@@ -7,7 +7,9 @@ export default function Item({ item, owned, cart, changeQuantity, storage }) {
                 <img className="item-img" src="../src/assets/images/items/AGM62I.gif"/>
                 <div className="item-desc">
                     <h2 className="item-name" title={item.long_name}>{item.long_name}</h2>
-                    <div className="item-amount">{item.owned ?? 0} OWNED</div>
+                    <div className="item-meta">
+                        <div className="item-amount">{item.owned ?? 0} OWNED</div>
+                    </div>
                 </div>
             </div>
         )
@@ -40,8 +42,10 @@ export default function Item({ item, owned, cart, changeQuantity, storage }) {
                 <img className="item-img" src="../src/assets/images/items/AGM62I.gif"/>
                 <div className="item-desc">
                     <h2 className="item-name" title={item.long_name}>{item.long_name}</h2>
-                    <div className="item-price"><span className="aces">$</span>{item.default_cost.toLocaleString()}</div>
-                    <div className="item-amount">{item.quantity ?? 0} LEFT | {owned ?? 0} OWNED</div>
+                    <div className="item-meta">
+                        <div className="item-price"><span className="aces">$</span>{item.default_cost.toLocaleString()}</div>
+                        <div className="item-amount">{item.quantity ?? 0} LEFT | {owned ?? 0} OWNED</div>
+                    </div>
                 </div>
             </div>
         )

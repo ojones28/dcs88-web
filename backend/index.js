@@ -23,7 +23,8 @@ const pool = mysql.createPool({
 })
 
 app.get('/api/test', async (req, res) => {
-    console.log(bcrypt.hashSync("test", 10))
+    // console.log(bcrypt.hashSync("test", 10))
+    console.log("Test")
     try {
         const [rows] = await pool.query('SELECT * FROM aircraft')
         res.json(rows)
