@@ -111,6 +111,7 @@ export default function LoginRegister(props) {
             <TextInput
                 placeholder="PASSWORD"
                 value={password}
+                type="password"
                 onChange={(e) => {
                     setPasswordTouched(true)
                     setPassword(e.target.value.trim().toLowerCase())
@@ -120,6 +121,7 @@ export default function LoginRegister(props) {
                 }}
             />
             {renderRuleStatus(passwordTouched, password, passwordRules)}
+            {props.mode != "login" && <p>Please use a unique password to ensure security</p>}
             {submitError && <div className="submit-error">{submitError}</div>}
             <Button>{props.mode == "login" ? "LOGIN" : "REGISTER"}</Button>
         </form>

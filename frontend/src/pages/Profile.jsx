@@ -4,26 +4,22 @@ import ProfileNew from "./profile/ProfileNew"
 import ProfileUser from './profile/ProfileUser'
 
 export async function loader() {
-    const res = await fetch("/api/transactions", {
-        credentials: "include",
-    })
+    const [transactionsRes, achievementsRes] = await Promise.all([
+        fetch('/api/transactions', { credentials: 'include' }),
+        fetch('/api/achievements', { credentials: 'include' })
+    ])
 
-    if (res.status === 401) {
-        return
-    }
+    const transactions = transactionsRes.ok ? await transactionsRes.json() : []
+    const achievements = achievementsRes.ok ? await achievementsRes.json() : []
 
-    if (!res.ok) {
-        throw new Response("Failed to load transactions", { status: res.status })
-    }
-
-    return res.json()
+    return { transactions, achievements }
 }
 
 export default function Profile() {
     const { user } = useOutletContext()
-    const transactions = useLoaderData()
+    const { transactions, achievements } = useLoaderData()
     
     return (
-        user ? <ProfileUser transactions={transactions} /> : <ProfileNew />
+        user ? <ProfileUser transactions={transactions} achievements={achievements} /> : <ProfileNew />
     )
 }

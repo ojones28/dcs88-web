@@ -115,9 +115,15 @@ export default function Storage() {
                 </div>
             </div>
             <div className='items'>
-                <div className='items-grid'>
-                    {filteredItems && filteredItems.map(item => (<Item key={item.id} item={item} storage/>))}
+                {filteredItems && filteredItems.length == 0 ? <div className='items-empty'>No items</div> :
+                    <div className='items-grid'>
+                        {filteredItems && filteredItems.map(item => (<Item key={item.id} item={item} storage/>))}
+                    </div>
+                }
+                <div className='cart-container'>
+                    <Button href="/arms/trade" className='cart-btn'>Trade</Button>
                 </div>
+                
             </div>
         </div>
     )

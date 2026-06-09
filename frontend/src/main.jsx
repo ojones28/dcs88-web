@@ -13,6 +13,7 @@ import ErrorPage from './pages/ErrorPage'
 import Shop, { loader as shopLoader } from './pages/Shop'
 import Cart, { loader as cartLoader } from './pages/shop/Cart'
 import Storage, { loader as storageLoader } from './pages/Storage'
+import Trade from './pages/storage/Trade'
 
 const router = createBrowserRouter([
     {
@@ -30,7 +31,10 @@ const router = createBrowserRouter([
                 { index: true, Component: Shop, loader: shopLoader },
                 { path: "cart", Component: Cart, loader: cartLoader }
             ]},
-            { path: "arms", Component: Storage, loader: storageLoader },
+            { path: "arms", children: [
+                { index: true, Component: Storage, loader: storageLoader },
+                { path: "trade", Component: () => <Trade /> },
+            ] },
             { path: "profile", children: [
                 { index: true, Component: Profile, loader: profileLoader },
                 { path: "login", Component: () => <LoginRegister mode="login" /> },
