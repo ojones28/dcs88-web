@@ -4,7 +4,12 @@ import cookieParser from 'cookie-parser'
 import express from 'express'
 import mysql from 'mysql2/promise'
 import crypto from 'crypto'
+import { WebSocketServer } from 'ws'
+import http from 'http'
 import 'dotenv/config'
+
+const onlineUsers = {}
+const activeTrades = {}
 
 const app = express()
 app.use(cors({ origin: true }))
@@ -23,7 +28,8 @@ const pool = mysql.createPool({
 })
 
 app.get('/api/test', async (req, res) => {
-    console.log(bcrypt.hashSync("test", 10))
+    // console.log(bcrypt.hashSync("test", 10))
+    console.log("Test")
     try {
         const [rows] = await pool.query('SELECT * FROM aircraft')
         res.json(rows)
@@ -31,6 +37,12 @@ app.get('/api/test', async (req, res) => {
         console.error(err)
         res.status(500).json({ error: 'Database error' })
     }
+})
+
+app.post('/api/test', async (req, res) => {
+    console.log("Test post")
+    console.log(req.body)
+    console.log(req.ip)
 })
 
 async function createSession(userId) {
@@ -41,10 +53,88 @@ async function createSession(userId) {
 
 async function getUserFromSessionToken(token) {
     const [rows] = await pool.execute(
-        'SELECT id, username, money FROM users WHERE session_token = ? LIMIT 1',
+        'SELECT id, username, money, dcs_id FROM users WHERE session_token = ? LIMIT 1',
         [token]
     )
     return rows.length ? rows[0] : null
+}
+
+async function getUserFromDcsId(token) {
+    const [rows] = await pool.execute(
+        'SELECT id, username, money FROM users WHERE dcs_id = ? LIMIT 1',
+        [token]
+    )
+    return rows.length ? rows[0] : null
+}
+
+async function generateLinkCode(userId) {
+    const linkCode = crypto.randomInt(100000, 999999).toString()
+    await pool.execute(
+        'UPDATE users SET link_code = ?, link_code_created_at = CURRENT_TIMESTAMP WHERE id = ?',
+        [linkCode, userId]
+    )
+    return linkCode
+}
+
+async function linkUser(linkCode, dcsId) {
+    const connection = await pool.getConnection()
+
+    try {
+        await connection.beginTransaction()
+
+        const [existing] = await connection.execute(
+            `SELECT id
+             FROM users
+             WHERE dcs_id = ?
+             LIMIT 1`,
+            [dcsId]
+        )
+
+        if (existing.length > 0) {
+            throw new Error('DCS account already linked')
+        }
+
+        const [rows] = await connection.execute(
+            `SELECT id, link_code_created_at
+             FROM users
+             WHERE link_code = ?
+             LIMIT 1
+             FOR UPDATE`,
+            [linkCode]
+        )
+
+        if (!rows.length) {
+            throw new Error('Invalid link code')
+        }
+
+        const user = rows[0]
+
+        const created = new Date(user.link_code_created_at).getTime()
+        const now = Date.now()
+
+        if ((now - created) > 1000 * 60 * 5) {
+            throw new Error('Link code expired')
+        }
+
+        await connection.execute(
+            `UPDATE users
+             SET dcs_id = ?,
+                 link_code = NULL,
+                 link_code_created_at = NULL
+             WHERE id = ?`,
+            [dcsId, user.id]
+        )
+
+        await connection.commit()
+
+        return { success: true }
+    } catch (err) {
+        await connection.rollback()
+        console.error(err)
+        return { success: false, error: err.message}
+    } finally {
+        connection.release()
+    }
 }
 
 app.get('/api/items', async (req, res) => {
@@ -59,7 +149,7 @@ app.get('/api/items', async (req, res) => {
         }
         if (subcategory) {
             where.push('subcategory = ?')
-            params.push(category)
+            params.push(subcategory)
         }
 
         if (where.length) {
@@ -74,6 +164,68 @@ app.get('/api/items', async (req, res) => {
     }
 })
 
+app.get('/api/transactions', async (req, res) => {
+    const { session } = req.cookies
+    if (!session) {
+        return res.status(401).json({ error: 'Not logged in' })
+    }
+
+    const user = await getUserFromSessionToken(session)
+    if (!user) {
+        return res.status(401).json({ error: 'Invalid session' })
+    }
+
+    const [rows] = await pool.execute(
+        `SELECT *
+        FROM user_money_history
+        WHERE user_id = ?
+        ORDER BY time ASC
+        LIMIT 20`,
+        [user.id]
+    )
+
+    res.json(rows.reverse())
+})
+
+app.get('/api/achievements', async (req, res) => {
+    const { session } = req.cookies
+    if (!session) {
+        return res.status(401).json({ error: 'Not logged in' })
+    }
+
+    const user = await getUserFromSessionToken(session)
+    if (!user) {
+        return res.status(401).json({ error: 'Invalid session' })
+    }
+
+    const [rows] = await pool.execute(
+        `SELECT
+            a.id,
+            a.name,
+            a.description,
+            a.progress_max,
+            a.reward,
+            COALESCE(ua.progress, 0) AS progress,
+            ua.unlocked_at,
+            CASE
+                WHEN ua.user_id IS NULL THEN FALSE
+                ELSE TRUE
+            END AS started,
+            CASE
+                WHEN COALESCE(ua.progress, 0) >= a.progress_max THEN TRUE
+                ELSE FALSE
+            END AS completed
+        FROM dcs88.achievements a
+        LEFT JOIN dcs88.user_achievements ua
+            ON ua.achievement_id = a.id
+            AND ua.user_id = ?
+        ORDER BY a.id DESC`,
+        [user.id]
+    )
+
+    res.json(rows.reverse())
+})
+
 app.get('/api/me', async (req, res) => {
     const cookies = req.cookies
     if (cookies.session) {
@@ -84,7 +236,8 @@ app.get('/api/me', async (req, res) => {
                 message: 'Sent user data',
                 user: {
                     username: user.username,
-                    money: user.money
+                    money: user.money,
+                    linked: user.dcs_id != null
                 }
             })
         } else {
@@ -110,6 +263,7 @@ app.get('/api/user-items', async (req, res) => {
         'SELECT item_id, quantity FROM user_items WHERE user_id = ?',
         [user.id]
     )
+    console.log("Getting my items")
 
     res.json(rows)
 })
@@ -135,7 +289,15 @@ app.post('/api/purchase', async (req, res) => {
 
         let total = 0
         const resolvedItems = []
+        
+        const [historyResult] = await connection.execute(
+            `INSERT INTO user_money_history (user_id, type, total_value, money_after)
+            VALUES (?, 'shop', ?, 0)`,
+            [user.id, total]
+        )
 
+        const transactionId = historyResult.insertId
+        
         for (const entry of cart) {
             const { id, quantity, price } = entry
             const qty = Number(quantity)
@@ -179,8 +341,8 @@ app.post('/api/purchase', async (req, res) => {
             )
 
             await connection.execute(
-                'INSERT INTO user_purchases (user_id, item_id, quantity, cost) VALUES (?, ?, ?, ?)',
-                [user.id, id, qty, cost]
+                'INSERT INTO user_purchases (user_id, item_id, quantity, cost, transaction_id) VALUES (?, ?, ?, ?, ?)',
+                [user.id, id, qty, cost, transactionId]
             )
 
             await connection.execute(
@@ -207,8 +369,10 @@ app.post('/api/purchase', async (req, res) => {
         )
 
         await connection.execute(
-            `INSERT INTO user_money_history (user_id, type, total_value, money_after) VALUES (?, 'shop', ?, ?)`,
-            [user.id, total, user.money - total]
+            `UPDATE user_money_history
+            SET total_value = ?, money_after = ?
+            WHERE id = ?`,
+            [-total, currentMoney - total, transactionId]
         )
 
         await connection.commit()
@@ -223,6 +387,38 @@ app.post('/api/purchase', async (req, res) => {
         res.status(400).json({ error: err.message || 'Purchase failed' })
     } finally {
         connection.release()
+    }
+})
+
+app.post('/api/logout', async (req, res) => {
+    console.log("Logout")
+    try {
+        const token = req.cookies.session
+
+        if (token) {
+            await pool.execute(
+                'UPDATE users SET session_token = NULL WHERE session_token = ?',
+                [token]
+            )
+        }
+
+        res.clearCookie('session', {
+            httpOnly: true,
+            secure: process.env.NODE_ENV === 'production',
+            sameSite: 'lax',
+        })
+
+        return res.status(200).json({ message: 'Logged out' })
+    } catch (err) {
+        console.error(err)
+
+        res.clearCookie('session', {
+            httpOnly: true,
+            secure: process.env.NODE_ENV === 'production',
+            sameSite: 'lax',
+        })
+
+        return res.status(500).json({ error: 'Logout failed' })
     }
 })
 
@@ -358,7 +554,293 @@ app.post('/api/register', async (req, res) => {
     }
 })
 
-const port = process.env.PORT || 4000
-app.listen(port, () => {
-    console.log(`API server listening on http://localhost:${port}`)
+app.post('/api/getlink', async (req, res) => {
+    const cookies = req.cookies
+    if (cookies.session) {
+        const user = await getUserFromSessionToken(cookies.session)
+        if (user) {
+            console.log("Generating link code")
+            console.log(user)
+            if (!user.dcs_id) {
+                const code = await generateLinkCode(user.id)
+                return res.status(200).json({
+                    message: 'Generated link code',
+                    code: code
+                })
+            } else {
+                return res.status(400).json({ error: 'User already linked' })
+            }
+        } else {
+            return res.status(401).json({ error: 'Invalid session id' })
+        }
+    } else {
+        return res.status(401).json({ error: 'No session id' })
+    }
 })
+
+app.post('/api/register-pod-session', async (req, res) => {
+    const { dcsId, name } = req.body
+    if (!dcsId || !name) {
+        return res.status(400).json({ error: 'Missing fields' })
+    }
+    console.log("Register session")
+    const user = await getUserFromDcsId(dcsId)
+    if (user) {
+        const connection = await pool.getConnection()
+        try {
+            await connection.beginTransaction()
+            await connection.execute(
+                `DELETE FROM user_pod_sessions WHERE player_name = ? AND user_id != ?`,
+                [name, user.id]
+            )
+            await connection.execute(
+                `INSERT INTO user_pod_sessions (user_id, player_name)
+                VALUES (?, ?)
+                ON DUPLICATE KEY UPDATE player_name = VALUES(player_name)`,
+                [user.id, name]
+            )
+            await connection.commit()
+            res.status(200).json({ message: 'Session registered' })
+        } catch (err) {
+            await connection.rollback()
+            res.status(400).json({ error: err.message || 'Failed to register' })
+        } finally {
+            connection.release()
+        }
+    } else {
+        return res.status(401).json({ error: 'Linked user does not exist' })
+    }
+})
+
+app.post('/api/deregister-pod-session', async (req, res) => {
+    const { dcsId } = req.body
+    if (dcsId) {
+        const user = await getUserFromDcsId(dcsId)
+        if (user) {
+            await pool.execute('DELETE FROM user_pod_sessions WHERE user_id = ?', [user.id])
+            res.status(200).json({ message: 'Deregistered session' })
+        } else {
+            return res.status(401).json({ error: 'Linked user does not exist' })
+        }
+    } else {
+        return res.status(401).json({ error: 'No user id' })
+    }
+})
+
+app.post('/api/payload', async (req, res) => {
+    const { name, stations, time, gun } = req.body
+    if (!name || !stations || !time) {
+        return res.status(400).json({ error: 'Missing fields' })
+    }
+
+    console.log("Payload")
+    console.log(stations)
+
+    const ids = stations.map(s => s.name).filter(Boolean)
+
+    let podStations = []
+    if (ids.length) {
+        const placeholders = ids.map(() => '?').join(',')
+        const [rows] = await pool.execute(
+            `SELECT i.id, d.dcs_id FROM items i
+             JOIN item_dcs_ids d ON d.item_id = i.id
+             WHERE d.dcs_id IN (${placeholders}) AND i.category = 'pod'`,
+            ids
+        )
+        const podIds = new Set(rows.map(r => r.dcs_id))
+        podStations = stations.filter(s => podIds.has(s.name))
+    }
+
+    console.log(podStations)
+
+    await pool.execute(
+        `UPDATE user_pod_sessions SET stations = ?, gun = ? WHERE player_name = ?`,
+        [JSON.stringify(podStations), gun ?? 0, name]
+    )
+
+    res.status(200).json({ message: 'Payload updated' })
+})
+
+app.post('/api/link', async (req, res) => {
+    const { dcsId, linkCode } = req.body
+    if (linkCode && dcsId) {
+        console.log("Linking user")
+        const linked = await linkUser(linkCode, dcsId)
+        const user = await getUserFromDcsId(dcsId)
+        if (linked.success && user) {
+            return res.status(200).json({
+                message: 'User linked',
+                user: {
+                    username: user.username,
+                    money: user.money
+                }
+            })
+        } else {
+            return res.status(401).json({ error: linked.error ?? 'Could not link user' })
+        }
+    } else {
+        return res.status(401).json({ error: 'No link code or DCS id' })
+    }
+})
+
+app.post('/api/linked', async (req, res) => {
+    const { dcsId } = req.body
+    if (dcsId) {
+        const user = await getUserFromDcsId(dcsId)
+        console.log("Getting user data for link " + new Date().getTime())
+        if (user) {
+            return res.status(200).json({
+                message: 'Sent user data',
+                user: {
+                    username: user.username,
+                    money: user.money
+                }
+            })
+        } else {
+            return res.status(401).json({ error: 'Invalid DCS id' })
+        }
+    } else {
+        return res.status(401).json({ error: 'No DCS id' })
+    }
+})
+
+async function validateUserLoadout(userId, ammoItems, podItems) {
+    const allItems = [...ammoItems]
+
+    for (const pod of podItems) {
+        const existing = allItems.find(i => i.name === pod.name)
+        if (existing) {
+            existing.count += pod.count
+        } else {
+            allItems.push({ ...pod })
+        }
+    }
+
+    return userHasItems(userId, allItems)
+}
+
+async function userHasItems(userId, items) {
+    if (!Array.isArray(items) || items.length === 0) {
+        return { hasAll: true, missing: [] }
+    }
+
+    console.log(items)
+
+    const dcsIds = items.map(i => i.name)
+    const placeholders = dcsIds.map(() => '?').join(',')
+
+    const [rows] = await pool.execute(
+        `SELECT d.dcs_id, i.id, i.name, COALESCE(ui.quantity, 0) AS quantity
+        FROM item_dcs_ids d
+        JOIN items i ON i.id = d.item_id
+        LEFT JOIN user_items ui ON ui.item_id = d.item_id AND ui.user_id = ?
+        WHERE d.dcs_id IN (${placeholders})`,
+        [userId, ...dcsIds]
+    )
+
+    const equipped = {}
+    for (const r of rows) {
+        const item = items.find(i => i.name === r.dcs_id)
+        if (!equipped[r.id]) {
+            equipped[r.id] = { quantity: r.quantity, name: r.name, needed: 0 }
+        }
+        equipped[r.id].needed += item?.count ?? 0
+    }
+
+    console.log(equipped)
+    const missing = Object.values(equipped).filter(e => e.quantity < e.needed)
+
+    return {
+        hasAll: missing.length === 0,
+        missing: missing.map(e => ({ name: e.name, has: e.quantity, needed: e.needed }))
+    }
+}
+
+app.post('/api/validate', async (req, res) => {
+    const { dcsId, ammo } = req.body
+    if (dcsId) {
+        const user = await getUserFromDcsId(dcsId)
+        console.log("Getting user data for link " + new Date().getTime())
+        if (user) {
+            const ammoItems = ammo.filter(a => !a.name.split(".").includes("shells")).map(a => ({
+                count: a.count,
+                name: a.name.split(".").pop()
+            }))
+
+            const [podRows] = await pool.execute(
+                `SELECT stations FROM user_pod_sessions WHERE user_id = ?`,
+                [user.id]
+            )
+            const podStations = podRows.length > 0 ? podRows[0].stations ?? [] : []
+
+            const podItems = podStations.map(s => ({ name: s.name, count: 1 }))
+
+            console.log(await validateUserLoadout(user.id, ammoItems, podItems))
+        } else {
+            return res.status(401).json({ error: 'Invalid DCS id' })
+        }
+    } else {
+        return res.status(401).json({ error: 'No DCS id' })
+    }
+})
+
+app.get('/api/online-users', async (req, res) => {
+    const token = req.cookies.session
+    if (!token) return res.status(401).json({ error: 'Not logged in' })
+
+    const user = await getUserFromSessionToken(token)
+    if (!user) return res.status(401).json({ error: 'Invalid session' })
+
+    const users = Object.entries(onlineUsers).filter(([id]) => id != user.id).map(([id, ws]) => ({ id, username: ws.username }))
+    console.log(users)
+    res.json(users)
+})
+    
+const server = http.createServer(app)
+const wss = new WebSocketServer({ server })
+
+function send(ws, data) {
+    if (ws?.readyState === 1) ws.send(JSON.stringify(data))
+}
+
+wss.on('connection', async (ws, req) => {
+    const cookieHeader = req.headers.cookie ?? ''
+    const token = cookieHeader.split('; ').find(r => r.startsWith('session='))?.split('=')[1]
+    
+    if (!token) return ws.close()
+    
+    const user = await getUserFromSessionToken(token)
+    if (!user) return ws.close()
+
+    ws.username = user.username
+    ws.userId = user.id
+    onlineUsers[user.id] = ws
+    console.log(Object.keys(onlineUsers))
+
+    ws.on('message', async (raw) => {
+        const msg = JSON.parse(raw)
+
+        if (msg.type == 'trade_request') {
+            const targetWs = onlineUsers[msg.targetUserId]
+            if (!targetWs) return send(ws, { type: 'error', message: 'User is offline' })
+
+            const tradeId = crypto.randomUUID()
+            activeTrades[tradeId] = { from: user.id, to: msg.targetUserId, status: 'pending' }
+
+            send(targetWs, {
+                type: 'trade_request',
+                fromUsername: user.username,
+                tradeId
+            })
+            send(ws, { type: 'trade_request_sent', tradeId })
+        }
+    })
+
+    ws.on('close', () => {
+        delete onlineUsers[user.id]
+        console.log(Object.keys(onlineUsers))
+    })
+})
+    
+const port = process.env.PORT || 4000
+server.listen(port, () => console.log(`API server listening on http://localhost:${port}`))

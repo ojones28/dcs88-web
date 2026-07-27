@@ -1,4 +1,4 @@
-import { NavLink } from "react-router"
+import { Link, NavLink } from "react-router"
 
 export default function Button(props) {
     let className = "button noselect"
@@ -10,7 +10,9 @@ export default function Button(props) {
     }
     return (
         props.href
-        ? <NavLink draggable="false" className={className} to={props.href} end>{props.children}</NavLink>
+        ? props.noActive
+            ? <Link draggable="false" className={className} to={props.href} end>{props.children}</Link>
+            : <NavLink draggable="false" className={className} to={props.href} end>{props.children}</NavLink>
         : <button draggable="false" className={className} onClick={props.onClick}>{props.children}</button>
     )
 }

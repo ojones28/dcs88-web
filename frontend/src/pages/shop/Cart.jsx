@@ -2,7 +2,8 @@ import '../../assets/styles/shop.css'
 import { useEffect, useMemo, useState } from "react"
 import Item from "../../components/Item"
 import Button from '../../components/Button'
-import { useLoaderData, useNavigate, useOutletContext } from 'react-router'
+import { useLoaderData, useNavigate, useOutletContext, useRevalidator } from 'react-router'
+import Modal from '../../components/Modal'
 
 export async function loader() {
     const [itemsRes, userItemsRes] = await Promise.all([
@@ -35,6 +36,7 @@ export default function Cart() {
 
     const { loadUser } = useOutletContext()
 
+    const revalidator = useRevalidator()
     const navigate = useNavigate()
 
     useEffect(() => {
@@ -73,28 +75,24 @@ export default function Cart() {
     
     return (
         <div className='cart'>
-            {modal.open && (
-                <div className="modal-backdrop">
-                    <div className="modal">
-                        <h2 className={`modal-${modal.success ? "success" : "error"}`}>{modal.success ? "Success" : "Error"}</h2>
-                        <p>{modal.success ? (
-                                <>
-                                    Purchase successful<span className="aces">!</span><br/>
-                                    {modal.items} item{modal.items != 1 ? "s" : ""} for <span className="aces">$</span>{modal.total.toLocaleString()}
-                                </>
-                            ) : (
-                                modal.error
-                            )}
-                        </p>
-                        <Button onClick={() => {
-                            setModal(prev => ({ ...prev, open: false }))
-                            if (modal.success) {
-                                navigate("/shop")
-                            }
-                        }}>OK</Button>
-                    </div>
-                </div>
-            )}
+            <Modal open={modal.open}>
+                <h2 className={`modal-${modal.success ? "success" : "error"}`}>{modal.success ? "Success" : "Error"}</h2>
+                <p>{modal.success ? (
+                        <>
+                            Purchase successful<span className="aces">!</span><br/>
+                            {modal.items} item{modal.items != 1 ? "s" : ""} for <span className="aces">$</span>{modal.total.toLocaleString()}
+                        </>
+                    ) : (
+                        modal.error
+                    )}
+                </p>
+                <Button onClick={() => {
+                    setModal(prev => ({ ...prev, open: false }))
+                    if (modal.success) {
+                        navigate("/shop")
+                    }
+                }}>OK</Button>
+            </Modal>
             <div className='cart-content'>
                 <Button className={"filters-clear" + ((cart?.length <= 0) ? " clear-hidden" : "")} onClick={() => {
                     setCart([])
@@ -131,7 +129,7 @@ export default function Cart() {
                             })
                             return
                         }
-                        await loadUser()
+                        revalidator.revalidate()
                         setCart([])
                         setModal({
                             open: true,
@@ -150,13 +148,15 @@ export default function Cart() {
                 }}>BUY</Button>
             </div>
             <div className='items'>
-                <div className='items-grid'>
-                    {(cart && items) && cart.map(cartItem => {
-                        const fullItem = items.find(i => i.id == cartItem.id)
-                        if (!fullItem) return null
-                        return <Item key={cartItem.id} item={fullItem} owned={[ownedMap[fullItem.id] || 0]} cart={cart} changeQuantity={changeQuantity}/>
-                    })}
-                </div>
+                {cart && cart.length == 0 ? <div className='items-empty'>No items</div> :
+                    <div className='items-grid'>
+                        {(cart && items) && cart.map(cartItem => {
+                            const fullItem = items.find(i => i.id == cartItem.id)
+                            if (!fullItem) return null
+                            return <Item key={cartItem.id} item={fullItem} owned={[ownedMap[fullItem.id] || 0]} cart={cart} changeQuantity={changeQuantity}/>
+                        })}
+                    </div>
+                }
                 <div className='back-container'>
                     <Button href="/shop" className='back-btn'>BACK</Button>
                 </div>

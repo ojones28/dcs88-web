@@ -131,6 +131,7 @@ export default function Shop() {
                                 {subcategories[c] && <ul>
                                     {subcategories[c].map(s => <li key={s}><Button className={"subcategory" + ((subcategory == s && category == c) ? " active" : "")} onClick={() => setSubcategory((sub) => {
                                         if (sub == s) {
+                                            setCategory("all")
                                             return "all"
                                         }
                                         if (category != c) {
@@ -145,9 +146,11 @@ export default function Shop() {
                 </div>
             </div>
             <div className='items'>
-                <div className='items-grid'>
-                    {filteredItems && filteredItems.map(item => (<Item key={item.id} item={item} owned={[ownedMap[item.id] || 0]} cart={cart} changeQuantity={changeQuantity}/>))}
-                </div>
+                {filteredItems && filteredItems.length == 0 ? <div className='items-empty'>No items</div> :
+                    <div className='items-grid'>
+                        {filteredItems && filteredItems.map(item => (<Item key={item.id} item={item} owned={[ownedMap[item.id] || 0]} cart={cart} changeQuantity={changeQuantity}/>))}
+                    </div>
+                }
                 <div className='cart-container'>
                     <Button href="/shop/cart" className='cart-btn'><div>
                         Cart ({cart.length})

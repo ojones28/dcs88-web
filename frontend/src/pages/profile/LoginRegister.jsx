@@ -99,7 +99,10 @@ export default function LoginRegister(props) {
             <TextInput
                 placeholder="USERNAME"
                 value={username}
-                onChange={(e) => setUsername(e.target.value.trim().toLowerCase())}
+                onChange={(e) => {
+                    setUsernameTouched(true)
+                    setUsername(e.target.value.trim().toLowerCase())
+                }}
                 onBlur={() => {
                     setUsernameTouched(true)
                 }}
@@ -108,12 +111,17 @@ export default function LoginRegister(props) {
             <TextInput
                 placeholder="PASSWORD"
                 value={password}
-                onChange={(e) => setPassword(e.target.value.trim().toLowerCase())}
+                type="password"
+                onChange={(e) => {
+                    setPasswordTouched(true)
+                    setPassword(e.target.value.trim().toLowerCase())
+                }}
                 onBlur={() => {
                     setPasswordTouched(true)
                 }}
             />
             {renderRuleStatus(passwordTouched, password, passwordRules)}
+            {props.mode != "login" && <p>Please use a unique password to ensure security</p>}
             {submitError && <div className="submit-error">{submitError}</div>}
             <Button>{props.mode == "login" ? "LOGIN" : "REGISTER"}</Button>
         </form>

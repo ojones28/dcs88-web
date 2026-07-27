@@ -7,7 +7,7 @@ export default defineConfig({
 	server: {
 		host: '0.0.0.0',
 		proxy: {
-			'/api': 'http://api.dcs88.xyz:8889'
+			'/api': 'http://localhost:8889'
 		},
 		allowedHosts: ['dcs88.xyz']
 	}
