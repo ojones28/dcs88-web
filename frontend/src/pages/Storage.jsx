@@ -4,6 +4,8 @@ import { useMemo, useState } from 'react'
 import Button from '../components/Button'
 import TextInput from '../components/TextInput'
 import Item from '../components/Item'
+import Modal from '../components/Modal'
+import { useSocket } from '../context/SocketContext'
 
 export async function loader() {
     const [itemsRes, userItemsRes] = await Promise.all([
@@ -27,6 +29,15 @@ export async function loader() {
 }
 
 export default function Storage() {
+
+    const { send } = useSocket()
+    const [onlineUsers, setOnlineUsers] = useState([])
+    const [loadingUsers, setLoadingUsers] = useState(false)
+
+    const [modal, setModal] = useState({
+        open: false
+    })
+
     const items = useLoaderData() ?? []
     
     const [search, setSearch] = useState('')
@@ -75,6 +86,28 @@ export default function Storage() {
 
     return (
         <div className='storage'>
+            <Modal open={modal.open}>
+                <h2>Send Trade Offer</h2>
+                {loadingUsers ? (
+                    <p>Loading players...</p>
+                ) : onlineUsers.length == 0 ? (
+                    <p>No other players online</p>
+                ) : (
+                    <ul className='player-list'>
+                        {onlineUsers.map(u => (
+                            <li className='player-trade' key={u.id}>
+                                <Button onClick={() => {
+                                    send({ type: 'trade_request', targetUserId: u.id })
+                                    setModal({ open: false })
+                                }}>{u.username}</Button>
+                            </li>
+                        ))}
+                    </ul>
+                )}
+                <Button onClick={() => {
+                    setModal(prev => ({ ...prev, open: false }))
+                }}>CANCEL</Button>
+            </Modal>
             <div className='filters'>
                 <Button className={"filters-clear" + ((category == "all" && search == '') ? " clear-hidden" : "")} onClick={() => {
                     setCategory("all")
@@ -121,7 +154,21 @@ export default function Storage() {
                     </div>
                 }
                 <div className='cart-container'>
-                    <Button href="/arms/trade" className='cart-btn'>Trade</Button>
+                    <Button className='cart-btn' onClick={async () => {
+                        setModal({
+                            open: true
+                        })
+                        setLoadingUsers(true)
+                        try {
+                            const res = await fetch('/api/online-users', { credentials: 'include' })
+                            const data = await res.json()
+                            setOnlineUsers(data)
+                        } catch {
+                            setOnlineUsers([])
+                        } finally {
+                            setLoadingUsers(false)
+                        }
+                    }}>Trade</Button>
                 </div>
                 
             </div>

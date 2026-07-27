@@ -219,3 +219,14 @@
     justify-content: center;
     height: 100%;
 }
+
+.player-list {
+    list-style: none;
+    padding: 0;
+    max-height: 20rem;
+    overflow-y: auto;
+}
+
+.player-trade button {
+    font-size: 1.5rem;
+}

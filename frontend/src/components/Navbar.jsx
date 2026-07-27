@@ -1,9 +1,11 @@
 import { useLocation, useRevalidator } from "react-router"
 import Button from "./Button"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import Modal from "./Modal"
+import { useSocket } from "../context/SocketContext"
 
 export default function Navbar({user}) {
+    const { on } = useSocket()
     const location = useLocation()
     const revalidator = useRevalidator()
     const [modal, setModal] = useState({
@@ -12,6 +14,15 @@ export default function Navbar({user}) {
         error: "",
         code: ""
     })
+
+    const [trade, setTrade] = useState(false)
+
+    useEffect(() => {
+        const unsub = on('trade_request', () => {
+            setTrade(true)
+        })
+        return unsub
+    }, [])
 
     const [ copied, setCopied ] = useState(false)
 
@@ -87,7 +98,7 @@ export default function Navbar({user}) {
                         </div>
                     </div>
                     <Button href="/shop" className={`${location.pathname.startsWith("/shop") ? "active" : ""}`}>SHOP</Button>
-                    <Button href="/arms" className={`${location.pathname.startsWith("/arms") ? "active" : ""}`}>ARMS</Button>
+                    <Button href="/arms" className={`${[location.pathname.startsWith("/arms") && "active", trade && "notify"].filter(Boolean).join(" ")}`}>ARMS</Button>
                     <Button href="/profile" className={`${location.pathname.startsWith("/profile") ? "active" : ""}`}>PROF</Button>
                 </nav>
                 {(user && user.money) && (

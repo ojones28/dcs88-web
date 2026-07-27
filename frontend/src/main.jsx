@@ -14,6 +14,7 @@ import Shop, { loader as shopLoader } from './pages/Shop'
 import Cart, { loader as cartLoader } from './pages/shop/Cart'
 import Storage, { loader as storageLoader } from './pages/Storage'
 import Trade from './pages/storage/Trade'
+import { SocketProvider } from './context/SocketContext'
 
 const router = createBrowserRouter([
     {
@@ -46,6 +47,8 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById('root')).render(
     <React.StrictMode>
-        <RouterProvider router={router} />
+        <SocketProvider>
+            <RouterProvider router={router} />
+        </SocketProvider>
     </React.StrictMode>,
 )

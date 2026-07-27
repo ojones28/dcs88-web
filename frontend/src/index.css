@@ -353,7 +353,7 @@ main {
     }
     50% {
         background-color: var(--highlight);
-        color: var(--highlight);
+        color: var(--bg-color);
     }
 }
 

@@ -263,6 +263,7 @@ function Dcs88h.start()
         Dcs88 = Dcs88 or {}
         Dcs88.listenEvents = ]] .. Dcs88h.serializeTable(Dcs88h.eventNames) .. [[
     ]])
+    Dcs88h.doScript([[if Dcs88 then Dcs88.debug = ]].. tostring(Dcs88h.debug) ..[[ end]])
 
     local players = net.get_player_list()
     for _, v in ipairs(players) do
