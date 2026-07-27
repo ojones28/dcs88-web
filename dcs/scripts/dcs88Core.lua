@@ -1,3 +1,5 @@
+Dcs88.debugWrite("Starting dcs88Core")
+
 Dcs88.count = countOld
 Dcs88.countryId = country.id["CJTF_RED"]
 Dcs88.spawnedGroups = {}
@@ -19,6 +21,9 @@ Dcs88.spawnGroupZoneWeights = {
     aaa = {base = 2, small = 5, medium = 3, large = 2},
     build = {base = 5, small = 1, medium = 0, large = 0}
 }
+
+Dcs88.typeWeightTotal = 0
+Dcs88.sizeWeightTotals = {}
 
 function Dcs88.isTooClose(pos, occupiedList, minDist)
     for _, o in ipairs(occupiedList) do
@@ -86,7 +91,7 @@ function Dcs88.getSpawnGroups()
                 end
             end
         end
-        trigger.action.outText("Generated spawn groups for " .. t, 5)
+        Dcs88.debugWrite("Generated spawn groups for " .. t)
     end
 end
 
@@ -205,6 +210,17 @@ function Dcs88.tableToString(t, indent)
     return result
 end
 
+function Dcs88.split(str, sep)
+    if sep == nil then
+        sep = "%s"
+    end
+    local t = {}
+    for s in string.gmatch(str, "([^" .. sep .. "]+)") do
+        table.insert(t, s)
+    end
+    return t
+end
+
 function Dcs88.getZones()
     if env.mission.triggers and env.mission.triggers.zones then
         Dcs88.frontlineSpawns = {}
@@ -219,16 +235,29 @@ function Dcs88.getZones()
                     for word in string.gmatch(z.name, "%S+") do table.insert(words, word) end
                     Dcs88.enemyZoneSpawns[words[2]] = Dcs88.enemyZoneSpawns[words[2]] or {}
                     table.insert(Dcs88.enemyZoneSpawns[words[2]], { x = z.x, z = z.y })
+                elseif string.sub(z.name, 1, 3) == "obj" then
+                    local p = Dcs88.split(z.name, "-")
+                    Dcs88.objectiveSpawns[p[2]] = Dcs88.objectiveSpawns[p[2]] or {}
+                    table.insert(Dcs88.objectiveSpawns[p[2]], { x = z.x, z = z.y, r = z.radius })
                 end
             end
         end
-        trigger.action.outText("Generated spawn locations", 5)
+        Dcs88.debugWrite("Generated spawn locations")
 
         Dcs88.totalFrontlineSpawns = math.floor(#Dcs88.frontlineSpawns * 0.25)
-        trigger.action.outText("Spawn count: " .. #Dcs88.frontlineSpawns, 10)
+        Dcs88.debugWrite("Spawn count: " .. #Dcs88.frontlineSpawns)
 
         local enemyZonesTotal = 0
         for _ in pairs(Dcs88.enemyZones) do enemyZonesTotal = enemyZonesTotal + 1 end
         Dcs88.zonesActive = math.floor(enemyZonesTotal * 0.4)
     end
 end
+
+for _, t in ipairs(Dcs88.spawnGroupTypes) do
+    Dcs88.typeWeightTotal = Dcs88.typeWeightTotal + Dcs88.spawnGroupWeights[t].base
+    Dcs88.sizeWeightTotals[t] = 0
+    for _, s in ipairs(Dcs88.spawnGroupSizes) do
+        Dcs88.sizeWeightTotals[t] = Dcs88.sizeWeightTotals[t] + Dcs88.spawnGroupWeights[t][s]
+    end
+end
+Dcs88.debugWrite(Dcs88.tableToString(Dcs88.sizeWeightTotals))

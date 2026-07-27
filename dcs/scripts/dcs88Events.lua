@@ -1,6 +1,8 @@
+Dcs88.debugWrite("Starting dcs88Events")
+
 function Dcs88:onEvent(event)
     if not Dcs88.udp then
-        trigger.action.outText("UDP not set", 2)
+        Dcs88.debugWrite("UDP not set")
         return
     end
     if event and event.id ~= nil and event.id ~= "" then

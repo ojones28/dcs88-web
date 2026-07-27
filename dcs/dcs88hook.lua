@@ -258,18 +258,25 @@ function Dcs88h.start()
     net.send_chat("Starting Hook")
     Dcs88h.connectUdp()
     Dcs88h.doScript([[if Dcs88 and Dcs88.killInstance then Dcs88.killInstance() end]])
-    Dcs88h.doScript([[dofile("D:/Projects/Javascript/dcs/dcs88-web/dcs/dcs88.lua")]])
+    Dcs88h.doScript([[hookdebug = ]].. tostring(Dcs88h.debug))
+    Dcs88h.doScript([[
+        local ok, err = pcall(function()
+            dofile("D:/Projects/Javascript/dcs/dcs88-web/dcs/dcs88.lua")
+        end)
+        if not ok then
+            trigger.action.outText("dofile failed: " .. tostring(err))
+        end
+    ]])
     Dcs88h.doScript([[
         Dcs88 = Dcs88 or {}
         Dcs88.listenEvents = ]] .. Dcs88h.serializeTable(Dcs88h.eventNames) .. [[
     ]])
-    Dcs88h.doScript([[if Dcs88 then Dcs88.debug = ]].. tostring(Dcs88h.debug) ..[[ end]])
 
     local players = net.get_player_list()
     for _, v in ipairs(players) do
         Dcs88h.addPlayer(v)
     end
-    Dcs88h.debugWrite(Dcs88h.tableToString(net.get_player_list()))
+    -- Dcs88h.debugWrite(Dcs88h.tableToString(net.get_player_list()))
 end
 
 function Dcs88h.stop()
@@ -339,9 +346,9 @@ function Dcs88h.onSimulationFrame()
                     if data.id == 15 and data.isPlayer then --birth
                         -- add f10 radio
                         if data.groupId then
-                        Dcs88h.doScript(string.format([[
-                            missionCommands.addCommandForGroup(%d, "Spawn Frontline", nil, Dcs88.spawnFrontline)
-                            ]], data.groupId))
+                            Dcs88h.doScript(string.format([[
+                                missionCommands.addCommandForGroup(%d, "Spawn Frontline", nil, Dcs88.spawnFrontline)
+                                ]], data.groupId))
                         end
                         -- Dcs88h.debugWrite(Dcs88h.tableToString(data))
                         -- Dcs88h.debugWrite(Dcs88h.tableToString(Dcs88h.clients))

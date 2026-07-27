@@ -1,3 +1,5 @@
+Dcs88.debugWrite("Starting dcs88Frontline")
+
 Dcs88.frontlineSpawns = {}
 Dcs88.frontlineGroups = {}
 Dcs88.totalFrontlineSpawns = 0

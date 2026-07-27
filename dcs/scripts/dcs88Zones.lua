@@ -1,3 +1,5 @@
+Dcs88.debugWrite("Starting dcs88Zones")
+
 Dcs88.zoneStates = {}
 -- active
 -- circleId
@@ -26,7 +28,7 @@ function Dcs88.initZones()
 
     Dcs88.shuffle(allZoneNames)
     
-    trigger.action.outText("Activating " .. Dcs88.zonesActive .. " of " .. #allZoneNames .. " zones.", 8)
+    Dcs88.debugWrite("Activating " .. Dcs88.zonesActive .. " of " .. #allZoneNames .. " zones.")
 
     for i = 1, Dcs88.zonesActive do
         local name = allZoneNames[i]
@@ -91,7 +93,7 @@ function Dcs88.destroyZone(zoneName)
         state.circleId = nil
     end
 
-    trigger.action.outText("Zone " .. zoneName .. " destroyed", 8)
+    Dcs88.debugWrite("Zone " .. zoneName .. " destroyed")
 
     timer.scheduleFunction(function()
         if Dcs88.version ~= vOld + 1 then return nil end
@@ -119,7 +121,7 @@ function Dcs88.zoneHealthLoop(zoneName)
         if state.status ~= "critical" then
             state.status = "critical"
             Dcs88.setZoneCircleColor(zoneName, {0.5, 0, 0.7})
-            trigger.action.outText("Zone " .. zoneName .. " critical deleting in 5 minutes", 10)
+            Dcs88.debugWrite("Zone " .. zoneName .. " critical deleting in 5 minutes")
         end
         if not state.deleteScheduled then
             state.deleteScheduled = true
@@ -136,7 +138,7 @@ function Dcs88.zoneHealthLoop(zoneName)
         if state.status == "healthy" then
             state.status = "warning"
             Dcs88.setZoneCircleColor(zoneName, {1, 0.5, 0})
-            trigger.action.outText("Zone " .. zoneName .. " at 50%", 8)
+            Dcs88.debugWrite("Zone " .. zoneName .. " at 50%")
         end
     end
 
@@ -229,6 +231,6 @@ function Dcs88.activateZone(name)
 
     timer.scheduleFunction(Dcs88.zoneHealthLoop, name, timer.getTime() + 0.5)
 
-    trigger.action.outText("Zone " .. name .. " activated with " .. count .. " groups.", 8)
+    Dcs88.debugWrite("Zone " .. name .. " activated with " .. count .. " groups")
     return true
 end
