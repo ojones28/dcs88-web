@@ -172,12 +172,16 @@
 }
 
 .filter-categories {
-    padding-right: 3rem;
+    padding-right: 1rem;
     padding-top: 1rem;
     padding-bottom: 6rem;
     overflow-y: auto;
     min-height: 0;
     height: 100%;
+}
+
+.filter-categories button {
+    text-align: left;
 }
 
 .filters-clear {
@@ -229,4 +233,8 @@
 
 .player-trade button {
     font-size: 1.5rem;
+}
+
+.search {
+    margin-right: 2rem;
 }

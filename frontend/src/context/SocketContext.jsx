@@ -30,11 +30,11 @@ export function SocketProvider({ children }) {
     }
 
     useEffect(() => {
-        connect()
-        return () => {
-            clearTimeout(reconnectRef.current)
-            wsRef.current?.close()
-        }
+        // connect()
+        // return () => {
+        //     clearTimeout(reconnectRef.current)
+        //     wsRef.current?.close()
+        // }
     }, [])
 
     function on(type, callback) {

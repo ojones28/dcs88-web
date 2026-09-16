@@ -1,6 +1,6 @@
 Dcs88h = {}
 Dcs88h.debug = true
-Dcs88h.enabled = true
+Dcs88h.enabled = false
 
 function Dcs88h.debugWrite(message)
     if Dcs88h.debug then

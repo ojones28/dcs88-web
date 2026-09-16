@@ -77,19 +77,18 @@ function Dcs88.destroyZone(zoneName)
         if grp and grp:isExist() then
             grp:destroy()
         end
+
+        local static = StaticObject.getByName(entry.name)
+        if static and static:isExist() then
+            static:destroy()
+        end
     end
     state.groups = {}
     state.active = false
     state.deleteScheduled = false
     state.status = "dead"
     if state.circleId then
-        trigger.action.removeMark(state.circleId)
-        for i = #Dcs88.drawings, 1, -1 do
-            if Dcs88.drawings[i] == state.circleId then
-                table.remove(Dcs88.drawings, i)
-                break
-            end
-        end
+        Dcs88.deleteDrawing(state.circleId)
         state.circleId = nil
     end
 
@@ -125,7 +124,7 @@ function Dcs88.zoneHealthLoop(zoneName)
         end
         if not state.deleteScheduled then
             state.deleteScheduled = true
-            timer.scheduleFunction(function()
+            state.deleteFunction = timer.scheduleFunction(function()
                 if Dcs88.version ~= vOld + 1 then return nil end
                 local s = Dcs88.zoneStates[zoneName]
                 if s and s.active and s.deleteScheduled then
@@ -142,7 +141,10 @@ function Dcs88.zoneHealthLoop(zoneName)
         end
     end
 
-    if alive == 0 and not state.deleteScheduled then
+    if alive == 0 then
+        if state.deleteScheduled then
+            timer.removeFunction(state.deleteFunction)
+        end
         Dcs88.destroyZone(zoneName)
         return nil
     end
@@ -201,7 +203,8 @@ function Dcs88.activateZone(name)
         initialCount = 0,
         totalGroups = 0,
         status = "healthy",
-        deleteScheduled = false
+        deleteScheduled = false,
+        deleteFunction = nil
     }
     Dcs88.zoneStates[name] = state
 

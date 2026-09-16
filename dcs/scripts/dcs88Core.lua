@@ -25,6 +25,11 @@ Dcs88.spawnGroupZoneWeights = {
 Dcs88.typeWeightTotal = 0
 Dcs88.sizeWeightTotals = {}
 
+Dcs88.objectivePoolLimits = {
+    artillery = 1,
+    scout = 1,
+}
+
 function Dcs88.isTooClose(pos, occupiedList, minDist)
     for _, o in ipairs(occupiedList) do
         local dx = pos.x - o.x
@@ -41,6 +46,11 @@ function Dcs88.deleteOldGroups(oldGroups)
         local grp = Group.getByName(name)
         if grp and grp:isExist() then
             grp:destroy()
+        end
+
+        local static = StaticObject.getByName(name)
+        if static and static:isExist() then
+            static:destroy()
         end
     end
     oldGroups = {}
@@ -110,10 +120,35 @@ function Dcs88.drawCircle(x, z, r, color, fillColor, lineType)
     return Dcs88.drawingId - 1
 end
 
+function Dcs88.drawText(text, x, z, color, fillColor, fontSize)
+    if color == 0 or type(color) ~= "table" then
+        color = { 0, 0, 0, 0 }
+    end
+
+    if fillColor == 0 or type(fillColor) ~= "table" then
+        fillColor = { 0, 0, 0, 0 }
+    end
+    trigger.action.textToAll(-1, Dcs88.drawingId, {x = x, y = 0, z = z}, color, fillColor, fontSize, true, text)
+    table.insert(Dcs88.drawings, Dcs88.drawingId)
+    Dcs88.drawingId = Dcs88.drawingId + 1
+    return Dcs88.drawingId - 1
+end
+
+function Dcs88.deleteDrawing(id)
+    trigger.action.removeMark(id)
+    for i = #Dcs88.drawings, 1, -1 do
+        if Dcs88.drawings[i] == id then
+            table.remove(Dcs88.drawings, i)
+            break
+        end
+    end
+end
+
 function Dcs88.spawnGroup(data, pos, heading)
     if not data then
         return false
     end
+    heading = heading or 0
 
     local newGroup = Dcs88.deepCopy(data)
     newGroup.groupId = nil
@@ -130,18 +165,40 @@ function Dcs88.spawnGroup(data, pos, heading)
     local sinH = math.sin(heading)
     for i, unit in ipairs(newGroup.units) do
         unit.unitId = nil
-        local dx = unit.x - parentPos.x
-        local dy = unit.y - parentPos.y
+        local dx = unit.x
+        local dy = unit.y
+        if pos then
+            dx = unit.x - parentPos.x
+            dy = unit.y - parentPos.y
+        end
+        local px = pos and pos.x or 0
+        local pz = pos and pos.z or 0
         local rx = dx * cosH - dy * sinH
         local ry = dx * sinH + dy * cosH
-        unit.x = rx + pos.x
-        unit.y = ry + pos.z
+        unit.x = rx + px
+        unit.y = ry + pz
         unit.heading = (unit.heading + heading) % (math.pi * 2)
         unit.name = newGroup.name .. "_unit_" .. i
     end
 
     Dcs88.count = Dcs88.count + 1
-    coalition.addGroup(data.countryId or Dcs88.countryId, Group.Category.GROUND, newGroup)
+    if data.lateActivation ~= nil then
+        coalition.addGroup(data.countryId or Dcs88.countryId, Group.Category.GROUND, newGroup)
+    else
+        local u = newGroup.units[1]
+        local staticData = {
+            name = newGroup.name,
+            type = u.type,
+            x = u.x,
+            y = u.y,
+            heading = u.heading,
+            category = u.category,
+            mass = u.mass,
+            shape_name = u.shape_name,
+            canCargo = u.canCargo,
+        }
+        coalition.addStaticObject(data.countryId or Dcs88.countryId, staticData)
+    end
     table.insert(Dcs88.spawnedGroups, newGroup.name)
     local gName = newGroup.name
     timer.scheduleFunction(function()
@@ -221,6 +278,14 @@ function Dcs88.split(str, sep)
     return t
 end
 
+function Dcs88.getZoneProperty(z, key)
+    if not z.properties then return nil end
+    for _, prop in pairs(z.properties) do
+        if prop.key == key then return prop.value end
+    end
+    return nil
+end
+
 function Dcs88.getZones()
     if env.mission.triggers and env.mission.triggers.zones then
         Dcs88.frontlineSpawns = {}
@@ -237,12 +302,34 @@ function Dcs88.getZones()
                     table.insert(Dcs88.enemyZoneSpawns[words[2]], { x = z.x, z = z.y })
                 elseif string.sub(z.name, 1, 3) == "obj" then
                     local p = Dcs88.split(z.name, "-")
-                    Dcs88.objectiveSpawns[p[2]] = Dcs88.objectiveSpawns[p[2]] or {}
-                    table.insert(Dcs88.objectiveSpawns[p[2]], { x = z.x, z = z.y, r = z.radius })
+                    local siteId, objId, variation = p[2], p[3], p[4] or "a"
+                    Dcs88.objectives[siteId] = Dcs88.objectives[siteId] or {}
+                    Dcs88.objectives[siteId][objId] = Dcs88.objectives[siteId][objId] or {
+                        label = "unknown objective",
+                        reward = 0,
+                        prefix = {},
+                        type = "unknown",
+                        pool = nil,
+                        target = {},
+                        zones = {},
+                        groups = {},
+                    }
+                    if variation == "core" then
+                        Dcs88.objectives[siteId][objId].label = Dcs88.getZoneProperty(z, "label") or objId
+                        Dcs88.objectives[siteId][objId].reward = tonumber(Dcs88.getZoneProperty(z, "reward")) or 0
+                        Dcs88.objectives[siteId][objId].type = Dcs88.getZoneProperty(z, "type") or "destroy"
+                        Dcs88.objectives[siteId][objId].pool = Dcs88.getZoneProperty(z, "pool")
+                    end
+                    Dcs88.objectives[siteId][objId].prefix[variation] = Dcs88.getZoneProperty(z, "prefix")
+                    Dcs88.objectives[siteId][objId].target[variation] = Dcs88.getZoneProperty(z, "target")
+                    Dcs88.objectives[siteId][objId].zones[variation] = { x = z.x, z = z.y, r = z.radius }
+                elseif string.sub(z.name, 1, 4) == "site" then
+                    local p = Dcs88.split(z.name, "-")
+                    Dcs88.objectiveSites[p[2]] = { x = z.x, z = z.y, r = z.radius, label = Dcs88.getZoneProperty(z, "label") or p[2], shape = "circle", activeObj = 0, circleId = nil, textId = nil }
                 end
             end
         end
-        Dcs88.debugWrite("Generated spawn locations")
+        Dcs88.debugWrite("Generated spawn locations from zones")
 
         Dcs88.totalFrontlineSpawns = math.floor(#Dcs88.frontlineSpawns * 0.25)
         Dcs88.debugWrite("Spawn count: " .. #Dcs88.frontlineSpawns)
@@ -250,6 +337,11 @@ function Dcs88.getZones()
         local enemyZonesTotal = 0
         for _ in pairs(Dcs88.enemyZones) do enemyZonesTotal = enemyZonesTotal + 1 end
         Dcs88.zonesActive = math.floor(enemyZonesTotal * 0.4)
+
+        local objectiveSitesTotal = 0
+        for _ in pairs(Dcs88.objectives) do objectiveSitesTotal = objectiveSitesTotal + 1 end
+
+        Dcs88.maxActiveObjectives = math.max(1, math.floor(objectiveSitesTotal * 0.5))
     end
 end
 
