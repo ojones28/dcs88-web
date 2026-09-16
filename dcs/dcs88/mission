@@ -1,0 +1,4365 @@
+mission = 
+{
+	["groundControl"] = 
+	{
+		["passwords"] = 
+		{
+			["artillery_commander"] = {},
+			["instructor"] = {},
+			["observer"] = {},
+			["forward_observer"] = {},
+		}, -- end of ["passwords"]
+		["roles"] = 
+		{
+			["artillery_commander"] = 
+			{
+				["neutrals"] = 0,
+				["blue"] = 0,
+				["red"] = 0,
+			}, -- end of ["artillery_commander"]
+			["instructor"] = 
+			{
+				["neutrals"] = 0,
+				["blue"] = 0,
+				["red"] = 0,
+			}, -- end of ["instructor"]
+			["observer"] = 
+			{
+				["neutrals"] = 0,
+				["blue"] = 0,
+				["red"] = 0,
+			}, -- end of ["observer"]
+			["forward_observer"] = 
+			{
+				["neutrals"] = 0,
+				["blue"] = 0,
+				["red"] = 0,
+			}, -- end of ["forward_observer"]
+		}, -- end of ["roles"]
+		["isPilotControlVehicles"] = false,
+	}, -- end of ["groundControl"]
+	["requiredModules"] = {},
+	["date"] = 
+	{
+		["Day"] = 1,
+		["Year"] = 2020,
+		["Month"] = 6,
+	}, -- end of ["date"]
+	["trig"] = 
+	{
+		["actions"] = 
+		{
+			[1] = "a_set_ATC_silent_mode({airdromeId=1}, true);a_set_ATC_silent_mode({airdromeId=2}, true);a_set_ATC_silent_mode({airdromeId=3}, true);a_set_ATC_silent_mode({airdromeId=4}, true);a_set_ATC_silent_mode({airdromeId=5}, true);a_set_ATC_silent_mode({airdromeId=6}, true);a_set_ATC_silent_mode({airdromeId=7}, true);a_set_ATC_silent_mode({airdromeId=8}, true);a_set_ATC_silent_mode({airdromeId=9}, true);a_set_ATC_silent_mode({airdromeId=10}, true);a_set_ATC_silent_mode({airdromeId=11}, true);a_set_ATC_silent_mode({airdromeId=12}, true);a_set_ATC_silent_mode({airdromeId=13}, true);a_set_ATC_silent_mode({airdromeId=14}, true);a_set_ATC_silent_mode({airdromeId=15}, true);a_set_ATC_silent_mode({airdromeId=16}, true);a_set_ATC_silent_mode({airdromeId=17}, true);a_set_ATC_silent_mode({airdromeId=18}, true);a_set_ATC_silent_mode({airdromeId=19}, true);a_set_ATC_silent_mode({airdromeId=20}, true);a_set_ATC_silent_mode({airdromeId=21}, true);a_set_ATC_silent_mode({airdromeId=22}, true);a_set_ATC_silent_mode({airdromeId=23}, true);a_set_ATC_silent_mode({airdromeId=24}, true);a_set_ATC_silent_mode({airdromeId=25}, true);a_set_ATC_silent_mode({airdromeId=26}, true);a_set_ATC_silent_mode({airdromeId=27}, true);a_set_ATC_silent_mode({airdromeId=28}, true);a_set_ATC_silent_mode({airdromeId=29}, true);a_set_ATC_silent_mode({airdromeId=30}, true);a_set_ATC_silent_mode({airdromeId=31}, true);a_set_ATC_silent_mode({airdromeId=32}, true);a_set_ATC_silent_mode({airdromeId=33}, true);a_set_ATC_silent_mode({airdromeId=35}, true);a_set_ATC_silent_mode({airdromeId=36}, true);a_set_ATC_silent_mode({airdromeId=37}, true);a_set_ATC_silent_mode({airdromeId=38}, true);a_set_ATC_silent_mode({airdromeId=39}, true);a_set_ATC_silent_mode({airdromeId=40}, true);a_set_ATC_silent_mode({airdromeId=41}, true);a_set_ATC_silent_mode({airdromeId=42}, true);a_set_ATC_silent_mode({airdromeId=44}, true);a_set_ATC_silent_mode({airdromeId=45}, true);a_set_ATC_silent_mode({airdromeId=46}, true);a_set_ATC_silent_mode({airdromeId=47}, true);a_set_ATC_silent_mode({airdromeId=48}, true);a_set_ATC_silent_mode({airdromeId=49}, true);a_set_ATC_silent_mode({airdromeId=50}, true);a_set_ATC_silent_mode({airdromeId=51}, true);a_set_ATC_silent_mode({airdromeId=52}, true);a_set_ATC_silent_mode({airdromeId=53}, true);a_set_ATC_silent_mode({airdromeId=54}, true);a_set_ATC_silent_mode({airdromeId=55}, true);a_set_ATC_silent_mode({airdromeId=57}, true);a_set_ATC_silent_mode({airdromeId=58}, true);a_set_ATC_silent_mode({airdromeId=59}, true);a_set_ATC_silent_mode({airdromeId=60}, true);a_set_ATC_silent_mode({airdromeId=63}, true);a_set_ATC_silent_mode({airdromeId=64}, true);a_set_ATC_silent_mode({airdromeId=65}, true);a_set_ATC_silent_mode({airdromeId=66}, true);a_set_ATC_silent_mode({airdromeId=67}, true);a_set_ATC_silent_mode({airdromeId=68}, true);a_set_ATC_silent_mode({airdromeId=220}, true);a_set_ATC_silent_mode({airdromeId=221}, true);a_set_ATC_silent_mode({airdromeId=222}, true);a_set_ATC_silent_mode({airdromeId=223}, true);",
+		}, -- end of ["actions"]
+		["events"] = {},
+		["custom"] = {},
+		["func"] = {},
+		["flag"] = 
+		{
+			[1] = true,
+		}, -- end of ["flag"]
+		["conditions"] = 
+		{
+			[1] = "return(true)",
+		}, -- end of ["conditions"]
+		["customStartup"] = {},
+		["funcStartup"] = 
+		{
+			[1] = "if mission.trig.conditions[1]() then mission.trig.actions[1]() end",
+		}, -- end of ["funcStartup"]
+	}, -- end of ["trig"]
+	["maxDictId"] = 5,
+	["result"] = 
+	{
+		["offline"] = 
+		{
+			["conditions"] = {},
+			["actions"] = {},
+			["func"] = {},
+		}, -- end of ["offline"]
+		["total"] = 0,
+		["blue"] = 
+		{
+			["conditions"] = {},
+			["actions"] = {},
+			["func"] = {},
+		}, -- end of ["blue"]
+		["red"] = 
+		{
+			["conditions"] = {},
+			["actions"] = {},
+			["func"] = {},
+		}, -- end of ["red"]
+	}, -- end of ["result"]
+	["pictureFileNameN"] = {},
+	["drawings"] = 
+	{
+		["options"] = 
+		{
+			["hiddenOnF10Map"] = 
+			{
+				["Observer"] = 
+				{
+					["Neutral"] = false,
+					["Blue"] = false,
+					["Red"] = false,
+				}, -- end of ["Observer"]
+				["Instructor"] = 
+				{
+					["Neutral"] = false,
+					["Blue"] = false,
+					["Red"] = false,
+				}, -- end of ["Instructor"]
+				["ForwardObserver"] = 
+				{
+					["Neutral"] = false,
+					["Blue"] = false,
+					["Red"] = false,
+				}, -- end of ["ForwardObserver"]
+				["Spectrator"] = 
+				{
+					["Neutral"] = false,
+					["Blue"] = false,
+					["Red"] = false,
+				}, -- end of ["Spectrator"]
+				["ArtilleryCommander"] = 
+				{
+					["Neutral"] = false,
+					["Blue"] = false,
+					["Red"] = false,
+				}, -- end of ["ArtilleryCommander"]
+				["Pilot"] = 
+				{
+					["Neutral"] = false,
+					["Blue"] = false,
+					["Red"] = false,
+				}, -- end of ["Pilot"]
+			}, -- end of ["hiddenOnF10Map"]
+		}, -- end of ["options"]
+		["layers"] = 
+		{
+			[1] = 
+			{
+				["visible"] = true,
+				["name"] = "Red",
+				["objects"] = {},
+			}, -- end of [1]
+			[2] = 
+			{
+				["visible"] = true,
+				["name"] = "Blue",
+				["objects"] = {},
+			}, -- end of [2]
+			[3] = 
+			{
+				["visible"] = true,
+				["name"] = "Neutral",
+				["objects"] = {},
+			}, -- end of [3]
+			[4] = 
+			{
+				["visible"] = true,
+				["name"] = "Common",
+				["objects"] = 
+				{
+					[1] = 
+					{
+						["visible"] = true,
+						["fillColorString"] = "0xff000000",
+						["polygonMode"] = "free",
+						["mapY"] = -19272.045693946,
+						["primitiveType"] = "Polygon",
+						["colorString"] = "0x0000ffff",
+						["style"] = "dotdash",
+						["thickness"] = 8,
+						["mapX"] = -150601.11955477,
+						["layerName"] = "Common",
+						["name"] = "Polygon-2",
+						["points"] = 
+						{
+							[1] = 
+							{
+								["y"] = 0,
+								["x"] = 0,
+							}, -- end of [1]
+							[2] = 
+							{
+								["y"] = 0,
+								["x"] = 0,
+							}, -- end of [2]
+							[4] = 
+							{
+								["y"] = 20983.393799589,
+								["x"] = 8775.1909788106,
+							}, -- end of [4]
+							[8] = 
+							{
+								["y"] = 71486.347949584,
+								["x"] = 49943.679071283,
+							}, -- end of [8]
+							[16] = 
+							{
+								["y"] = 4167.5365441969,
+								["x"] = 8740.4078323643,
+							}, -- end of [16]
+							[17] = 
+							{
+								["y"] = -386.18424928187,
+								["x"] = 1757.6767805446,
+							}, -- end of [17]
+							[9] = 
+							{
+								["y"] = 56248.366510395,
+								["x"] = 52386.408920313,
+							}, -- end of [9]
+							[18] = 
+							{
+								["y"] = 0,
+								["x"] = 0,
+							}, -- end of [18]
+							[5] = 
+							{
+								["y"] = 35543.323028138,
+								["x"] = 11906.885707811,
+							}, -- end of [5]
+							[10] = 
+							{
+								["y"] = 47175.369928282,
+								["x"] = 58202.432370385,
+							}, -- end of [10]
+							[11] = 
+							{
+								["y"] = 34147.477400121,
+								["x"] = 50176.320009286,
+							}, -- end of [11]
+							[3] = 
+							{
+								["y"] = 12820.941428566,
+								["x"] = 2096.8208570645,
+							}, -- end of [3]
+							[6] = 
+							{
+								["y"] = 51595.547750337,
+								["x"] = 14931.217901848,
+							}, -- end of [6]
+							[12] = 
+							{
+								["y"] = 26819.28785303,
+								["x"] = 39940.118737159,
+							}, -- end of [12]
+							[13] = 
+							{
+								["y"] = 27517.210667038,
+								["x"] = 29936.558403034,
+							}, -- end of [13]
+							[7] = 
+							{
+								["y"] = 63576.556057486,
+								["x"] = 30867.122155046,
+							}, -- end of [7]
+							[14] = 
+							{
+								["y"] = 15768.843297892,
+								["x"] = 20049.318537912,
+							}, -- end of [14]
+							[15] = 
+							{
+								["y"] = 8789.6151578058,
+								["x"] = 18188.191033889,
+							}, -- end of [15]
+						}, -- end of ["points"]
+					}, -- end of [1]
+					[2] = 
+					{
+						["visible"] = true,
+						["fillColorString"] = "0xff000000",
+						["polygonMode"] = "free",
+						["mapY"] = -6224.2128137686,
+						["primitiveType"] = "Polygon",
+						["colorString"] = "0xff0000ff",
+						["style"] = "dotdash",
+						["thickness"] = 8,
+						["mapX"] = -149087.32778465,
+						["layerName"] = "Common",
+						["name"] = "Polygon-4",
+						["points"] = 
+						{
+							[1] = 
+							{
+								["y"] = 0,
+								["x"] = 0,
+							}, -- end of [1]
+							[2] = 
+							{
+								["y"] = 0,
+								["x"] = 0,
+							}, -- end of [2]
+							[4] = 
+							{
+								["y"] = -13934.412077305,
+								["x"] = 523.63135154796,
+							}, -- end of [4]
+							[8] = 
+							{
+								["y"] = 14044.732599953,
+								["x"] = 28590.184676029,
+							}, -- end of [8]
+							[16] = 
+							{
+								["y"] = 8176.1539147538,
+								["x"] = 6699.5832011709,
+							}, -- end of [16]
+							[17] = 
+							{
+								["y"] = 0,
+								["x"] = 0,
+							}, -- end of [17]
+							[9] = 
+							{
+								["y"] = 13280.965324969,
+								["x"] = 38602.707782741,
+							}, -- end of [9]
+							[5] = 
+							{
+								["y"] = -9213.3456135554,
+								["x"] = 7683.537799347,
+							}, -- end of [5]
+							[10] = 
+							{
+								["y"] = 20927.763297654,
+								["x"] = 49048.45333873,
+							}, -- end of [10]
+							[11] = 
+							{
+								["y"] = 34121.821206158,
+								["x"] = 57118.252157991,
+							}, -- end of [11]
+							[3] = 
+							{
+								["y"] = -13323.508833832,
+								["x"] = -2123.6160368335,
+							}, -- end of [3]
+							[6] = 
+							{
+								["y"] = -4503.811196936,
+								["x"] = 17007.271927796,
+							}, -- end of [6]
+							[12] = 
+							{
+								["y"] = 43445.493492141,
+								["x"] = 51509.588216637,
+							}, -- end of [12]
+							[13] = 
+							{
+								["y"] = 59121.605687796,
+								["x"] = 48694.290735165,
+							}, -- end of [13]
+							[7] = 
+							{
+								["y"] = 2570.0238984722,
+								["x"] = 18933.032964551,
+							}, -- end of [7]
+							[14] = 
+							{
+								["y"] = 51520.984675248,
+								["x"] = 29092.988341772,
+							}, -- end of [14]
+							[15] = 
+							{
+								["y"] = 38995.261398607,
+								["x"] = 12723.127531573,
+							}, -- end of [15]
+						}, -- end of ["points"]
+					}, -- end of [2]
+					[3] = 
+					{
+						["visible"] = true,
+						["fillColorString"] = "0xff000000",
+						["polygonMode"] = "free",
+						["mapY"] = -5342.8913113905,
+						["primitiveType"] = "Polygon",
+						["colorString"] = "0xff0000ff",
+						["style"] = "strongpoint",
+						["thickness"] = 24,
+						["mapX"] = -150528.93355219,
+						["layerName"] = "Common",
+						["name"] = "Polygon-5",
+						["points"] = 
+						{
+							[15] = 
+							{
+								["y"] = 9610.2932755712,
+								["x"] = 2708.605150633,
+							}, -- end of [15]
+							[13] = 
+							{
+								["y"] = 56125.807957348,
+								["x"] = 28865.519063508,
+							}, -- end of [13]
+							[7] = 
+							{
+								["y"] = 8239.5386825056,
+								["x"] = 32226.242983057,
+							}, -- end of [7]
+							[1] = 
+							{
+								["y"] = -1746.9635205142,
+								["x"] = -4108.3410117821,
+							}, -- end of [1]
+							[2] = 
+							{
+								["y"] = -8466.425810528,
+								["x"] = -2281.7800489399,
+							}, -- end of [2]
+							[4] = 
+							{
+								["y"] = -16328.870274521,
+								["x"] = 2577.6150934341,
+							}, -- end of [4]
+							[8] = 
+							{
+								["y"] = 8959.3291004109,
+								["x"] = 41062.516999792,
+							}, -- end of [8]
+							[16] = 
+							{
+								["y"] = -1746.9635205142,
+								["x"] = -4108.3410117821,
+							}, -- end of [16]
+							[9] = 
+							{
+								["y"] = 16413.076116314,
+								["x"] = 54185.579893138,
+							}, -- end of [9]
+							[5] = 
+							{
+								["y"] = -6409.1942100335,
+								["x"] = 20327.640954654,
+							}, -- end of [5]
+							[10] = 
+							{
+								["y"] = 33149.523989819,
+								["x"] = 62745.206763394,
+							}, -- end of [10]
+							[14] = 
+							{
+								["y"] = 41450.35157024,
+								["x"] = 8318.7745933488,
+							}, -- end of [14]
+							[3] = 
+							{
+								["y"] = -15104.358128862,
+								["x"] = -2118.4521043508,
+							}, -- end of [3]
+							[6] = 
+							{
+								["y"] = -776.09164526487,
+								["x"] = 25171.77265288,
+							}, -- end of [6]
+							[12] = 
+							{
+								["y"] = 63794.534213836,
+								["x"] = 52832.46429672,
+							}, -- end of [12]
+							[11] = 
+							{
+								["y"] = 42376.488823573,
+								["x"] = 55949.809559702,
+							}, -- end of [11]
+						}, -- end of ["points"]
+					}, -- end of [3]
+				}, -- end of ["objects"]
+			}, -- end of [4]
+			[5] = 
+			{
+				["visible"] = true,
+				["name"] = "Author",
+				["objects"] = 
+				{
+					[1] = 
+					{
+						["visible"] = true,
+						["borderThickness"] = 0,
+						["fillColorString"] = "0xff000000",
+						["fontSize"] = 16,
+						["mapY"] = -3189.6699390623,
+						["layerName"] = "Author",
+						["primitiveType"] = "TextBox",
+						["font"] = "DejaVuLGCSansCondensed.ttf",
+						["text"] = "Maybe artillery objective up here somewhere",
+						["mapX"] = -118327.11997119,
+						["name"] = "Text Box-1",
+						["colorString"] = "0x000000ff",
+						["angle"] = 0,
+					}, -- end of [1]
+					[2] = 
+					{
+						["visible"] = true,
+						["radius"] = 369.08405249699,
+						["colorString"] = "0x00ff00ff",
+						["mapY"] = -3503.939436038,
+						["primitiveType"] = "Polygon",
+						["polygonMode"] = "circle",
+						["style"] = "solid",
+						["thickness"] = 4,
+						["mapX"] = -118641.49783921,
+						["layerName"] = "Author",
+						["name"] = "Polygon-1",
+						["fillColorString"] = "0x00ff0080",
+					}, -- end of [2]
+					[3] = 
+					{
+						["visible"] = true,
+						["radius"] = 369.08405249699,
+						["colorString"] = "0x00ff00ff",
+						["mapY"] = -26811.817749532,
+						["primitiveType"] = "Polygon",
+						["polygonMode"] = "circle",
+						["style"] = "solid",
+						["thickness"] = 4,
+						["mapX"] = -105781.97406225,
+						["layerName"] = "Author",
+						["name"] = "Polygon-1-1",
+						["fillColorString"] = "0x00ff0080",
+					}, -- end of [3]
+					[4] = 
+					{
+						["visible"] = true,
+						["borderThickness"] = 0,
+						["fillColorString"] = "0x00ff0000",
+						["fontSize"] = 16,
+						["mapY"] = -26489.524829446,
+						["layerName"] = "Author",
+						["primitiveType"] = "TextBox",
+						["font"] = "DejaVuLGCSansCondensed.ttf",
+						["text"] = "Bridge objective",
+						["mapX"] = -105504.19984871,
+						["name"] = "Text Box-1-1",
+						["colorString"] = "0x000000ff",
+						["angle"] = 0,
+					}, -- end of [4]
+					[5] = 
+					{
+						["visible"] = true,
+						["borderThickness"] = 0,
+						["fillColorString"] = "0xff000000",
+						["fontSize"] = 16,
+						["mapY"] = 73457.212359935,
+						["layerName"] = "Author",
+						["primitiveType"] = "TextBox",
+						["font"] = "DejaVuLGCSansCondensed.ttf",
+						["text"] = "SA-6 Convoy objective up here",
+						["mapX"] = -86505.037402571,
+						["name"] = "Text Box-1-2",
+						["colorString"] = "0x000000ff",
+						["angle"] = 0,
+					}, -- end of [5]
+					[6] = 
+					{
+						["visible"] = true,
+						["colorString"] = "0x00ff00ff",
+						["lineMode"] = "segment",
+						["mapY"] = 76442.677167838,
+						["primitiveType"] = "Line",
+						["style"] = "solid",
+						["closed"] = false,
+						["thickness"] = 4,
+						["mapX"] = -89524.809304153,
+						["layerName"] = "Author",
+						["name"] = "Line-1",
+						["points"] = 
+						{
+							[1] = 
+							{
+								["y"] = 776.0986839775,
+								["x"] = -1358.1726969606,
+							}, -- end of [1]
+							[2] = 
+							{
+								["y"] = -27002.136797188,
+								["x"] = 14524.137858985,
+							}, -- end of [2]
+						}, -- end of ["points"]
+					}, -- end of [6]
+					[7] = 
+					{
+						["visible"] = true,
+						["borderThickness"] = 0,
+						["fillColorString"] = "0xff000000",
+						["fontSize"] = 16,
+						["mapY"] = -1772.587381584,
+						["layerName"] = "Author",
+						["primitiveType"] = "TextBox",
+						["font"] = "DejaVuLGCSansCondensed.ttf",
+						["text"] = "Little base objective",
+						["mapX"] = -176730.87038176,
+						["name"] = "Text Box-1-2-1",
+						["colorString"] = "0x000000ff",
+						["angle"] = 0,
+					}, -- end of [7]
+					[8] = 
+					{
+						["visible"] = true,
+						["radius"] = 369.08405249699,
+						["colorString"] = "0x00ff00ff",
+						["mapY"] = -2206.2128312948,
+						["primitiveType"] = "Polygon",
+						["polygonMode"] = "circle",
+						["style"] = "solid",
+						["thickness"] = 4,
+						["mapX"] = -177028.86258867,
+						["layerName"] = "Author",
+						["name"] = "Polygon-1-2",
+						["fillColorString"] = "0x00ff0080",
+					}, -- end of [8]
+					[9] = 
+					{
+						["visible"] = true,
+						["borderThickness"] = 0,
+						["fillColorString"] = "0xff000000",
+						["fontSize"] = 16,
+						["mapY"] = -59914.285360984,
+						["layerName"] = "Author",
+						["primitiveType"] = "TextBox",
+						["font"] = "DejaVuLGCSansCondensed.ttf",
+						["text"] = "There is a lot of cool small frontline bases \
+over here but they may be a bit far from rayak",
+						["mapX"] = -197790.61677269,
+						["name"] = "Text Box-1-3",
+						["colorString"] = "0x000000ff",
+						["angle"] = 0,
+					}, -- end of [9]
+					[10] = 
+					{
+						["visible"] = true,
+						["borderThickness"] = 0,
+						["fillColorString"] = "0xff000000",
+						["fontSize"] = 16,
+						["mapY"] = 10145.599428456,
+						["layerName"] = "Author",
+						["primitiveType"] = "TextBox",
+						["font"] = "DejaVuLGCSansCondensed.ttf",
+						["text"] = "Enemy Zone around here",
+						["mapX"] = -157924.1768829,
+						["name"] = "Text Box-1-2-2",
+						["colorString"] = "0x000000ff",
+						["angle"] = 0,
+					}, -- end of [10]
+					[11] = 
+					{
+						["visible"] = true,
+						["radius"] = 2772.4642071435,
+						["colorString"] = "0xff0000ff",
+						["mapY"] = 7336.9805056212,
+						["primitiveType"] = "Polygon",
+						["polygonMode"] = "circle",
+						["style"] = "solid",
+						["thickness"] = 4,
+						["mapX"] = -160011.74386579,
+						["layerName"] = "Author",
+						["name"] = "Polygon-1-3",
+						["fillColorString"] = "0xff000080",
+					}, -- end of [11]
+					[12] = 
+					{
+						["visible"] = true,
+						["radius"] = 1903.4534814575,
+						["colorString"] = "0xff0000ff",
+						["mapY"] = 37866.434456671,
+						["primitiveType"] = "Polygon",
+						["polygonMode"] = "circle",
+						["style"] = "solid",
+						["thickness"] = 4,
+						["mapX"] = -92517.978229772,
+						["layerName"] = "Author",
+						["name"] = "Polygon-1-3-1",
+						["fillColorString"] = "0xff000080",
+					}, -- end of [12]
+					[13] = 
+					{
+						["visible"] = true,
+						["borderThickness"] = 0,
+						["fillColorString"] = "0xff000000",
+						["fontSize"] = 16,
+						["mapY"] = 39892.80525495,
+						["layerName"] = "Author",
+						["primitiveType"] = "TextBox",
+						["font"] = "DejaVuLGCSansCondensed.ttf",
+						["text"] = "Enemy Zone around here",
+						["mapX"] = -91888.768002806,
+						["name"] = "Text Box-1-2-2-1",
+						["colorString"] = "0x000000ff",
+						["angle"] = 0,
+					}, -- end of [13]
+					[14] = 
+					{
+						["visible"] = true,
+						["radius"] = 1667.1869902928,
+						["colorString"] = "0xff0000ff",
+						["mapY"] = -19834.159773269,
+						["primitiveType"] = "Polygon",
+						["polygonMode"] = "circle",
+						["style"] = "solid",
+						["thickness"] = 4,
+						["mapX"] = -154824.78341938,
+						["layerName"] = "Author",
+						["name"] = "Polygon-1-3-2",
+						["fillColorString"] = "0xff000080",
+					}, -- end of [14]
+					[15] = 
+					{
+						["visible"] = true,
+						["borderThickness"] = 0,
+						["fillColorString"] = "0xff000000",
+						["fontSize"] = 16,
+						["mapY"] = -17983.306368008,
+						["layerName"] = "Author",
+						["primitiveType"] = "TextBox",
+						["font"] = "DejaVuLGCSansCondensed.ttf",
+						["text"] = "Enemy Zone around here",
+						["mapX"] = -153057.32632912,
+						["name"] = "Text Box-1-2-2-2",
+						["colorString"] = "0x000000ff",
+						["angle"] = 0,
+					}, -- end of [15]
+					[16] = 
+					{
+						["visible"] = true,
+						["radius"] = 2988.3608028296,
+						["colorString"] = "0xff0000ff",
+						["mapY"] = 45091.57627894,
+						["primitiveType"] = "Polygon",
+						["polygonMode"] = "circle",
+						["style"] = "solid",
+						["thickness"] = 4,
+						["mapX"] = -129358.57698768,
+						["layerName"] = "Author",
+						["name"] = "Polygon-1-3-2-1",
+						["fillColorString"] = "0xff000080",
+					}, -- end of [16]
+					[17] = 
+					{
+						["visible"] = true,
+						["borderThickness"] = 0,
+						["fillColorString"] = "0xff000000",
+						["fontSize"] = 16,
+						["mapY"] = 47566.810430418,
+						["layerName"] = "Author",
+						["primitiveType"] = "TextBox",
+						["font"] = "DejaVuLGCSansCondensed.ttf",
+						["text"] = "Enemy Zone around here",
+						["mapX"] = -126803.96467557,
+						["name"] = "Text Box-1-2-2-3",
+						["colorString"] = "0x000000ff",
+						["angle"] = 0,
+					}, -- end of [17]
+					[18] = 
+					{
+						["visible"] = true,
+						["radius"] = 2988.3608028296,
+						["colorString"] = "0xff0000ff",
+						["mapY"] = 3948.0594592524,
+						["primitiveType"] = "Polygon",
+						["polygonMode"] = "circle",
+						["style"] = "solid",
+						["thickness"] = 4,
+						["mapX"] = -94937.495672927,
+						["layerName"] = "Author",
+						["name"] = "Polygon-1-3-2-1-1",
+						["fillColorString"] = "0xff000080",
+					}, -- end of [18]
+					[19] = 
+					{
+						["visible"] = true,
+						["borderThickness"] = 0,
+						["fillColorString"] = "0xff000000",
+						["fontSize"] = 16,
+						["mapY"] = 7114.4037399723,
+						["layerName"] = "Author",
+						["primitiveType"] = "TextBox",
+						["font"] = "DejaVuLGCSansCondensed.ttf",
+						["text"] = "Enemy Zone around here\
+Gotta check if this is too steep in 3d",
+						["mapX"] = -91867.101218896,
+						["name"] = "Text Box-1-2-2-1-1",
+						["colorString"] = "0x000000ff",
+						["angle"] = 0,
+					}, -- end of [19]
+					[20] = 
+					{
+						["visible"] = true,
+						["radius"] = 369.08405249699,
+						["colorString"] = "0x00ff00ff",
+						["mapY"] = 39229.896240532,
+						["primitiveType"] = "Polygon",
+						["polygonMode"] = "circle",
+						["style"] = "solid",
+						["thickness"] = 4,
+						["mapX"] = -115978.22445664,
+						["layerName"] = "Author",
+						["name"] = "Polygon-1-4",
+						["fillColorString"] = "0x00ff0080",
+					}, -- end of [20]
+					[21] = 
+					{
+						["visible"] = true,
+						["borderThickness"] = 0,
+						["fillColorString"] = "0xff000000",
+						["fontSize"] = 16,
+						["mapY"] = 39555.973901788,
+						["layerName"] = "Author",
+						["primitiveType"] = "TextBox",
+						["font"] = "DejaVuLGCSansCondensed.ttf",
+						["text"] = "Some sort of scout squad to destroy",
+						["mapX"] = -115657.18604482,
+						["name"] = "Text Box-1-4",
+						["colorString"] = "0x000000ff",
+						["angle"] = 0,
+					}, -- end of [21]
+				}, -- end of ["objects"]
+			}, -- end of [5]
+		}, -- end of ["layers"]
+	}, -- end of ["drawings"]
+	["descriptionNeutralsTask"] = "DictKey_descriptionNeutralsTask_4",
+	["pictureFileNameServer"] = {},
+	["weather"] = 
+	{
+		["wind"] = 
+		{
+			["at8000"] = 
+			{
+				["speed"] = 0,
+				["dir"] = 0,
+			}, -- end of ["at8000"]
+			["atGround"] = 
+			{
+				["speed"] = 0,
+				["dir"] = 0,
+			}, -- end of ["atGround"]
+			["at2000"] = 
+			{
+				["speed"] = 0,
+				["dir"] = 0,
+			}, -- end of ["at2000"]
+		}, -- end of ["wind"]
+		["enable_fog"] = false,
+		["season"] = 
+		{
+			["temperature"] = 20,
+		}, -- end of ["season"]
+		["qnh"] = 760,
+		["cyclones"] = {},
+		["dust_density"] = 0,
+		["enable_dust"] = false,
+		["clouds"] = 
+		{
+			["thickness"] = 200,
+			["density"] = 0,
+			["preset"] = "Preset2",
+			["base"] = 2500,
+			["iprecptns"] = 0,
+		}, -- end of ["clouds"]
+		["atmosphere_type"] = 0,
+		["groundTurbulence"] = 0,
+		["halo"] = 
+		{
+			["preset"] = "auto",
+		}, -- end of ["halo"]
+		["type_weather"] = 0,
+		["modifiedTime"] = false,
+		["name"] = "Winter, clean sky",
+		["fog"] = 
+		{
+			["visibility"] = 0,
+			["thickness"] = 0,
+		}, -- end of ["fog"]
+		["visibility"] = 
+		{
+			["distance"] = 80000,
+		}, -- end of ["visibility"]
+	}, -- end of ["weather"]
+	["theatre"] = "Syria",
+	["triggers"] = 
+	{
+		["zones"] = {},
+	}, -- end of ["triggers"]
+	["map"] = 
+	{
+		["centerY"] = 23372.628664848,
+		["zoom"] = 496217.51277423,
+		["centerX"] = -121452.99375635,
+	}, -- end of ["map"]
+	["coalitions"] = 
+	{
+		["neutrals"] = 
+		{
+			[1] = 18,
+			[2] = 91,
+			[3] = 70,
+			[4] = 83,
+			[5] = 21,
+			[6] = 23,
+			[7] = 65,
+			[8] = 24,
+			[9] = 11,
+			[10] = 86,
+			[11] = 64,
+			[12] = 25,
+			[13] = 8,
+			[14] = 63,
+			[15] = 27,
+			[16] = 28,
+			[17] = 76,
+			[18] = 84,
+			[19] = 26,
+			[20] = 13,
+			[21] = 90,
+			[22] = 29,
+			[23] = 62,
+			[24] = 30,
+			[25] = 5,
+			[26] = 78,
+			[27] = 16,
+			[28] = 6,
+			[29] = 87,
+			[30] = 31,
+			[31] = 61,
+			[32] = 32,
+			[33] = 33,
+			[34] = 60,
+			[35] = 17,
+			[36] = 34,
+			[37] = 35,
+			[38] = 15,
+			[39] = 69,
+			[40] = 20,
+			[41] = 36,
+			[42] = 59,
+			[43] = 37,
+			[44] = 71,
+			[45] = 79,
+			[46] = 58,
+			[47] = 57,
+			[48] = 56,
+			[49] = 55,
+			[50] = 92,
+			[51] = 88,
+			[52] = 38,
+			[53] = 12,
+			[54] = 73,
+			[55] = 39,
+			[56] = 89,
+			[57] = 54,
+			[58] = 40,
+			[59] = 77,
+			[60] = 72,
+			[61] = 41,
+			[62] = 0,
+			[63] = 42,
+			[64] = 43,
+			[65] = 44,
+			[66] = 85,
+			[67] = 75,
+			[68] = 45,
+			[69] = 19,
+			[70] = 9,
+			[71] = 53,
+			[72] = 46,
+			[73] = 22,
+			[74] = 47,
+			[75] = 52,
+			[76] = 10,
+			[77] = 66,
+			[78] = 51,
+			[79] = 3,
+			[80] = 4,
+			[81] = 1,
+			[82] = 74,
+			[83] = 82,
+			[84] = 2,
+			[85] = 7,
+			[86] = 68,
+			[87] = 50,
+			[88] = 49,
+			[89] = 48,
+			[90] = 67,
+		}, -- end of ["neutrals"]
+		["blue"] = 
+		{
+			[1] = 80,
+		}, -- end of ["blue"]
+		["red"] = 
+		{
+			[1] = 81,
+		}, -- end of ["red"]
+	}, -- end of ["coalitions"]
+	["descriptionText"] = "DictKey_descriptionText_1",
+	["pictureFileNameR"] = {},
+	["descriptionBlueTask"] = "DictKey_descriptionBlueTask_3",
+	["goals"] = {},
+	["descriptionRedTask"] = "DictKey_descriptionRedTask_2",
+	["pictureFileNameB"] = {},
+	["coalition"] = 
+	{
+		["neutrals"] = 
+		{
+			["bullseye"] = 
+			{
+				["y"] = 0,
+				["x"] = 0,
+			}, -- end of ["bullseye"]
+			["nav_points"] = {},
+			["name"] = "neutrals",
+			["country"] = {},
+		}, -- end of ["neutrals"]
+		["blue"] = 
+		{
+			["bullseye"] = 
+			{
+				["y"] = 0,
+				["x"] = 0,
+			}, -- end of ["bullseye"]
+			["nav_points"] = {},
+			["name"] = "blue",
+			["country"] = 
+			{
+				[1] = 
+				{
+					["helicopter"] = 
+					{
+						["group"] = 
+						{
+							[1] = 
+							{
+								["modulation"] = 0,
+								["tasks"] = {},
+								["radioSet"] = true,
+								["task"] = "Transport",
+								["uncontrolled"] = false,
+								["route"] = 
+								{
+									["points"] = 
+									{
+										[1] = 
+										{
+											["alt"] = 1412,
+											["action"] = "From Parking Area Hot",
+											["alt_type"] = "BARO",
+											["properties"] = 
+											{
+												["addopt"] = {},
+											}, -- end of ["properties"]
+											["speed"] = 41.666666666667,
+											["task"] = 
+											{
+												["id"] = "ComboTask",
+												["params"] = 
+												{
+													["tasks"] = {},
+												}, -- end of ["params"]
+											}, -- end of ["task"]
+											["type"] = "TakeOffParkingHot",
+											["ETA"] = 0,
+											["ETA_locked"] = true,
+											["y"] = 5364.3862304688,
+											["x"] = -129437.25,
+											["speed_locked"] = true,
+											["formation_template"] = "",
+											["airdromeId"] = 32,
+										}, -- end of [1]
+									}, -- end of ["points"]
+								}, -- end of ["route"]
+								["groupId"] = 2,
+								["hidden"] = false,
+								["units"] = 
+								{
+									[1] = 
+									{
+										["alt"] = 1412,
+										["hardpoint_racks"] = true,
+										["alt_type"] = "BARO",
+										["livery_id"] = "Italy 15B Stormo S.A.R -Soccorso",
+										["skill"] = "Client",
+										["parking"] = "11",
+										["ropeLength"] = 15,
+										["speed"] = 41.666666666667,
+										["AddPropAircraft"] = 
+										{
+											["SoloFlight"] = false,
+											["ExhaustScreen"] = true,
+											["GunnersAISkill"] = 90,
+											["NetCrewControlPriority"] = 0,
+											["EngineResource"] = 90,
+										}, -- end of ["AddPropAircraft"]
+										["type"] = "UH-1H",
+										["Radio"] = 
+										{
+											[1] = 
+											{
+												["channelsNames"] = {},
+												["modulations"] = {},
+												["channels"] = 
+												{
+													[1] = 267,
+													[2] = 264,
+													[4] = 256,
+													[8] = 257,
+													[16] = 261,
+													[17] = 267,
+													[9] = 255,
+													[18] = 251,
+													[5] = 254,
+													[10] = 262,
+													[20] = 266,
+													[11] = 259,
+													[3] = 265,
+													[6] = 250,
+													[12] = 268,
+													[13] = 269,
+													[7] = 270,
+													[14] = 260,
+													[15] = 263,
+													[19] = 253,
+												}, -- end of ["channels"]
+											}, -- end of [1]
+										}, -- end of ["Radio"]
+										["unitId"] = 2,
+										["psi"] = 0,
+										["onboard_num"] = "011",
+										["parking_id"] = "02",
+										["x"] = -129437.25,
+										["name"] = "Test Helicopter-1",
+										["payload"] = 
+										{
+											["pylons"] = {},
+											["fuel"] = "631",
+											["flare"] = 60,
+											["chaff"] = 0,
+											["gun"] = 100,
+										}, -- end of ["payload"]
+										["y"] = 5364.3862304688,
+										["heading"] = 0,
+										["callsign"] = 
+										{
+											[1] = 2,
+											[2] = 1,
+											["name"] = "Springfield11",
+											[3] = 1,
+										}, -- end of ["callsign"]
+									}, -- end of [1]
+								}, -- end of ["units"]
+								["y"] = 5364.3862304688,
+								["x"] = -129437.25,
+								["name"] = "Test Helicopter",
+								["communication"] = true,
+								["start_time"] = 0,
+								["uncontrollable"] = false,
+								["frequency"] = 267,
+							}, -- end of [1]
+						}, -- end of ["group"]
+					}, -- end of ["helicopter"]
+					["name"] = "CJTF Blue",
+					["id"] = 80,
+					["plane"] = 
+					{
+						["group"] = 
+						{
+							[1] = 
+							{
+								["modulation"] = 0,
+								["tasks"] = {},
+								["radioSet"] = false,
+								["task"] = "CAS",
+								["uncontrolled"] = false,
+								["route"] = 
+								{
+									["points"] = 
+									{
+										[1] = 
+										{
+											["alt"] = 907,
+											["action"] = "From Parking Area Hot",
+											["alt_type"] = "BARO",
+											["properties"] = 
+											{
+												["addopt"] = {},
+											}, -- end of ["properties"]
+											["speed"] = 138.88888888889,
+											["task"] = 
+											{
+												["id"] = "ComboTask",
+												["params"] = 
+												{
+													["tasks"] = 
+													{
+														[1] = 
+														{
+															["enabled"] = true,
+															["key"] = "CAS",
+															["id"] = "EngageTargets",
+															["number"] = 1,
+															["auto"] = true,
+															["params"] = 
+															{
+																["targetTypes"] = 
+																{
+																	[1] = "Helicopters",
+																	[2] = "Ground Units",
+																	[3] = "Light armed ships",
+																}, -- end of ["targetTypes"]
+																["priority"] = 0,
+															}, -- end of ["params"]
+														}, -- end of [1]
+														[2] = 
+														{
+															["enabled"] = true,
+															["auto"] = true,
+															["id"] = "WrappedAction",
+															["number"] = 2,
+															["params"] = 
+															{
+																["action"] = 
+																{
+																	["id"] = "Option",
+																	["params"] = 
+																	{
+																		["value"] = 2,
+																		["name"] = 1,
+																	}, -- end of ["params"]
+																}, -- end of ["action"]
+															}, -- end of ["params"]
+														}, -- end of [2]
+														[3] = 
+														{
+															["enabled"] = true,
+															["auto"] = true,
+															["id"] = "WrappedAction",
+															["number"] = 3,
+															["params"] = 
+															{
+																["action"] = 
+																{
+																	["id"] = "Option",
+																	["params"] = 
+																	{
+																		["value"] = 1,
+																		["name"] = 3,
+																	}, -- end of ["params"]
+																}, -- end of ["action"]
+															}, -- end of ["params"]
+														}, -- end of [3]
+														[4] = 
+														{
+															["enabled"] = true,
+															["auto"] = true,
+															["id"] = "WrappedAction",
+															["number"] = 4,
+															["params"] = 
+															{
+																["action"] = 
+																{
+																	["id"] = "Option",
+																	["params"] = 
+																	{
+																		["variantIndex"] = 2,
+																		["name"] = 5,
+																		["formationIndex"] = 2,
+																		["value"] = 131074,
+																	}, -- end of ["params"]
+																}, -- end of ["action"]
+															}, -- end of ["params"]
+														}, -- end of [4]
+														[5] = 
+														{
+															["enabled"] = true,
+															["auto"] = true,
+															["id"] = "WrappedAction",
+															["number"] = 5,
+															["params"] = 
+															{
+																["action"] = 
+																{
+																	["id"] = "Option",
+																	["params"] = 
+																	{
+																		["value"] = true,
+																		["name"] = 15,
+																	}, -- end of ["params"]
+																}, -- end of ["action"]
+															}, -- end of ["params"]
+														}, -- end of [5]
+														[6] = 
+														{
+															["enabled"] = true,
+															["auto"] = true,
+															["id"] = "WrappedAction",
+															["number"] = 6,
+															["params"] = 
+															{
+																["action"] = 
+																{
+																	["id"] = "Option",
+																	["params"] = 
+																	{
+																		["targetTypes"] = {},
+																		["name"] = 21,
+																		["value"] = "none;",
+																		["noTargetTypes"] = 
+																		{
+																			[1] = "Fighters",
+																			[2] = "Multirole fighters",
+																			[3] = "Bombers",
+																			[4] = "Helicopters",
+																			[5] = "UAVs",
+																			[6] = "Infantry",
+																			[7] = "Fortifications",
+																			[8] = "Tanks",
+																			[9] = "IFV",
+																			[10] = "APC",
+																			[11] = "Artillery",
+																			[12] = "Unarmed vehicles",
+																			[13] = "AAA",
+																			[14] = "SR SAM",
+																			[15] = "MR SAM",
+																			[16] = "LR SAM",
+																			[17] = "Aircraft Carriers",
+																			[18] = "Cruisers",
+																			[19] = "Destroyers",
+																			[20] = "Frigates",
+																			[21] = "Corvettes",
+																			[22] = "Light armed ships",
+																			[23] = "Unarmed ships",
+																			[24] = "Submarines",
+																			[25] = "Cruise missiles",
+																			[26] = "Antiship Missiles",
+																			[27] = "AA Missiles",
+																			[28] = "AG Missiles",
+																			[29] = "SA Missiles",
+																		}, -- end of ["noTargetTypes"]
+																	}, -- end of ["params"]
+																}, -- end of ["action"]
+															}, -- end of ["params"]
+														}, -- end of [6]
+														[7] = 
+														{
+															["enabled"] = true,
+															["auto"] = true,
+															["id"] = "WrappedAction",
+															["number"] = 7,
+															["params"] = 
+															{
+																["action"] = 
+																{
+																	["id"] = "Option",
+																	["params"] = 
+																	{
+																		["value"] = true,
+																		["name"] = 19,
+																	}, -- end of ["params"]
+																}, -- end of ["action"]
+															}, -- end of ["params"]
+														}, -- end of [7]
+														[8] = 
+														{
+															["enabled"] = true,
+															["auto"] = true,
+															["id"] = "WrappedAction",
+															["number"] = 8,
+															["params"] = 
+															{
+																["action"] = 
+																{
+																	["id"] = "Option",
+																	["params"] = 
+																	{
+																		["value"] = true,
+																		["name"] = 35,
+																	}, -- end of ["params"]
+																}, -- end of ["action"]
+															}, -- end of ["params"]
+														}, -- end of [8]
+													}, -- end of ["tasks"]
+												}, -- end of ["params"]
+											}, -- end of ["task"]
+											["type"] = "TakeOffParkingHot",
+											["ETA"] = 0,
+											["ETA_locked"] = true,
+											["y"] = 5330.181085508,
+											["x"] = -129477.21884565,
+											["speed_locked"] = true,
+											["formation_template"] = "",
+											["airdromeId"] = 32,
+										}, -- end of [1]
+									}, -- end of ["points"]
+								}, -- end of ["route"]
+								["groupId"] = 1,
+								["hidden"] = false,
+								["units"] = 
+								{
+									[1] = 
+									{
+										["alt"] = 907,
+										["alt_type"] = "BARO",
+										["livery_id"] = "104th fs maryland ang, baltimore (md)",
+										["skill"] = "Client",
+										["parking"] = "13",
+										["speed"] = 138.88888888889,
+										["AddPropAircraft"] = {},
+										["type"] = "A-10A",
+										["unitId"] = 1,
+										["psi"] = 0,
+										["onboard_num"] = "010",
+										["parking_id"] = "01",
+										["x"] = -129477.21884565,
+										["name"] = "Test Aircraft-1",
+										["payload"] = 
+										{
+											["pylons"] = {},
+											["fuel"] = 5029,
+											["flare"] = 120,
+											["ammo_type"] = 1,
+											["chaff"] = 240,
+											["gun"] = 100,
+										}, -- end of ["payload"]
+										["y"] = 5330.181085508,
+										["heading"] = 0,
+										["callsign"] = 
+										{
+											[1] = 1,
+											[2] = 1,
+											["name"] = "Enfield11",
+											[3] = 1,
+										}, -- end of ["callsign"]
+									}, -- end of [1]
+								}, -- end of ["units"]
+								["y"] = 5330.181085508,
+								["x"] = -129477.21884565,
+								["name"] = "Test Aircraft",
+								["communication"] = true,
+								["start_time"] = 0,
+								["uncontrollable"] = false,
+								["frequency"] = 124,
+							}, -- end of [1]
+						}, -- end of ["group"]
+					}, -- end of ["plane"]
+				}, -- end of [1]
+			}, -- end of ["country"]
+		}, -- end of ["blue"]
+		["red"] = 
+		{
+			["bullseye"] = 
+			{
+				["y"] = 0,
+				["x"] = 0,
+			}, -- end of ["bullseye"]
+			["nav_points"] = {},
+			["name"] = "red",
+			["country"] = {},
+		}, -- end of ["red"]
+	}, -- end of ["coalition"]
+	["sortie"] = "DictKey_sortie_5",
+	["version"] = 23,
+	["trigrules"] = 
+	{
+		[1] = 
+		{
+			["rules"] = {},
+			["comment"] = "Start",
+			["eventlist"] = "",
+			["actions"] = 
+			{
+				[1] = 
+				{
+					["silent"] = true,
+					["object"] = 1,
+					["data"] = 
+					{
+						["type"] = "airdromeId",
+					}, -- end of ["data"]
+					["predicate"] = "a_set_ATC_silent_mode",
+				}, -- end of [1]
+				[2] = 
+				{
+					["silent"] = true,
+					["predicate"] = "a_set_ATC_silent_mode",
+					["object"] = 2,
+					["data"] = 
+					{
+						["type"] = "airdromeId",
+					}, -- end of ["data"]
+				}, -- end of [2]
+				[3] = 
+				{
+					["silent"] = true,
+					["data"] = 
+					{
+						["type"] = "airdromeId",
+					}, -- end of ["data"]
+					["predicate"] = "a_set_ATC_silent_mode",
+					["object"] = 3,
+				}, -- end of [3]
+				[4] = 
+				{
+					["silent"] = true,
+					["object"] = 4,
+					["data"] = 
+					{
+						["type"] = "airdromeId",
+					}, -- end of ["data"]
+					["predicate"] = "a_set_ATC_silent_mode",
+				}, -- end of [4]
+				[5] = 
+				{
+					["silent"] = true,
+					["predicate"] = "a_set_ATC_silent_mode",
+					["object"] = 5,
+					["data"] = 
+					{
+						["type"] = "airdromeId",
+					}, -- end of ["data"]
+				}, -- end of [5]
+				[6] = 
+				{
+					["silent"] = true,
+					["data"] = 
+					{
+						["type"] = "airdromeId",
+					}, -- end of ["data"]
+					["predicate"] = "a_set_ATC_silent_mode",
+					["object"] = 6,
+				}, -- end of [6]
+				[7] = 
+				{
+					["silent"] = true,
+					["object"] = 7,
+					["data"] = 
+					{
+						["type"] = "airdromeId",
+					}, -- end of ["data"]
+					["predicate"] = "a_set_ATC_silent_mode",
+				}, -- end of [7]
+				[8] = 
+				{
+					["silent"] = true,
+					["predicate"] = "a_set_ATC_silent_mode",
+					["object"] = 8,
+					["data"] = 
+					{
+						["type"] = "airdromeId",
+					}, -- end of ["data"]
+				}, -- end of [8]
+				[9] = 
+				{
+					["silent"] = true,
+					["data"] = 
+					{
+						["type"] = "airdromeId",
+					}, -- end of ["data"]
+					["predicate"] = "a_set_ATC_silent_mode",
+					["object"] = 9,
+				}, -- end of [9]
+				[10] = 
+				{
+					["silent"] = true,
+					["object"] = 10,
+					["data"] = 
+					{
+						["type"] = "airdromeId",
+					}, -- end of ["data"]
+					["predicate"] = "a_set_ATC_silent_mode",
+				}, -- end of [10]
+				[11] = 
+				{
+					["silent"] = true,
+					["predicate"] = "a_set_ATC_silent_mode",
+					["object"] = 11,
+					["data"] = 
+					{
+						["type"] = "airdromeId",
+					}, -- end of ["data"]
+				}, -- end of [11]
+				[12] = 
+				{
+					["silent"] = true,
+					["data"] = 
+					{
+						["type"] = "airdromeId",
+					}, -- end of ["data"]
+					["predicate"] = "a_set_ATC_silent_mode",
+					["object"] = 12,
+				}, -- end of [12]
+				[13] = 
+				{
+					["silent"] = true,
+					["object"] = 13,
+					["data"] = 
+					{
+						["type"] = "airdromeId",
+					}, -- end of ["data"]
+					["predicate"] = "a_set_ATC_silent_mode",
+				}, -- end of [13]
+				[14] = 
+				{
+					["silent"] = true,
+					["predicate"] = "a_set_ATC_silent_mode",
+					["object"] = 14,
+					["data"] = 
+					{
+						["type"] = "airdromeId",
+					}, -- end of ["data"]
+				}, -- end of [14]
+				[15] = 
+				{
+					["silent"] = true,
+					["data"] = 
+					{
+						["type"] = "airdromeId",
+					}, -- end of ["data"]
+					["predicate"] = "a_set_ATC_silent_mode",
+					["object"] = 15,
+				}, -- end of [15]
+				[16] = 
+				{
+					["silent"] = true,
+					["object"] = 16,
+					["data"] = 
+					{
+						["type"] = "airdromeId",
+					}, -- end of ["data"]
+					["predicate"] = "a_set_ATC_silent_mode",
+				}, -- end of [16]
+				[17] = 
+				{
+					["silent"] = true,
+					["predicate"] = "a_set_ATC_silent_mode",
+					["object"] = 17,
+					["data"] = 
+					{
+						["type"] = "airdromeId",
+					}, -- end of ["data"]
+				}, -- end of [17]
+				[18] = 
+				{
+					["silent"] = true,
+					["data"] = 
+					{
+						["type"] = "airdromeId",
+					}, -- end of ["data"]
+					["predicate"] = "a_set_ATC_silent_mode",
+					["object"] = 18,
+				}, -- end of [18]
+				[19] = 
+				{
+					["silent"] = true,
+					["object"] = 19,
+					["data"] = 
+					{
+						["type"] = "airdromeId",
+					}, -- end of ["data"]
+					["predicate"] = "a_set_ATC_silent_mode",
+				}, -- end of [19]
+				[20] = 
+				{
+					["silent"] = true,
+					["predicate"] = "a_set_ATC_silent_mode",
+					["object"] = 20,
+					["data"] = 
+					{
+						["type"] = "airdromeId",
+					}, -- end of ["data"]
+				}, -- end of [20]
+				[21] = 
+				{
+					["silent"] = true,
+					["data"] = 
+					{
+						["type"] = "airdromeId",
+					}, -- end of ["data"]
+					["predicate"] = "a_set_ATC_silent_mode",
+					["object"] = 21,
+				}, -- end of [21]
+				[22] = 
+				{
+					["silent"] = true,
+					["object"] = 22,
+					["data"] = 
+					{
+						["type"] = "airdromeId",
+					}, -- end of ["data"]
+					["predicate"] = "a_set_ATC_silent_mode",
+				}, -- end of [22]
+				[23] = 
+				{
+					["silent"] = true,
+					["predicate"] = "a_set_ATC_silent_mode",
+					["object"] = 23,
+					["data"] = 
+					{
+						["type"] = "airdromeId",
+					}, -- end of ["data"]
+				}, -- end of [23]
+				[24] = 
+				{
+					["silent"] = true,
+					["data"] = 
+					{
+						["type"] = "airdromeId",
+					}, -- end of ["data"]
+					["predicate"] = "a_set_ATC_silent_mode",
+					["object"] = 24,
+				}, -- end of [24]
+				[25] = 
+				{
+					["silent"] = true,
+					["object"] = 25,
+					["data"] = 
+					{
+						["type"] = "airdromeId",
+					}, -- end of ["data"]
+					["predicate"] = "a_set_ATC_silent_mode",
+				}, -- end of [25]
+				[26] = 
+				{
+					["silent"] = true,
+					["predicate"] = "a_set_ATC_silent_mode",
+					["object"] = 26,
+					["data"] = 
+					{
+						["type"] = "airdromeId",
+					}, -- end of ["data"]
+				}, -- end of [26]
+				[27] = 
+				{
+					["silent"] = true,
+					["data"] = 
+					{
+						["type"] = "airdromeId",
+					}, -- end of ["data"]
+					["predicate"] = "a_set_ATC_silent_mode",
+					["object"] = 27,
+				}, -- end of [27]
+				[28] = 
+				{
+					["silent"] = true,
+					["object"] = 28,
+					["data"] = 
+					{
+						["type"] = "airdromeId",
+					}, -- end of ["data"]
+					["predicate"] = "a_set_ATC_silent_mode",
+				}, -- end of [28]
+				[29] = 
+				{
+					["silent"] = true,
+					["predicate"] = "a_set_ATC_silent_mode",
+					["object"] = 29,
+					["data"] = 
+					{
+						["type"] = "airdromeId",
+					}, -- end of ["data"]
+				}, -- end of [29]
+				[30] = 
+				{
+					["silent"] = true,
+					["data"] = 
+					{
+						["type"] = "airdromeId",
+					}, -- end of ["data"]
+					["predicate"] = "a_set_ATC_silent_mode",
+					["object"] = 30,
+				}, -- end of [30]
+				[31] = 
+				{
+					["silent"] = true,
+					["object"] = 31,
+					["data"] = 
+					{
+						["type"] = "airdromeId",
+					}, -- end of ["data"]
+					["predicate"] = "a_set_ATC_silent_mode",
+				}, -- end of [31]
+				[32] = 
+				{
+					["silent"] = true,
+					["predicate"] = "a_set_ATC_silent_mode",
+					["object"] = 32,
+					["data"] = 
+					{
+						["type"] = "airdromeId",
+					}, -- end of ["data"]
+				}, -- end of [32]
+				[33] = 
+				{
+					["silent"] = true,
+					["data"] = 
+					{
+						["type"] = "airdromeId",
+					}, -- end of ["data"]
+					["predicate"] = "a_set_ATC_silent_mode",
+					["object"] = 33,
+				}, -- end of [33]
+				[34] = 
+				{
+					["silent"] = true,
+					["object"] = 35,
+					["data"] = 
+					{
+						["type"] = "airdromeId",
+					}, -- end of ["data"]
+					["predicate"] = "a_set_ATC_silent_mode",
+				}, -- end of [34]
+				[35] = 
+				{
+					["silent"] = true,
+					["predicate"] = "a_set_ATC_silent_mode",
+					["object"] = 36,
+					["data"] = 
+					{
+						["type"] = "airdromeId",
+					}, -- end of ["data"]
+				}, -- end of [35]
+				[36] = 
+				{
+					["silent"] = true,
+					["data"] = 
+					{
+						["type"] = "airdromeId",
+					}, -- end of ["data"]
+					["predicate"] = "a_set_ATC_silent_mode",
+					["object"] = 37,
+				}, -- end of [36]
+				[37] = 
+				{
+					["silent"] = true,
+					["object"] = 38,
+					["data"] = 
+					{
+						["type"] = "airdromeId",
+					}, -- end of ["data"]
+					["predicate"] = "a_set_ATC_silent_mode",
+				}, -- end of [37]
+				[38] = 
+				{
+					["silent"] = true,
+					["predicate"] = "a_set_ATC_silent_mode",
+					["object"] = 39,
+					["data"] = 
+					{
+						["type"] = "airdromeId",
+					}, -- end of ["data"]
+				}, -- end of [38]
+				[39] = 
+				{
+					["silent"] = true,
+					["data"] = 
+					{
+						["type"] = "airdromeId",
+					}, -- end of ["data"]
+					["predicate"] = "a_set_ATC_silent_mode",
+					["object"] = 40,
+				}, -- end of [39]
+				[40] = 
+				{
+					["silent"] = true,
+					["object"] = 41,
+					["data"] = 
+					{
+						["type"] = "airdromeId",
+					}, -- end of ["data"]
+					["predicate"] = "a_set_ATC_silent_mode",
+				}, -- end of [40]
+				[41] = 
+				{
+					["silent"] = true,
+					["predicate"] = "a_set_ATC_silent_mode",
+					["object"] = 42,
+					["data"] = 
+					{
+						["type"] = "airdromeId",
+					}, -- end of ["data"]
+				}, -- end of [41]
+				[42] = 
+				{
+					["silent"] = true,
+					["data"] = 
+					{
+						["type"] = "airdromeId",
+					}, -- end of ["data"]
+					["predicate"] = "a_set_ATC_silent_mode",
+					["object"] = 44,
+				}, -- end of [42]
+				[43] = 
+				{
+					["silent"] = true,
+					["object"] = 45,
+					["data"] = 
+					{
+						["type"] = "airdromeId",
+					}, -- end of ["data"]
+					["predicate"] = "a_set_ATC_silent_mode",
+				}, -- end of [43]
+				[44] = 
+				{
+					["silent"] = true,
+					["predicate"] = "a_set_ATC_silent_mode",
+					["object"] = 46,
+					["data"] = 
+					{
+						["type"] = "airdromeId",
+					}, -- end of ["data"]
+				}, -- end of [44]
+				[45] = 
+				{
+					["silent"] = true,
+					["data"] = 
+					{
+						["type"] = "airdromeId",
+					}, -- end of ["data"]
+					["predicate"] = "a_set_ATC_silent_mode",
+					["object"] = 47,
+				}, -- end of [45]
+				[46] = 
+				{
+					["silent"] = true,
+					["object"] = 48,
+					["data"] = 
+					{
+						["type"] = "airdromeId",
+					}, -- end of ["data"]
+					["predicate"] = "a_set_ATC_silent_mode",
+				}, -- end of [46]
+				[47] = 
+				{
+					["silent"] = true,
+					["predicate"] = "a_set_ATC_silent_mode",
+					["object"] = 49,
+					["data"] = 
+					{
+						["type"] = "airdromeId",
+					}, -- end of ["data"]
+				}, -- end of [47]
+				[48] = 
+				{
+					["silent"] = true,
+					["data"] = 
+					{
+						["type"] = "airdromeId",
+					}, -- end of ["data"]
+					["predicate"] = "a_set_ATC_silent_mode",
+					["object"] = 50,
+				}, -- end of [48]
+				[49] = 
+				{
+					["silent"] = true,
+					["object"] = 51,
+					["data"] = 
+					{
+						["type"] = "airdromeId",
+					}, -- end of ["data"]
+					["predicate"] = "a_set_ATC_silent_mode",
+				}, -- end of [49]
+				[50] = 
+				{
+					["silent"] = true,
+					["predicate"] = "a_set_ATC_silent_mode",
+					["object"] = 52,
+					["data"] = 
+					{
+						["type"] = "airdromeId",
+					}, -- end of ["data"]
+				}, -- end of [50]
+				[51] = 
+				{
+					["silent"] = true,
+					["data"] = 
+					{
+						["type"] = "airdromeId",
+					}, -- end of ["data"]
+					["predicate"] = "a_set_ATC_silent_mode",
+					["object"] = 53,
+				}, -- end of [51]
+				[52] = 
+				{
+					["silent"] = true,
+					["object"] = 54,
+					["data"] = 
+					{
+						["type"] = "airdromeId",
+					}, -- end of ["data"]
+					["predicate"] = "a_set_ATC_silent_mode",
+				}, -- end of [52]
+				[53] = 
+				{
+					["silent"] = true,
+					["predicate"] = "a_set_ATC_silent_mode",
+					["object"] = 55,
+					["data"] = 
+					{
+						["type"] = "airdromeId",
+					}, -- end of ["data"]
+				}, -- end of [53]
+				[54] = 
+				{
+					["silent"] = true,
+					["data"] = 
+					{
+						["type"] = "airdromeId",
+					}, -- end of ["data"]
+					["predicate"] = "a_set_ATC_silent_mode",
+					["object"] = 57,
+				}, -- end of [54]
+				[55] = 
+				{
+					["silent"] = true,
+					["object"] = 58,
+					["data"] = 
+					{
+						["type"] = "airdromeId",
+					}, -- end of ["data"]
+					["predicate"] = "a_set_ATC_silent_mode",
+				}, -- end of [55]
+				[56] = 
+				{
+					["silent"] = true,
+					["predicate"] = "a_set_ATC_silent_mode",
+					["object"] = 59,
+					["data"] = 
+					{
+						["type"] = "airdromeId",
+					}, -- end of ["data"]
+				}, -- end of [56]
+				[57] = 
+				{
+					["silent"] = true,
+					["data"] = 
+					{
+						["type"] = "airdromeId",
+					}, -- end of ["data"]
+					["predicate"] = "a_set_ATC_silent_mode",
+					["object"] = 60,
+				}, -- end of [57]
+				[58] = 
+				{
+					["silent"] = true,
+					["object"] = 63,
+					["data"] = 
+					{
+						["type"] = "airdromeId",
+					}, -- end of ["data"]
+					["predicate"] = "a_set_ATC_silent_mode",
+				}, -- end of [58]
+				[59] = 
+				{
+					["silent"] = true,
+					["predicate"] = "a_set_ATC_silent_mode",
+					["object"] = 64,
+					["data"] = 
+					{
+						["type"] = "airdromeId",
+					}, -- end of ["data"]
+				}, -- end of [59]
+				[60] = 
+				{
+					["silent"] = true,
+					["data"] = 
+					{
+						["type"] = "airdromeId",
+					}, -- end of ["data"]
+					["predicate"] = "a_set_ATC_silent_mode",
+					["object"] = 65,
+				}, -- end of [60]
+				[61] = 
+				{
+					["silent"] = true,
+					["object"] = 66,
+					["data"] = 
+					{
+						["type"] = "airdromeId",
+					}, -- end of ["data"]
+					["predicate"] = "a_set_ATC_silent_mode",
+				}, -- end of [61]
+				[62] = 
+				{
+					["silent"] = true,
+					["predicate"] = "a_set_ATC_silent_mode",
+					["object"] = 67,
+					["data"] = 
+					{
+						["type"] = "airdromeId",
+					}, -- end of ["data"]
+				}, -- end of [62]
+				[63] = 
+				{
+					["silent"] = true,
+					["data"] = 
+					{
+						["type"] = "airdromeId",
+					}, -- end of ["data"]
+					["predicate"] = "a_set_ATC_silent_mode",
+					["object"] = 68,
+				}, -- end of [63]
+				[64] = 
+				{
+					["silent"] = true,
+					["object"] = 220,
+					["data"] = 
+					{
+						["type"] = "airdromeId",
+					}, -- end of ["data"]
+					["predicate"] = "a_set_ATC_silent_mode",
+				}, -- end of [64]
+				[65] = 
+				{
+					["silent"] = true,
+					["predicate"] = "a_set_ATC_silent_mode",
+					["object"] = 221,
+					["data"] = 
+					{
+						["type"] = "airdromeId",
+					}, -- end of ["data"]
+				}, -- end of [65]
+				[66] = 
+				{
+					["silent"] = true,
+					["data"] = 
+					{
+						["type"] = "airdromeId",
+					}, -- end of ["data"]
+					["predicate"] = "a_set_ATC_silent_mode",
+					["object"] = 222,
+				}, -- end of [66]
+				[67] = 
+				{
+					["silent"] = true,
+					["object"] = 223,
+					["data"] = 
+					{
+						["type"] = "airdromeId",
+					}, -- end of ["data"]
+					["predicate"] = "a_set_ATC_silent_mode",
+				}, -- end of [67]
+			}, -- end of ["actions"]
+			["predicate"] = "triggerStart",
+		}, -- end of [1]
+	}, -- end of ["trigrules"]
+	["currentKey"] = 226,
+	["failures"] = 
+	{
+		["LANDING_LIGHTS_FAILURE"] = 
+		{
+			["hh"] = 0,
+			["prob"] = 100,
+			["enable"] = false,
+			["mmint"] = 1,
+			["id"] = "LANDING_LIGHTS_FAILURE",
+			["mm"] = 0,
+		}, -- end of ["LANDING_LIGHTS_FAILURE"]
+		["DMT_FAILURE_TOTAL"] = 
+		{
+			["hh"] = 0,
+			["prob"] = 100,
+			["enable"] = false,
+			["mmint"] = 1,
+			["id"] = "DMT_FAILURE_TOTAL",
+			["mm"] = 0,
+		}, -- end of ["DMT_FAILURE_TOTAL"]
+		["right_front_leaks"] = 
+		{
+			["hh"] = 0,
+			["prob"] = 100,
+			["enable"] = false,
+			["mmint"] = 1,
+			["id"] = "right_front_leaks",
+			["mm"] = 0,
+		}, -- end of ["right_front_leaks"]
+		["equip_temp_fail"] = 
+		{
+			["hh"] = 0,
+			["prob"] = 100,
+			["enable"] = false,
+			["mmint"] = 1,
+			["id"] = "equip_temp_fail",
+			["mm"] = 0,
+		}, -- end of ["equip_temp_fail"]
+		["helmet"] = 
+		{
+			["hh"] = 0,
+			["prob"] = 100,
+			["enable"] = false,
+			["mmint"] = 1,
+			["id"] = "helmet",
+			["mm"] = 0,
+		}, -- end of ["helmet"]
+		["broken_guards"] = 
+		{
+			["hh"] = 0,
+			["prob"] = 100,
+			["enable"] = false,
+			["mmint"] = 1,
+			["id"] = "broken_guards",
+			["mm"] = 0,
+		}, -- end of ["broken_guards"]
+		["Failure_Gear_NWS"] = 
+		{
+			["hh"] = 0,
+			["prob"] = 100,
+			["enable"] = false,
+			["mmint"] = 1,
+			["id"] = "Failure_Gear_NWS",
+			["mm"] = 0,
+		}, -- end of ["Failure_Gear_NWS"]
+		["Failure_Comp_ADC"] = 
+		{
+			["hh"] = 0,
+			["prob"] = 100,
+			["enable"] = false,
+			["mmint"] = 1,
+			["id"] = "Failure_Comp_ADC",
+			["mm"] = 0,
+		}, -- end of ["Failure_Comp_ADC"]
+		["rws"] = 
+		{
+			["hh"] = 0,
+			["prob"] = 100,
+			["enable"] = false,
+			["mmint"] = 1,
+			["id"] = "rws",
+			["mm"] = 0,
+		}, -- end of ["rws"]
+		["Failure_Ctrl_FCS_Ch1"] = 
+		{
+			["hh"] = 0,
+			["prob"] = 100,
+			["enable"] = false,
+			["mmint"] = 1,
+			["id"] = "Failure_Ctrl_FCS_Ch1",
+			["mm"] = 0,
+		}, -- end of ["Failure_Ctrl_FCS_Ch1"]
+		["hsf_Utility_LowLeakage"] = 
+		{
+			["hh"] = 0,
+			["prob"] = 100,
+			["enable"] = false,
+			["mmint"] = 1,
+			["id"] = "hsf_Utility_LowLeakage",
+			["mm"] = 0,
+		}, -- end of ["hsf_Utility_LowLeakage"]
+		["eos"] = 
+		{
+			["hh"] = 0,
+			["prob"] = 100,
+			["enable"] = false,
+			["mmint"] = 1,
+			["id"] = "eos",
+			["mm"] = 0,
+		}, -- end of ["eos"]
+		["WEAP_GUN_02_AMMO_BELT_SEVERED"] = 
+		{
+			["hh"] = 0,
+			["prob"] = 100,
+			["enable"] = false,
+			["mmint"] = 1,
+			["id"] = "WEAP_GUN_02_AMMO_BELT_SEVERED",
+			["mm"] = 0,
+		}, -- end of ["WEAP_GUN_02_AMMO_BELT_SEVERED"]
+		["VHF_VT207_DEFECTIVE"] = 
+		{
+			["hh"] = 0,
+			["prob"] = 100,
+			["enable"] = false,
+			["mmint"] = 1,
+			["id"] = "VHF_VT207_DEFECTIVE",
+			["mm"] = 0,
+		}, -- end of ["VHF_VT207_DEFECTIVE"]
+		["partial_comp_stall"] = 
+		{
+			["hh"] = 0,
+			["prob"] = 100,
+			["enable"] = false,
+			["mmint"] = 1,
+			["id"] = "partial_comp_stall",
+			["mm"] = 0,
+		}, -- end of ["partial_comp_stall"]
+		["right_wing_transfer_fail"] = 
+		{
+			["hh"] = 0,
+			["prob"] = 100,
+			["enable"] = false,
+			["mmint"] = 1,
+			["id"] = "right_wing_transfer_fail",
+			["mm"] = 0,
+		}, -- end of ["right_wing_transfer_fail"]
+		["APU_Fire"] = 
+		{
+			["hh"] = 0,
+			["prob"] = 100,
+			["enable"] = false,
+			["mmint"] = 1,
+			["id"] = "APU_Fire",
+			["mm"] = 0,
+		}, -- end of ["APU_Fire"]
+		["mach_chain_fail"] = 
+		{
+			["hh"] = 0,
+			["prob"] = 100,
+			["enable"] = false,
+			["mmint"] = 1,
+			["id"] = "mach_chain_fail",
+			["mm"] = 0,
+		}, -- end of ["mach_chain_fail"]
+		["fsf_CrossfeedValve"] = 
+		{
+			["hh"] = 0,
+			["prob"] = 100,
+			["enable"] = false,
+			["mmint"] = 1,
+			["id"] = "fsf_CrossfeedValve",
+			["mm"] = 0,
+		}, -- end of ["fsf_CrossfeedValve"]
+		["Failure_Fuel_ExtTankTransferL"] = 
+		{
+			["hh"] = 0,
+			["prob"] = 100,
+			["enable"] = false,
+			["mmint"] = 1,
+			["id"] = "Failure_Fuel_ExtTankTransferL",
+			["mm"] = 0,
+		}, -- end of ["Failure_Fuel_ExtTankTransferL"]
+		["sensf_CADC"] = 
+		{
+			["hh"] = 0,
+			["prob"] = 100,
+			["enable"] = false,
+			["mmint"] = 1,
+			["id"] = "sensf_CADC",
+			["mm"] = 0,
+		}, -- end of ["sensf_CADC"]
+		["sensf_PITOT_DAMAGE"] = 
+		{
+			["hh"] = 0,
+			["prob"] = 100,
+			["enable"] = false,
+			["mmint"] = 1,
+			["id"] = "sensf_PITOT_DAMAGE",
+			["mm"] = 0,
+		}, -- end of ["sensf_PITOT_DAMAGE"]
+		["hydro"] = 
+		{
+			["hh"] = 0,
+			["prob"] = 100,
+			["enable"] = false,
+			["mmint"] = 1,
+			["id"] = "hydro",
+			["mm"] = 0,
+		}, -- end of ["hydro"]
+		["INS_FAILURE_VELOCITY"] = 
+		{
+			["hh"] = 0,
+			["prob"] = 100,
+			["enable"] = false,
+			["mmint"] = 1,
+			["id"] = "INS_FAILURE_VELOCITY",
+			["mm"] = 0,
+		}, -- end of ["INS_FAILURE_VELOCITY"]
+		["detotalizer_fail"] = 
+		{
+			["hh"] = 0,
+			["prob"] = 100,
+			["enable"] = false,
+			["mmint"] = 1,
+			["id"] = "detotalizer_fail",
+			["mm"] = 0,
+		}, -- end of ["detotalizer_fail"]
+		["left_fuel_pump_fail"] = 
+		{
+			["hh"] = 0,
+			["prob"] = 100,
+			["enable"] = false,
+			["mmint"] = 1,
+			["id"] = "left_fuel_pump_fail",
+			["mm"] = 0,
+		}, -- end of ["left_fuel_pump_fail"]
+		["pitot_heat_fail"] = 
+		{
+			["hh"] = 0,
+			["prob"] = 100,
+			["enable"] = false,
+			["mmint"] = 1,
+			["id"] = "pitot_heat_fail",
+			["mm"] = 0,
+		}, -- end of ["pitot_heat_fail"]
+		["LeftEngine_Fire"] = 
+		{
+			["hh"] = 0,
+			["prob"] = 100,
+			["enable"] = false,
+			["mmint"] = 1,
+			["id"] = "LeftEngine_Fire",
+			["mm"] = 0,
+		}, -- end of ["LeftEngine_Fire"]
+		["Failure_Sens_LeftPitotHeater"] = 
+		{
+			["hh"] = 0,
+			["prob"] = 100,
+			["enable"] = false,
+			["mmint"] = 1,
+			["id"] = "Failure_Sens_LeftPitotHeater",
+			["mm"] = 0,
+		}, -- end of ["Failure_Sens_LeftPitotHeater"]
+		["ARBS_FAILURE_TOTAL"] = 
+		{
+			["hh"] = 0,
+			["prob"] = 100,
+			["enable"] = false,
+			["mmint"] = 1,
+			["id"] = "ARBS_FAILURE_TOTAL",
+			["mm"] = 0,
+		}, -- end of ["ARBS_FAILURE_TOTAL"]
+		["slats_stuck"] = 
+		{
+			["hh"] = 0,
+			["prob"] = 100,
+			["enable"] = false,
+			["mmint"] = 1,
+			["id"] = "slats_stuck",
+			["mm"] = 0,
+		}, -- end of ["slats_stuck"]
+		["anemo_central_fail"] = 
+		{
+			["hh"] = 0,
+			["prob"] = 100,
+			["enable"] = false,
+			["mmint"] = 1,
+			["id"] = "anemo_central_fail",
+			["mm"] = 0,
+		}, -- end of ["anemo_central_fail"]
+		["WEAP_GUN_01_DAMAGED"] = 
+		{
+			["hh"] = 0,
+			["prob"] = 100,
+			["enable"] = false,
+			["mmint"] = 1,
+			["id"] = "WEAP_GUN_01_DAMAGED",
+			["mm"] = 0,
+		}, -- end of ["WEAP_GUN_01_DAMAGED"]
+		["alt1_fail"] = 
+		{
+			["hh"] = 0,
+			["prob"] = 100,
+			["enable"] = false,
+			["mmint"] = 1,
+			["id"] = "alt1_fail",
+			["mm"] = 0,
+		}, -- end of ["alt1_fail"]
+		["WEAP_GUN_04_AMMO_BELT_SEVERED"] = 
+		{
+			["hh"] = 0,
+			["prob"] = 100,
+			["enable"] = false,
+			["mmint"] = 1,
+			["id"] = "WEAP_GUN_04_AMMO_BELT_SEVERED",
+			["mm"] = 0,
+		}, -- end of ["WEAP_GUN_04_AMMO_BELT_SEVERED"]
+		["Failure_ECS_OBOGS"] = 
+		{
+			["hh"] = 0,
+			["prob"] = 100,
+			["enable"] = false,
+			["mmint"] = 1,
+			["id"] = "Failure_ECS_OBOGS",
+			["mm"] = 0,
+		}, -- end of ["Failure_ECS_OBOGS"]
+		["right_wing_leaks"] = 
+		{
+			["hh"] = 0,
+			["prob"] = 100,
+			["enable"] = false,
+			["mmint"] = 1,
+			["id"] = "right_wing_leaks",
+			["mm"] = 0,
+		}, -- end of ["right_wing_leaks"]
+		["flap_right_stuck"] = 
+		{
+			["hh"] = 0,
+			["prob"] = 100,
+			["enable"] = false,
+			["mmint"] = 1,
+			["id"] = "flap_right_stuck",
+			["mm"] = 0,
+		}, -- end of ["flap_right_stuck"]
+		["Failure_Elec_LeftTransformerRectifier"] = 
+		{
+			["hh"] = 0,
+			["prob"] = 100,
+			["enable"] = false,
+			["mmint"] = 1,
+			["id"] = "Failure_Elec_LeftTransformerRectifier",
+			["mm"] = 0,
+		}, -- end of ["Failure_Elec_LeftTransformerRectifier"]
+		["total_comp_stall"] = 
+		{
+			["hh"] = 0,
+			["prob"] = 100,
+			["enable"] = false,
+			["mmint"] = 1,
+			["id"] = "total_comp_stall",
+			["mm"] = 0,
+		}, -- end of ["total_comp_stall"]
+		["Failure_Elec_RightGenerator"] = 
+		{
+			["hh"] = 0,
+			["prob"] = 100,
+			["enable"] = false,
+			["mmint"] = 1,
+			["id"] = "Failure_Elec_RightGenerator",
+			["mm"] = 0,
+		}, -- end of ["Failure_Elec_RightGenerator"]
+		["gear_right_stuck"] = 
+		{
+			["hh"] = 0,
+			["prob"] = 100,
+			["enable"] = false,
+			["mmint"] = 1,
+			["id"] = "gear_right_stuck",
+			["mm"] = 0,
+		}, -- end of ["gear_right_stuck"]
+		["ppf_LeftNozzleControl"] = 
+		{
+			["hh"] = 0,
+			["prob"] = 100,
+			["enable"] = false,
+			["mmint"] = 1,
+			["id"] = "ppf_LeftNozzleControl",
+			["mm"] = 0,
+		}, -- end of ["ppf_LeftNozzleControl"]
+		["Failure_PP_EngR_Nozzle_CS"] = 
+		{
+			["hh"] = 0,
+			["prob"] = 100,
+			["enable"] = false,
+			["mmint"] = 1,
+			["id"] = "Failure_PP_EngR_Nozzle_CS",
+			["mm"] = 0,
+		}, -- end of ["Failure_PP_EngR_Nozzle_CS"]
+		["miss_bus_fail"] = 
+		{
+			["hh"] = 0,
+			["prob"] = 100,
+			["enable"] = false,
+			["mmint"] = 1,
+			["id"] = "miss_bus_fail",
+			["mm"] = 0,
+		}, -- end of ["miss_bus_fail"]
+		["gear_down_lock_fail"] = 
+		{
+			["hh"] = 0,
+			["prob"] = 100,
+			["enable"] = false,
+			["mmint"] = 1,
+			["id"] = "gear_down_lock_fail",
+			["mm"] = 0,
+		}, -- end of ["gear_down_lock_fail"]
+		["yaw_damper_fail"] = 
+		{
+			["hh"] = 0,
+			["prob"] = 100,
+			["enable"] = false,
+			["mmint"] = 1,
+			["id"] = "yaw_damper_fail",
+			["mm"] = 0,
+		}, -- end of ["yaw_damper_fail"]
+		["Failure_Fuel_ExtTankTransferR"] = 
+		{
+			["hh"] = 0,
+			["prob"] = 100,
+			["enable"] = false,
+			["mmint"] = 1,
+			["id"] = "Failure_Fuel_ExtTankTransferR",
+			["mm"] = 0,
+		}, -- end of ["Failure_Fuel_ExtTankTransferR"]
+		["left_airbrake_fail"] = 
+		{
+			["hh"] = 0,
+			["prob"] = 100,
+			["enable"] = false,
+			["mmint"] = 1,
+			["id"] = "left_airbrake_fail",
+			["mm"] = 0,
+		}, -- end of ["left_airbrake_fail"]
+		["INST_TACH0_RESISTANCE_MISMATCH"] = 
+		{
+			["hh"] = 0,
+			["prob"] = 100,
+			["enable"] = false,
+			["mmint"] = 1,
+			["id"] = "INST_TACH0_RESISTANCE_MISMATCH",
+			["mm"] = 0,
+		}, -- end of ["INST_TACH0_RESISTANCE_MISMATCH"]
+		["CTRL_LANDING_FLAPS_LH_HOSE"] = 
+		{
+			["hh"] = 0,
+			["prob"] = 100,
+			["enable"] = false,
+			["mmint"] = 1,
+			["id"] = "CTRL_LANDING_FLAPS_LH_HOSE",
+			["mm"] = 0,
+		}, -- end of ["CTRL_LANDING_FLAPS_LH_HOSE"]
+		["hydr_serv_leaks"] = 
+		{
+			["hh"] = 0,
+			["prob"] = 100,
+			["enable"] = false,
+			["mmint"] = 1,
+			["id"] = "hydr_serv_leaks",
+			["mm"] = 0,
+		}, -- end of ["hydr_serv_leaks"]
+		["external_tanks_transfer_fail"] = 
+		{
+			["hh"] = 0,
+			["prob"] = 100,
+			["enable"] = false,
+			["mmint"] = 1,
+			["id"] = "external_tanks_transfer_fail",
+			["mm"] = 0,
+		}, -- end of ["external_tanks_transfer_fail"]
+		["pilot_aids_1_fail"] = 
+		{
+			["hh"] = 0,
+			["prob"] = 100,
+			["enable"] = false,
+			["mmint"] = 1,
+			["id"] = "pilot_aids_1_fail",
+			["mm"] = 0,
+		}, -- end of ["pilot_aids_1_fail"]
+		["COM2_FAILURE_TOTAL"] = 
+		{
+			["hh"] = 0,
+			["prob"] = 100,
+			["enable"] = false,
+			["mmint"] = 1,
+			["id"] = "COM2_FAILURE_TOTAL",
+			["mm"] = 0,
+		}, -- end of ["COM2_FAILURE_TOTAL"]
+		["hsf_Flight_LowLeakage"] = 
+		{
+			["hh"] = 0,
+			["prob"] = 100,
+			["enable"] = false,
+			["mmint"] = 1,
+			["id"] = "hsf_Flight_LowLeakage",
+			["mm"] = 0,
+		}, -- end of ["hsf_Flight_LowLeakage"]
+		["Failure_Sens_RightPitotHeater"] = 
+		{
+			["hh"] = 0,
+			["prob"] = 100,
+			["enable"] = false,
+			["mmint"] = 1,
+			["id"] = "Failure_Sens_RightPitotHeater",
+			["mm"] = 0,
+		}, -- end of ["Failure_Sens_RightPitotHeater"]
+		["ppf_FireRight"] = 
+		{
+			["hh"] = 0,
+			["prob"] = 100,
+			["enable"] = false,
+			["mmint"] = 1,
+			["id"] = "ppf_FireRight",
+			["mm"] = 0,
+		}, -- end of ["ppf_FireRight"]
+		["left_wing_leaks"] = 
+		{
+			["hh"] = 0,
+			["prob"] = 100,
+			["enable"] = false,
+			["mmint"] = 1,
+			["id"] = "left_wing_leaks",
+			["mm"] = 0,
+		}, -- end of ["left_wing_leaks"]
+		["hydr1_leaks"] = 
+		{
+			["hh"] = 0,
+			["prob"] = 100,
+			["enable"] = false,
+			["mmint"] = 1,
+			["id"] = "hydr1_leaks",
+			["mm"] = 0,
+		}, -- end of ["hydr1_leaks"]
+		["CTRL_LANDING_FLAPS_RH_HOSE"] = 
+		{
+			["hh"] = 0,
+			["prob"] = 100,
+			["enable"] = false,
+			["mmint"] = 1,
+			["id"] = "CTRL_LANDING_FLAPS_RH_HOSE",
+			["mm"] = 0,
+		}, -- end of ["CTRL_LANDING_FLAPS_RH_HOSE"]
+		["Failure_Elec_LeftGenerator"] = 
+		{
+			["hh"] = 0,
+			["prob"] = 100,
+			["enable"] = false,
+			["mmint"] = 1,
+			["id"] = "Failure_Elec_LeftGenerator",
+			["mm"] = 0,
+		}, -- end of ["Failure_Elec_LeftGenerator"]
+		["INST_TACH1_LOOM_SEVERED"] = 
+		{
+			["hh"] = 0,
+			["prob"] = 100,
+			["enable"] = false,
+			["mmint"] = 1,
+			["id"] = "INST_TACH1_LOOM_SEVERED",
+			["mm"] = 0,
+		}, -- end of ["INST_TACH1_LOOM_SEVERED"]
+		["WEAP_GUN_05_DAMAGED"] = 
+		{
+			["hh"] = 0,
+			["prob"] = 100,
+			["enable"] = false,
+			["mmint"] = 1,
+			["id"] = "WEAP_GUN_05_DAMAGED",
+			["mm"] = 0,
+		}, -- end of ["WEAP_GUN_05_DAMAGED"]
+		["right_feeder_leaks"] = 
+		{
+			["hh"] = 0,
+			["prob"] = 100,
+			["enable"] = false,
+			["mmint"] = 1,
+			["id"] = "right_feeder_leaks",
+			["mm"] = 0,
+		}, -- end of ["right_feeder_leaks"]
+		["INST_TACH1_POOR_CONNECTION"] = 
+		{
+			["hh"] = 0,
+			["prob"] = 100,
+			["enable"] = false,
+			["mmint"] = 1,
+			["id"] = "INST_TACH1_POOR_CONNECTION",
+			["mm"] = 0,
+		}, -- end of ["INST_TACH1_POOR_CONNECTION"]
+		["Failure_PP_EngR_AB_FFCS"] = 
+		{
+			["hh"] = 0,
+			["prob"] = 100,
+			["enable"] = false,
+			["mmint"] = 1,
+			["id"] = "Failure_PP_EngR_AB_FFCS",
+			["mm"] = 0,
+		}, -- end of ["Failure_PP_EngR_AB_FFCS"]
+		["gear_nose_stuck"] = 
+		{
+			["hh"] = 0,
+			["prob"] = 100,
+			["enable"] = false,
+			["mmint"] = 1,
+			["id"] = "gear_nose_stuck",
+			["mm"] = 0,
+		}, -- end of ["gear_nose_stuck"]
+		["autopilot"] = 
+		{
+			["hh"] = 0,
+			["prob"] = 100,
+			["enable"] = false,
+			["mmint"] = 1,
+			["id"] = "autopilot",
+			["mm"] = 0,
+		}, -- end of ["autopilot"]
+		["Failure_PP_LeftAMAD_OilLeak"] = 
+		{
+			["hh"] = 0,
+			["prob"] = 100,
+			["enable"] = false,
+			["mmint"] = 1,
+			["id"] = "Failure_PP_LeftAMAD_OilLeak",
+			["mm"] = 0,
+		}, -- end of ["Failure_PP_LeftAMAD_OilLeak"]
+		["STATION_6_FAILURE"] = 
+		{
+			["hh"] = 0,
+			["prob"] = 100,
+			["enable"] = false,
+			["mmint"] = 1,
+			["id"] = "STATION_6_FAILURE",
+			["mm"] = 0,
+		}, -- end of ["STATION_6_FAILURE"]
+		["ppf_RightOil"] = 
+		{
+			["hh"] = 0,
+			["prob"] = 100,
+			["enable"] = false,
+			["mmint"] = 1,
+			["id"] = "ppf_RightOil",
+			["mm"] = 0,
+		}, -- end of ["ppf_RightOil"]
+		["altitude_chain_fail"] = 
+		{
+			["hh"] = 0,
+			["prob"] = 100,
+			["enable"] = false,
+			["mmint"] = 1,
+			["id"] = "altitude_chain_fail",
+			["mm"] = 0,
+		}, -- end of ["altitude_chain_fail"]
+		["RADAR_FAILURE_TOTAL"] = 
+		{
+			["hh"] = 0,
+			["prob"] = 100,
+			["enable"] = false,
+			["mmint"] = 1,
+			["id"] = "RADAR_FAILURE_TOTAL",
+			["mm"] = 0,
+		}, -- end of ["RADAR_FAILURE_TOTAL"]
+		["Failure_ECS_Valve"] = 
+		{
+			["hh"] = 0,
+			["prob"] = 100,
+			["enable"] = false,
+			["mmint"] = 1,
+			["id"] = "Failure_ECS_Valve",
+			["mm"] = 0,
+		}, -- end of ["Failure_ECS_Valve"]
+		["Failure_Ctrl_FCS_Ch2"] = 
+		{
+			["hh"] = 0,
+			["prob"] = 100,
+			["enable"] = false,
+			["mmint"] = 1,
+			["id"] = "Failure_Ctrl_FCS_Ch2",
+			["mm"] = 0,
+		}, -- end of ["Failure_Ctrl_FCS_Ch2"]
+		["ppf_LeftGearbox"] = 
+		{
+			["hh"] = 0,
+			["prob"] = 100,
+			["enable"] = false,
+			["mmint"] = 1,
+			["id"] = "ppf_LeftGearbox",
+			["mm"] = 0,
+		}, -- end of ["ppf_LeftGearbox"]
+		["left_front_leaks"] = 
+		{
+			["hh"] = 0,
+			["prob"] = 100,
+			["enable"] = false,
+			["mmint"] = 1,
+			["id"] = "left_front_leaks",
+			["mm"] = 0,
+		}, -- end of ["left_front_leaks"]
+		["ppf_RightNozzleControl"] = 
+		{
+			["hh"] = 0,
+			["prob"] = 100,
+			["enable"] = false,
+			["mmint"] = 1,
+			["id"] = "ppf_RightNozzleControl",
+			["mm"] = 0,
+		}, -- end of ["ppf_RightNozzleControl"]
+		["UNCR_DN_HOSES_CLOGGED"] = 
+		{
+			["hh"] = 0,
+			["prob"] = 100,
+			["enable"] = false,
+			["mmint"] = 1,
+			["id"] = "UNCR_DN_HOSES_CLOGGED",
+			["mm"] = 0,
+		}, -- end of ["UNCR_DN_HOSES_CLOGGED"]
+		["Failure_PP_LeftPTS"] = 
+		{
+			["hh"] = 0,
+			["prob"] = 100,
+			["enable"] = false,
+			["mmint"] = 1,
+			["id"] = "Failure_PP_LeftPTS",
+			["mm"] = 0,
+		}, -- end of ["Failure_PP_LeftPTS"]
+		["Failure_Elec_EmergencyBattery"] = 
+		{
+			["hh"] = 0,
+			["prob"] = 100,
+			["enable"] = false,
+			["mmint"] = 1,
+			["id"] = "Failure_Elec_EmergencyBattery",
+			["mm"] = 0,
+		}, -- end of ["Failure_Elec_EmergencyBattery"]
+		["FLIR_FAILURE_TOTAL"] = 
+		{
+			["hh"] = 0,
+			["prob"] = 100,
+			["enable"] = false,
+			["mmint"] = 1,
+			["id"] = "FLIR_FAILURE_TOTAL",
+			["mm"] = 0,
+		}, -- end of ["FLIR_FAILURE_TOTAL"]
+		["STATION_3_FAILURE"] = 
+		{
+			["hh"] = 0,
+			["prob"] = 100,
+			["enable"] = false,
+			["mmint"] = 1,
+			["id"] = "STATION_3_FAILURE",
+			["mm"] = 0,
+		}, -- end of ["STATION_3_FAILURE"]
+		["fsf_RightBoostPump"] = 
+		{
+			["hh"] = 0,
+			["prob"] = 100,
+			["enable"] = false,
+			["mmint"] = 1,
+			["id"] = "fsf_RightBoostPump",
+			["mm"] = 0,
+		}, -- end of ["fsf_RightBoostPump"]
+		["STRAKE_LEFT_FAILURE"] = 
+		{
+			["hh"] = 0,
+			["prob"] = 100,
+			["enable"] = false,
+			["mmint"] = 1,
+			["id"] = "STRAKE_LEFT_FAILURE",
+			["mm"] = 0,
+		}, -- end of ["STRAKE_LEFT_FAILURE"]
+		["WEAP_GUN_02_DAMAGED"] = 
+		{
+			["hh"] = 0,
+			["prob"] = 100,
+			["enable"] = false,
+			["mmint"] = 1,
+			["id"] = "WEAP_GUN_02_DAMAGED",
+			["mm"] = 0,
+		}, -- end of ["WEAP_GUN_02_DAMAGED"]
+		["hydr2_reserv_leaks"] = 
+		{
+			["hh"] = 0,
+			["prob"] = 100,
+			["enable"] = false,
+			["mmint"] = 1,
+			["id"] = "hydr2_reserv_leaks",
+			["mm"] = 0,
+		}, -- end of ["hydr2_reserv_leaks"]
+		["trim_elect_supply"] = 
+		{
+			["hh"] = 0,
+			["prob"] = 100,
+			["enable"] = false,
+			["mmint"] = 1,
+			["id"] = "trim_elect_supply",
+			["mm"] = 0,
+		}, -- end of ["trim_elect_supply"]
+		["WEAP_GUN_00_AMMO_BELT_SEVERED"] = 
+		{
+			["hh"] = 0,
+			["prob"] = 100,
+			["enable"] = false,
+			["mmint"] = 1,
+			["id"] = "WEAP_GUN_00_AMMO_BELT_SEVERED",
+			["mm"] = 0,
+		}, -- end of ["WEAP_GUN_00_AMMO_BELT_SEVERED"]
+		["right_airbrake_fail"] = 
+		{
+			["hh"] = 0,
+			["prob"] = 100,
+			["enable"] = false,
+			["mmint"] = 1,
+			["id"] = "right_airbrake_fail",
+			["mm"] = 0,
+		}, -- end of ["right_airbrake_fail"]
+		["ignition_fail"] = 
+		{
+			["hh"] = 0,
+			["prob"] = 100,
+			["enable"] = false,
+			["mmint"] = 1,
+			["id"] = "ignition_fail",
+			["mm"] = 0,
+		}, -- end of ["ignition_fail"]
+		["Failure_Hyd_HYD1B_Leak"] = 
+		{
+			["hh"] = 0,
+			["prob"] = 100,
+			["enable"] = false,
+			["mmint"] = 1,
+			["id"] = "Failure_Hyd_HYD1B_Leak",
+			["mm"] = 0,
+		}, -- end of ["Failure_Hyd_HYD1B_Leak"]
+		["AC_BUS_PO7501_FAILURE"] = 
+		{
+			["hh"] = 0,
+			["prob"] = 100,
+			["enable"] = false,
+			["mmint"] = 1,
+			["id"] = "AC_BUS_PO7501_FAILURE",
+			["mm"] = 0,
+		}, -- end of ["AC_BUS_PO7501_FAILURE"]
+		["compressor_damage"] = 
+		{
+			["hh"] = 0,
+			["prob"] = 100,
+			["enable"] = false,
+			["mmint"] = 1,
+			["id"] = "compressor_damage",
+			["mm"] = 0,
+		}, -- end of ["compressor_damage"]
+		["mfd"] = 
+		{
+			["hh"] = 0,
+			["prob"] = 100,
+			["enable"] = false,
+			["mmint"] = 1,
+			["id"] = "mfd",
+			["mm"] = 0,
+		}, -- end of ["mfd"]
+		["Failure_Elec_UtilityBattery"] = 
+		{
+			["hh"] = 0,
+			["prob"] = 100,
+			["enable"] = false,
+			["mmint"] = 1,
+			["id"] = "Failure_Elec_UtilityBattery",
+			["mm"] = 0,
+		}, -- end of ["Failure_Elec_UtilityBattery"]
+		["nosecone_stuck"] = 
+		{
+			["hh"] = 0,
+			["prob"] = 100,
+			["enable"] = false,
+			["mmint"] = 1,
+			["id"] = "nosecone_stuck",
+			["mm"] = 0,
+		}, -- end of ["nosecone_stuck"]
+		["WEAP_GUN_04_DAMAGED"] = 
+		{
+			["hh"] = 0,
+			["prob"] = 100,
+			["enable"] = false,
+			["mmint"] = 1,
+			["id"] = "WEAP_GUN_04_DAMAGED",
+			["mm"] = 0,
+		}, -- end of ["WEAP_GUN_04_DAMAGED"]
+		["VHF_SHORTED_CTL_BOX"] = 
+		{
+			["hh"] = 0,
+			["prob"] = 100,
+			["enable"] = false,
+			["mmint"] = 1,
+			["id"] = "VHF_SHORTED_CTL_BOX",
+			["mm"] = 0,
+		}, -- end of ["VHF_SHORTED_CTL_BOX"]
+		["hydr2_pump_fail"] = 
+		{
+			["hh"] = 0,
+			["prob"] = 100,
+			["enable"] = false,
+			["mmint"] = 1,
+			["id"] = "hydr2_pump_fail",
+			["mm"] = 0,
+		}, -- end of ["hydr2_pump_fail"]
+		["csf_AutoFlap"] = 
+		{
+			["hh"] = 0,
+			["prob"] = 100,
+			["enable"] = false,
+			["mmint"] = 1,
+			["id"] = "csf_AutoFlap",
+			["mm"] = 0,
+		}, -- end of ["csf_AutoFlap"]
+		["INST_TACH1_RESISTANCE_MISMATCH"] = 
+		{
+			["hh"] = 0,
+			["prob"] = 100,
+			["enable"] = false,
+			["mmint"] = 1,
+			["id"] = "INST_TACH1_RESISTANCE_MISMATCH",
+			["mm"] = 0,
+		}, -- end of ["INST_TACH1_RESISTANCE_MISMATCH"]
+		["Failure_Ctrl_LEF"] = 
+		{
+			["hh"] = 0,
+			["prob"] = 100,
+			["enable"] = false,
+			["mmint"] = 1,
+			["id"] = "Failure_Ctrl_LEF",
+			["mm"] = 0,
+		}, -- end of ["Failure_Ctrl_LEF"]
+		["right_rear_leaks"] = 
+		{
+			["hh"] = 0,
+			["prob"] = 100,
+			["enable"] = false,
+			["mmint"] = 1,
+			["id"] = "right_rear_leaks",
+			["mm"] = 0,
+		}, -- end of ["right_rear_leaks"]
+		["Failure_Hyd_HYD2A_Leak"] = 
+		{
+			["hh"] = 0,
+			["prob"] = 100,
+			["enable"] = false,
+			["mmint"] = 1,
+			["id"] = "Failure_Hyd_HYD2A_Leak",
+			["mm"] = 0,
+		}, -- end of ["Failure_Hyd_HYD2A_Leak"]
+		["WEAP_GUN_03_AMMO_BELT_SEVERED"] = 
+		{
+			["hh"] = 0,
+			["prob"] = 100,
+			["enable"] = false,
+			["mmint"] = 1,
+			["id"] = "WEAP_GUN_03_AMMO_BELT_SEVERED",
+			["mm"] = 0,
+		}, -- end of ["WEAP_GUN_03_AMMO_BELT_SEVERED"]
+		["esf_StaticInverter"] = 
+		{
+			["hh"] = 0,
+			["prob"] = 100,
+			["enable"] = false,
+			["mmint"] = 1,
+			["id"] = "esf_StaticInverter",
+			["mm"] = 0,
+		}, -- end of ["esf_StaticInverter"]
+		["fuel_accu_leaks"] = 
+		{
+			["hh"] = 0,
+			["prob"] = 100,
+			["enable"] = false,
+			["mmint"] = 1,
+			["id"] = "fuel_accu_leaks",
+			["mm"] = 0,
+		}, -- end of ["fuel_accu_leaks"]
+		["right_front_transfer_fail"] = 
+		{
+			["hh"] = 0,
+			["prob"] = 100,
+			["enable"] = false,
+			["mmint"] = 1,
+			["id"] = "right_front_transfer_fail",
+			["mm"] = 0,
+		}, -- end of ["right_front_transfer_fail"]
+		["gear_left_stuck"] = 
+		{
+			["hh"] = 0,
+			["prob"] = 100,
+			["enable"] = false,
+			["mmint"] = 1,
+			["id"] = "gear_left_stuck",
+			["mm"] = 0,
+		}, -- end of ["gear_left_stuck"]
+		["flaps_stuck"] = 
+		{
+			["hh"] = 0,
+			["prob"] = 100,
+			["enable"] = false,
+			["mmint"] = 1,
+			["id"] = "flaps_stuck",
+			["mm"] = 0,
+		}, -- end of ["flaps_stuck"]
+		["COM1_FAILURE_TOTAL"] = 
+		{
+			["hh"] = 0,
+			["prob"] = 100,
+			["enable"] = false,
+			["mmint"] = 1,
+			["id"] = "COM1_FAILURE_TOTAL",
+			["mm"] = 0,
+		}, -- end of ["COM1_FAILURE_TOTAL"]
+		["engine_flameout"] = 
+		{
+			["hh"] = 0,
+			["prob"] = 100,
+			["enable"] = false,
+			["mmint"] = 1,
+			["id"] = "engine_flameout",
+			["mm"] = 0,
+		}, -- end of ["engine_flameout"]
+		["RightEngine_Fire"] = 
+		{
+			["hh"] = 0,
+			["prob"] = 100,
+			["enable"] = false,
+			["mmint"] = 1,
+			["id"] = "RightEngine_Fire",
+			["mm"] = 0,
+		}, -- end of ["RightEngine_Fire"]
+		["Failure_Fuel_LeftBoostPump"] = 
+		{
+			["hh"] = 0,
+			["prob"] = 100,
+			["enable"] = false,
+			["mmint"] = 1,
+			["id"] = "Failure_Fuel_LeftBoostPump",
+			["mm"] = 0,
+		}, -- end of ["Failure_Fuel_LeftBoostPump"]
+		["Failure_PP_EngL_OilLeak"] = 
+		{
+			["hh"] = 0,
+			["prob"] = 100,
+			["enable"] = false,
+			["mmint"] = 1,
+			["id"] = "Failure_PP_EngL_OilLeak",
+			["mm"] = 0,
+		}, -- end of ["Failure_PP_EngL_OilLeak"]
+		["hydr2_leaks"] = 
+		{
+			["hh"] = 0,
+			["prob"] = 100,
+			["enable"] = false,
+			["mmint"] = 1,
+			["id"] = "hydr2_leaks",
+			["mm"] = 0,
+		}, -- end of ["hydr2_leaks"]
+		["hydr1_reserv_leaks"] = 
+		{
+			["hh"] = 0,
+			["prob"] = 100,
+			["enable"] = false,
+			["mmint"] = 1,
+			["id"] = "hydr1_reserv_leaks",
+			["mm"] = 0,
+		}, -- end of ["hydr1_reserv_leaks"]
+		["left_rear_leaks"] = 
+		{
+			["hh"] = 0,
+			["prob"] = 100,
+			["enable"] = false,
+			["mmint"] = 1,
+			["id"] = "left_rear_leaks",
+			["mm"] = 0,
+		}, -- end of ["left_rear_leaks"]
+		["tr1_fail"] = 
+		{
+			["hh"] = 0,
+			["prob"] = 100,
+			["enable"] = false,
+			["mmint"] = 1,
+			["id"] = "tr1_fail",
+			["mm"] = 0,
+		}, -- end of ["tr1_fail"]
+		["fsf_AutoBalance"] = 
+		{
+			["hh"] = 0,
+			["prob"] = 100,
+			["enable"] = false,
+			["mmint"] = 1,
+			["id"] = "fsf_AutoBalance",
+			["mm"] = 0,
+		}, -- end of ["fsf_AutoBalance"]
+		["pilot_aids_2_fail"] = 
+		{
+			["hh"] = 0,
+			["prob"] = 100,
+			["enable"] = false,
+			["mmint"] = 1,
+			["id"] = "pilot_aids_2_fail",
+			["mm"] = 0,
+		}, -- end of ["pilot_aids_2_fail"]
+		["Failure_Ctrl_FCS_Ch3"] = 
+		{
+			["hh"] = 0,
+			["prob"] = 100,
+			["enable"] = false,
+			["mmint"] = 1,
+			["id"] = "Failure_Ctrl_FCS_Ch3",
+			["mm"] = 0,
+		}, -- end of ["Failure_Ctrl_FCS_Ch3"]
+		["Failure_PP_EngR_Main_FFCS"] = 
+		{
+			["hh"] = 0,
+			["prob"] = 100,
+			["enable"] = false,
+			["mmint"] = 1,
+			["id"] = "Failure_PP_EngR_Main_FFCS",
+			["mm"] = 0,
+		}, -- end of ["Failure_PP_EngR_Main_FFCS"]
+		["hydr1_pump_fail"] = 
+		{
+			["hh"] = 0,
+			["prob"] = 100,
+			["enable"] = false,
+			["mmint"] = 1,
+			["id"] = "hydr1_pump_fail",
+			["mm"] = 0,
+		}, -- end of ["hydr1_pump_fail"]
+		["COMPASS_ERRATIC_OPERATION"] = 
+		{
+			["hh"] = 0,
+			["prob"] = 100,
+			["enable"] = false,
+			["mmint"] = 1,
+			["id"] = "COMPASS_ERRATIC_OPERATION",
+			["mm"] = 0,
+		}, -- end of ["COMPASS_ERRATIC_OPERATION"]
+		["WEAP_GUN_03_DAMAGED"] = 
+		{
+			["hh"] = 0,
+			["prob"] = 100,
+			["enable"] = false,
+			["mmint"] = 1,
+			["id"] = "WEAP_GUN_03_DAMAGED",
+			["mm"] = 0,
+		}, -- end of ["WEAP_GUN_03_DAMAGED"]
+		["ap_global_fail"] = 
+		{
+			["hh"] = 0,
+			["prob"] = 100,
+			["enable"] = false,
+			["mmint"] = 1,
+			["id"] = "ap_global_fail",
+			["mm"] = 0,
+		}, -- end of ["ap_global_fail"]
+		["slat_outer_left_stuck"] = 
+		{
+			["hh"] = 0,
+			["prob"] = 100,
+			["enable"] = false,
+			["mmint"] = 1,
+			["id"] = "slat_outer_left_stuck",
+			["mm"] = 0,
+		}, -- end of ["slat_outer_left_stuck"]
+		["Failure_Comp_MC2"] = 
+		{
+			["hh"] = 0,
+			["prob"] = 100,
+			["enable"] = false,
+			["mmint"] = 1,
+			["id"] = "Failure_Comp_MC2",
+			["mm"] = 0,
+		}, -- end of ["Failure_Comp_MC2"]
+		["Failure_Hyd_IsolatedHYD2BSystem_Leak"] = 
+		{
+			["hh"] = 0,
+			["prob"] = 100,
+			["enable"] = false,
+			["mmint"] = 1,
+			["id"] = "Failure_Hyd_IsolatedHYD2BSystem_Leak",
+			["mm"] = 0,
+		}, -- end of ["Failure_Hyd_IsolatedHYD2BSystem_Leak"]
+		["csf_PitchDamper"] = 
+		{
+			["hh"] = 0,
+			["prob"] = 100,
+			["enable"] = false,
+			["mmint"] = 1,
+			["id"] = "csf_PitchDamper",
+			["mm"] = 0,
+		}, -- end of ["csf_PitchDamper"]
+		["esf_LeftRectifier"] = 
+		{
+			["hh"] = 0,
+			["prob"] = 100,
+			["enable"] = false,
+			["mmint"] = 1,
+			["id"] = "esf_LeftRectifier",
+			["mm"] = 0,
+		}, -- end of ["esf_LeftRectifier"]
+		["brakes_fail"] = 
+		{
+			["hh"] = 0,
+			["prob"] = 100,
+			["enable"] = false,
+			["mmint"] = 1,
+			["id"] = "brakes_fail",
+			["mm"] = 0,
+		}, -- end of ["brakes_fail"]
+		["MSC_FAILURE_TOTAL"] = 
+		{
+			["hh"] = 0,
+			["prob"] = 100,
+			["enable"] = false,
+			["mmint"] = 1,
+			["id"] = "MSC_FAILURE_TOTAL",
+			["mm"] = 0,
+		}, -- end of ["MSC_FAILURE_TOTAL"]
+		["Failure_PP_EngL_AB_FFCS"] = 
+		{
+			["hh"] = 0,
+			["prob"] = 100,
+			["enable"] = false,
+			["mmint"] = 1,
+			["id"] = "Failure_PP_EngL_AB_FFCS",
+			["mm"] = 0,
+		}, -- end of ["Failure_PP_EngL_AB_FFCS"]
+		["ecm"] = 
+		{
+			["hh"] = 0,
+			["prob"] = 100,
+			["enable"] = false,
+			["mmint"] = 1,
+			["id"] = "ecm",
+			["mm"] = 0,
+		}, -- end of ["ecm"]
+		["Failure_Gear_WOW"] = 
+		{
+			["hh"] = 0,
+			["prob"] = 100,
+			["enable"] = false,
+			["mmint"] = 1,
+			["id"] = "Failure_Gear_WOW",
+			["mm"] = 0,
+		}, -- end of ["Failure_Gear_WOW"]
+		["Failure_Hyd_HYD2B_Leak"] = 
+		{
+			["hh"] = 0,
+			["prob"] = 100,
+			["enable"] = false,
+			["mmint"] = 1,
+			["id"] = "Failure_Hyd_HYD2B_Leak",
+			["mm"] = 0,
+		}, -- end of ["Failure_Hyd_HYD2B_Leak"]
+		["trim_yaw_fail"] = 
+		{
+			["hh"] = 0,
+			["prob"] = 100,
+			["enable"] = false,
+			["mmint"] = 1,
+			["id"] = "trim_yaw_fail",
+			["mm"] = 0,
+		}, -- end of ["trim_yaw_fail"]
+		["AC_BUS_FAILURE_TOTAL"] = 
+		{
+			["hh"] = 0,
+			["prob"] = 100,
+			["enable"] = false,
+			["mmint"] = 1,
+			["id"] = "AC_BUS_FAILURE_TOTAL",
+			["mm"] = 0,
+		}, -- end of ["AC_BUS_FAILURE_TOTAL"]
+		["slat_inner_left_stuck"] = 
+		{
+			["hh"] = 0,
+			["prob"] = 100,
+			["enable"] = false,
+			["mmint"] = 1,
+			["id"] = "slat_inner_left_stuck",
+			["mm"] = 0,
+		}, -- end of ["slat_inner_left_stuck"]
+		["Failure_Fuel_QuantityGaging"] = 
+		{
+			["hh"] = 0,
+			["prob"] = 100,
+			["enable"] = false,
+			["mmint"] = 1,
+			["id"] = "Failure_Fuel_QuantityGaging",
+			["mm"] = 0,
+		}, -- end of ["Failure_Fuel_QuantityGaging"]
+		["Failure_Fuel_Tank4Transfer"] = 
+		{
+			["hh"] = 0,
+			["prob"] = 100,
+			["enable"] = false,
+			["mmint"] = 1,
+			["id"] = "Failure_Fuel_Tank4Transfer",
+			["mm"] = 0,
+		}, -- end of ["Failure_Fuel_Tank4Transfer"]
+		["PITOT_FAILURE_TOTAL"] = 
+		{
+			["hh"] = 0,
+			["prob"] = 100,
+			["enable"] = false,
+			["mmint"] = 1,
+			["id"] = "PITOT_FAILURE_TOTAL",
+			["mm"] = 0,
+		}, -- end of ["PITOT_FAILURE_TOTAL"]
+		["tr2_fail"] = 
+		{
+			["hh"] = 0,
+			["prob"] = 100,
+			["enable"] = false,
+			["mmint"] = 1,
+			["id"] = "tr2_fail",
+			["mm"] = 0,
+		}, -- end of ["tr2_fail"]
+		["Failure_PP_EngR_OilLeak"] = 
+		{
+			["hh"] = 0,
+			["prob"] = 100,
+			["enable"] = false,
+			["mmint"] = 1,
+			["id"] = "Failure_PP_EngR_OilLeak",
+			["mm"] = 0,
+		}, -- end of ["Failure_PP_EngR_OilLeak"]
+		["csf_PitchTrim"] = 
+		{
+			["hh"] = 0,
+			["prob"] = 100,
+			["enable"] = false,
+			["mmint"] = 1,
+			["id"] = "csf_PitchTrim",
+			["mm"] = 0,
+		}, -- end of ["csf_PitchTrim"]
+		["pitch_chain_fail"] = 
+		{
+			["hh"] = 0,
+			["prob"] = 100,
+			["enable"] = false,
+			["mmint"] = 1,
+			["id"] = "pitch_chain_fail",
+			["mm"] = 0,
+		}, -- end of ["pitch_chain_fail"]
+		["WEAP_GUN_06_DAMAGED"] = 
+		{
+			["hh"] = 0,
+			["prob"] = 100,
+			["enable"] = false,
+			["mmint"] = 1,
+			["id"] = "WEAP_GUN_06_DAMAGED",
+			["mm"] = 0,
+		}, -- end of ["WEAP_GUN_06_DAMAGED"]
+		["VHF_VT_BURNED_OUT"] = 
+		{
+			["hh"] = 0,
+			["prob"] = 100,
+			["enable"] = false,
+			["mmint"] = 1,
+			["id"] = "VHF_VT_BURNED_OUT",
+			["mm"] = 0,
+		}, -- end of ["VHF_VT_BURNED_OUT"]
+		["engine_fire"] = 
+		{
+			["hh"] = 0,
+			["prob"] = 100,
+			["enable"] = false,
+			["mmint"] = 1,
+			["id"] = "engine_fire",
+			["mm"] = 0,
+		}, -- end of ["engine_fire"]
+		["nosecone_stuck_forward"] = 
+		{
+			["hh"] = 0,
+			["prob"] = 100,
+			["enable"] = false,
+			["mmint"] = 1,
+			["id"] = "nosecone_stuck_forward",
+			["mm"] = 0,
+		}, -- end of ["nosecone_stuck_forward"]
+		["Failure_Ctrl_FCS_Ch4"] = 
+		{
+			["hh"] = 0,
+			["prob"] = 100,
+			["enable"] = false,
+			["mmint"] = 1,
+			["id"] = "Failure_Ctrl_FCS_Ch4",
+			["mm"] = 0,
+		}, -- end of ["Failure_Ctrl_FCS_Ch4"]
+		["STRAKE_RIGHT_FAILURE"] = 
+		{
+			["hh"] = 0,
+			["prob"] = 100,
+			["enable"] = false,
+			["mmint"] = 1,
+			["id"] = "STRAKE_RIGHT_FAILURE",
+			["mm"] = 0,
+		}, -- end of ["STRAKE_RIGHT_FAILURE"]
+		["STATION_4_FAILURE"] = 
+		{
+			["hh"] = 0,
+			["prob"] = 100,
+			["enable"] = false,
+			["mmint"] = 1,
+			["id"] = "STATION_4_FAILURE",
+			["mm"] = 0,
+		}, -- end of ["STATION_4_FAILURE"]
+		["ppf_FireLeft"] = 
+		{
+			["hh"] = 0,
+			["prob"] = 100,
+			["enable"] = false,
+			["mmint"] = 1,
+			["id"] = "ppf_FireLeft",
+			["mm"] = 0,
+		}, -- end of ["ppf_FireLeft"]
+		["esf_RightGenerator"] = 
+		{
+			["hh"] = 0,
+			["prob"] = 100,
+			["enable"] = false,
+			["mmint"] = 1,
+			["id"] = "esf_RightGenerator",
+			["mm"] = 0,
+		}, -- end of ["esf_RightGenerator"]
+		["flap_left_stuck"] = 
+		{
+			["hh"] = 0,
+			["prob"] = 100,
+			["enable"] = false,
+			["mmint"] = 1,
+			["id"] = "flap_left_stuck",
+			["mm"] = 0,
+		}, -- end of ["flap_left_stuck"]
+		["WEAP_GUN_05_AMMO_BELT_SEVERED"] = 
+		{
+			["hh"] = 0,
+			["prob"] = 100,
+			["enable"] = false,
+			["mmint"] = 1,
+			["id"] = "WEAP_GUN_05_AMMO_BELT_SEVERED",
+			["mm"] = 0,
+		}, -- end of ["WEAP_GUN_05_AMMO_BELT_SEVERED"]
+		["MainReducer_Fire"] = 
+		{
+			["hh"] = 0,
+			["prob"] = 100,
+			["enable"] = false,
+			["mmint"] = 1,
+			["id"] = "MainReducer_Fire",
+			["mm"] = 0,
+		}, -- end of ["MainReducer_Fire"]
+		["WEAP_GUN_07_DAMAGED"] = 
+		{
+			["hh"] = 0,
+			["prob"] = 100,
+			["enable"] = false,
+			["mmint"] = 1,
+			["id"] = "WEAP_GUN_07_DAMAGED",
+			["mm"] = 0,
+		}, -- end of ["WEAP_GUN_07_DAMAGED"]
+		["STATION_5_FAILURE"] = 
+		{
+			["hh"] = 0,
+			["prob"] = 100,
+			["enable"] = false,
+			["mmint"] = 1,
+			["id"] = "STATION_5_FAILURE",
+			["mm"] = 0,
+		}, -- end of ["STATION_5_FAILURE"]
+		["right_rear_transfer_fail"] = 
+		{
+			["hh"] = 0,
+			["prob"] = 100,
+			["enable"] = false,
+			["mmint"] = 1,
+			["id"] = "right_rear_transfer_fail",
+			["mm"] = 0,
+		}, -- end of ["right_rear_transfer_fail"]
+		["VHF_SQUELCH_RELAY"] = 
+		{
+			["hh"] = 0,
+			["prob"] = 100,
+			["enable"] = false,
+			["mmint"] = 1,
+			["id"] = "VHF_SQUELCH_RELAY",
+			["mm"] = 0,
+		}, -- end of ["VHF_SQUELCH_RELAY"]
+		["slat_inner_right_stuck"] = 
+		{
+			["hh"] = 0,
+			["prob"] = 100,
+			["enable"] = false,
+			["mmint"] = 1,
+			["id"] = "slat_inner_right_stuck",
+			["mm"] = 0,
+		}, -- end of ["slat_inner_right_stuck"]
+		["slat_outer_right_stuck"] = 
+		{
+			["hh"] = 0,
+			["prob"] = 100,
+			["enable"] = false,
+			["mmint"] = 1,
+			["id"] = "slat_outer_right_stuck",
+			["mm"] = 0,
+		}, -- end of ["slat_outer_right_stuck"]
+		["AB_fire"] = 
+		{
+			["hh"] = 0,
+			["prob"] = 100,
+			["enable"] = false,
+			["mmint"] = 1,
+			["id"] = "AB_fire",
+			["mm"] = 0,
+		}, -- end of ["AB_fire"]
+		["right_fuel_pump_fail"] = 
+		{
+			["hh"] = 0,
+			["prob"] = 100,
+			["enable"] = false,
+			["mmint"] = 1,
+			["id"] = "right_fuel_pump_fail",
+			["mm"] = 0,
+		}, -- end of ["right_fuel_pump_fail"]
+		["INS_FAILURE_ATTITUDE"] = 
+		{
+			["hh"] = 0,
+			["prob"] = 100,
+			["enable"] = false,
+			["mmint"] = 1,
+			["id"] = "INS_FAILURE_ATTITUDE",
+			["mm"] = 0,
+		}, -- end of ["INS_FAILURE_ATTITUDE"]
+		["INST_TACH0_POOR_CONNECTION"] = 
+		{
+			["hh"] = 0,
+			["prob"] = 100,
+			["enable"] = false,
+			["mmint"] = 1,
+			["id"] = "INST_TACH0_POOR_CONNECTION",
+			["mm"] = 0,
+		}, -- end of ["INST_TACH0_POOR_CONNECTION"]
+		["Failure_PP_EngL_Main_FFCS"] = 
+		{
+			["hh"] = 0,
+			["prob"] = 100,
+			["enable"] = false,
+			["mmint"] = 1,
+			["id"] = "Failure_PP_EngL_Main_FFCS",
+			["mm"] = 0,
+		}, -- end of ["Failure_PP_EngL_Main_FFCS"]
+		["STATION_7_FAILURE"] = 
+		{
+			["hh"] = 0,
+			["prob"] = 100,
+			["enable"] = false,
+			["mmint"] = 1,
+			["id"] = "STATION_7_FAILURE",
+			["mm"] = 0,
+		}, -- end of ["STATION_7_FAILURE"]
+		["ppf_RightGearbox"] = 
+		{
+			["hh"] = 0,
+			["prob"] = 100,
+			["enable"] = false,
+			["mmint"] = 1,
+			["id"] = "ppf_RightGearbox",
+			["mm"] = 0,
+		}, -- end of ["ppf_RightGearbox"]
+		["left_front_transfer_fail"] = 
+		{
+			["hh"] = 0,
+			["prob"] = 100,
+			["enable"] = false,
+			["mmint"] = 1,
+			["id"] = "left_front_transfer_fail",
+			["mm"] = 0,
+		}, -- end of ["left_front_transfer_fail"]
+		["asc"] = 
+		{
+			["hh"] = 0,
+			["prob"] = 100,
+			["enable"] = false,
+			["mmint"] = 1,
+			["id"] = "asc",
+			["mm"] = 0,
+		}, -- end of ["asc"]
+		["WEAP_GUN_00_DAMAGED"] = 
+		{
+			["hh"] = 0,
+			["prob"] = 100,
+			["enable"] = false,
+			["mmint"] = 1,
+			["id"] = "WEAP_GUN_00_DAMAGED",
+			["mm"] = 0,
+		}, -- end of ["WEAP_GUN_00_DAMAGED"]
+		["esf_LeftGenerator"] = 
+		{
+			["hh"] = 0,
+			["prob"] = 100,
+			["enable"] = false,
+			["mmint"] = 1,
+			["id"] = "esf_LeftGenerator",
+			["mm"] = 0,
+		}, -- end of ["esf_LeftGenerator"]
+		["GYROS_FAILURE_TOTAL"] = 
+		{
+			["hh"] = 0,
+			["prob"] = 100,
+			["enable"] = false,
+			["mmint"] = 1,
+			["id"] = "GYROS_FAILURE_TOTAL",
+			["mm"] = 0,
+		}, -- end of ["GYROS_FAILURE_TOTAL"]
+		["TCN_FAILURE_TOTAL"] = 
+		{
+			["hh"] = 0,
+			["prob"] = 100,
+			["enable"] = false,
+			["mmint"] = 1,
+			["id"] = "TCN_FAILURE_TOTAL",
+			["mm"] = 0,
+		}, -- end of ["TCN_FAILURE_TOTAL"]
+		["oxy_FAILURE_TOTAL"] = 
+		{
+			["hh"] = 0,
+			["prob"] = 100,
+			["enable"] = false,
+			["mmint"] = 1,
+			["id"] = "oxy_FAILURE_TOTAL",
+			["mm"] = 0,
+		}, -- end of ["oxy_FAILURE_TOTAL"]
+		["Failure_Fuel_Tank1Transfer"] = 
+		{
+			["hh"] = 0,
+			["prob"] = 100,
+			["enable"] = false,
+			["mmint"] = 1,
+			["id"] = "Failure_Fuel_Tank1Transfer",
+			["mm"] = 0,
+		}, -- end of ["Failure_Fuel_Tank1Transfer"]
+		["fuel_gauges_fail"] = 
+		{
+			["hh"] = 0,
+			["prob"] = 100,
+			["enable"] = false,
+			["mmint"] = 1,
+			["id"] = "fuel_gauges_fail",
+			["mm"] = 0,
+		}, -- end of ["fuel_gauges_fail"]
+		["Failure_Ctrl_Aileron"] = 
+		{
+			["hh"] = 0,
+			["prob"] = 100,
+			["enable"] = false,
+			["mmint"] = 1,
+			["id"] = "Failure_Ctrl_Aileron",
+			["mm"] = 0,
+		}, -- end of ["Failure_Ctrl_Aileron"]
+		["left_feeder_leaks"] = 
+		{
+			["hh"] = 0,
+			["prob"] = 100,
+			["enable"] = false,
+			["mmint"] = 1,
+			["id"] = "left_feeder_leaks",
+			["mm"] = 0,
+		}, -- end of ["left_feeder_leaks"]
+		["trim_roll_fail"] = 
+		{
+			["hh"] = 0,
+			["prob"] = 100,
+			["enable"] = false,
+			["mmint"] = 1,
+			["id"] = "trim_roll_fail",
+			["mm"] = 0,
+		}, -- end of ["trim_roll_fail"]
+		["VHF_CRYSTAL"] = 
+		{
+			["hh"] = 0,
+			["prob"] = 100,
+			["enable"] = false,
+			["mmint"] = 1,
+			["id"] = "VHF_CRYSTAL",
+			["mm"] = 0,
+		}, -- end of ["VHF_CRYSTAL"]
+		["STATION_2_FAILURE"] = 
+		{
+			["hh"] = 0,
+			["prob"] = 100,
+			["enable"] = false,
+			["mmint"] = 1,
+			["id"] = "STATION_2_FAILURE",
+			["mm"] = 0,
+		}, -- end of ["STATION_2_FAILURE"]
+		["ENGINE_FAILURE_TOTAL"] = 
+		{
+			["hh"] = 0,
+			["prob"] = 100,
+			["enable"] = false,
+			["mmint"] = 1,
+			["id"] = "ENGINE_FAILURE_TOTAL",
+			["mm"] = 0,
+		}, -- end of ["ENGINE_FAILURE_TOTAL"]
+		["fuel_intercom_fail"] = 
+		{
+			["hh"] = 0,
+			["prob"] = 100,
+			["enable"] = false,
+			["mmint"] = 1,
+			["id"] = "fuel_intercom_fail",
+			["mm"] = 0,
+		}, -- end of ["fuel_intercom_fail"]
+		["cabin_temp_fail"] = 
+		{
+			["hh"] = 0,
+			["prob"] = 100,
+			["enable"] = false,
+			["mmint"] = 1,
+			["id"] = "cabin_temp_fail",
+			["mm"] = 0,
+		}, -- end of ["cabin_temp_fail"]
+		["esf_RightRectifier"] = 
+		{
+			["hh"] = 0,
+			["prob"] = 100,
+			["enable"] = false,
+			["mmint"] = 1,
+			["id"] = "esf_RightRectifier",
+			["mm"] = 0,
+		}, -- end of ["esf_RightRectifier"]
+		["Failure_PP_RightPTS"] = 
+		{
+			["hh"] = 0,
+			["prob"] = 100,
+			["enable"] = false,
+			["mmint"] = 1,
+			["id"] = "Failure_PP_RightPTS",
+			["mm"] = 0,
+		}, -- end of ["Failure_PP_RightPTS"]
+		["mlws"] = 
+		{
+			["hh"] = 0,
+			["prob"] = 100,
+			["enable"] = false,
+			["mmint"] = 1,
+			["id"] = "mlws",
+			["mm"] = 0,
+		}, -- end of ["mlws"]
+		["Failure_Elec_RightTransformerRectifier"] = 
+		{
+			["hh"] = 0,
+			["prob"] = 100,
+			["enable"] = false,
+			["mmint"] = 1,
+			["id"] = "Failure_Elec_RightTransformerRectifier",
+			["mm"] = 0,
+		}, -- end of ["Failure_Elec_RightTransformerRectifier"]
+		["hud"] = 
+		{
+			["hh"] = 0,
+			["prob"] = 100,
+			["enable"] = false,
+			["mmint"] = 1,
+			["id"] = "hud",
+			["mm"] = 0,
+		}, -- end of ["hud"]
+		["alt2_fail"] = 
+		{
+			["hh"] = 0,
+			["prob"] = 100,
+			["enable"] = false,
+			["mmint"] = 1,
+			["id"] = "alt2_fail",
+			["mm"] = 0,
+		}, -- end of ["alt2_fail"]
+		["incidometer_fail"] = 
+		{
+			["hh"] = 0,
+			["prob"] = 100,
+			["enable"] = false,
+			["mmint"] = 1,
+			["id"] = "incidometer_fail",
+			["mm"] = 0,
+		}, -- end of ["incidometer_fail"]
+		["DC_BUS_FAILURE_TOTAL"] = 
+		{
+			["hh"] = 0,
+			["prob"] = 100,
+			["enable"] = false,
+			["mmint"] = 1,
+			["id"] = "DC_BUS_FAILURE_TOTAL",
+			["mm"] = 0,
+		}, -- end of ["DC_BUS_FAILURE_TOTAL"]
+		["Failure_PP_EngL_Nozzle_CS"] = 
+		{
+			["hh"] = 0,
+			["prob"] = 100,
+			["enable"] = false,
+			["mmint"] = 1,
+			["id"] = "Failure_PP_EngL_Nozzle_CS",
+			["mm"] = 0,
+		}, -- end of ["Failure_PP_EngL_Nozzle_CS"]
+		["nosecone_stuck_backward"] = 
+		{
+			["hh"] = 0,
+			["prob"] = 100,
+			["enable"] = false,
+			["mmint"] = 1,
+			["id"] = "nosecone_stuck_backward",
+			["mm"] = 0,
+		}, -- end of ["nosecone_stuck_backward"]
+		["triphase_inv_fail"] = 
+		{
+			["hh"] = 0,
+			["prob"] = 100,
+			["enable"] = false,
+			["mmint"] = 1,
+			["id"] = "triphase_inv_fail",
+			["mm"] = 0,
+		}, -- end of ["triphase_inv_fail"]
+		["STATION_1_FAILURE"] = 
+		{
+			["hh"] = 0,
+			["prob"] = 100,
+			["enable"] = false,
+			["mmint"] = 1,
+			["id"] = "STATION_1_FAILURE",
+			["mm"] = 0,
+		}, -- end of ["STATION_1_FAILURE"]
+		["left_rear_transfer_fail"] = 
+		{
+			["hh"] = 0,
+			["prob"] = 100,
+			["enable"] = false,
+			["mmint"] = 1,
+			["id"] = "left_rear_transfer_fail",
+			["mm"] = 0,
+		}, -- end of ["left_rear_transfer_fail"]
+		["start_fail"] = 
+		{
+			["hh"] = 0,
+			["prob"] = 100,
+			["enable"] = false,
+			["mmint"] = 1,
+			["id"] = "start_fail",
+			["mm"] = 0,
+		}, -- end of ["start_fail"]
+		["radar"] = 
+		{
+			["hh"] = 0,
+			["prob"] = 100,
+			["enable"] = false,
+			["mmint"] = 1,
+			["id"] = "radar",
+			["mm"] = 0,
+		}, -- end of ["radar"]
+		["WEAP_GUN_07_AMMO_BELT_SEVERED"] = 
+		{
+			["hh"] = 0,
+			["prob"] = 100,
+			["enable"] = false,
+			["mmint"] = 1,
+			["id"] = "WEAP_GUN_07_AMMO_BELT_SEVERED",
+			["mm"] = 0,
+		}, -- end of ["WEAP_GUN_07_AMMO_BELT_SEVERED"]
+		["oxygen_regulator_fail"] = 
+		{
+			["hh"] = 0,
+			["prob"] = 100,
+			["enable"] = false,
+			["mmint"] = 1,
+			["id"] = "oxygen_regulator_fail",
+			["mm"] = 0,
+		}, -- end of ["oxygen_regulator_fail"]
+		["UNCR_UP_HOSES_CLOGGED"] = 
+		{
+			["hh"] = 0,
+			["prob"] = 100,
+			["enable"] = false,
+			["mmint"] = 1,
+			["id"] = "UNCR_UP_HOSES_CLOGGED",
+			["mm"] = 0,
+		}, -- end of ["UNCR_UP_HOSES_CLOGGED"]
+		["INS_FAILURE_HEADING"] = 
+		{
+			["hh"] = 0,
+			["prob"] = 100,
+			["enable"] = false,
+			["mmint"] = 1,
+			["id"] = "INS_FAILURE_HEADING",
+			["mm"] = 0,
+		}, -- end of ["INS_FAILURE_HEADING"]
+		["ppf_LeftOil"] = 
+		{
+			["hh"] = 0,
+			["prob"] = 100,
+			["enable"] = false,
+			["mmint"] = 1,
+			["id"] = "ppf_LeftOil",
+			["mm"] = 0,
+		}, -- end of ["ppf_LeftOil"]
+		["DC_BUS_GENERATOR_FAILURE"] = 
+		{
+			["hh"] = 0,
+			["prob"] = 100,
+			["enable"] = false,
+			["mmint"] = 1,
+			["id"] = "DC_BUS_GENERATOR_FAILURE",
+			["mm"] = 0,
+		}, -- end of ["DC_BUS_GENERATOR_FAILURE"]
+		["oil_fail"] = 
+		{
+			["hh"] = 0,
+			["prob"] = 100,
+			["enable"] = false,
+			["mmint"] = 1,
+			["id"] = "oil_fail",
+			["mm"] = 0,
+		}, -- end of ["oil_fail"]
+		["incidometer_blockage_fail"] = 
+		{
+			["hh"] = 0,
+			["prob"] = 100,
+			["enable"] = false,
+			["mmint"] = 1,
+			["id"] = "incidometer_blockage_fail",
+			["mm"] = 0,
+		}, -- end of ["incidometer_blockage_fail"]
+		["hsf_UtilityHydraulic"] = 
+		{
+			["hh"] = 0,
+			["prob"] = 100,
+			["enable"] = false,
+			["mmint"] = 1,
+			["id"] = "hsf_UtilityHydraulic",
+			["mm"] = 0,
+		}, -- end of ["hsf_UtilityHydraulic"]
+		["chute_fail"] = 
+		{
+			["hh"] = 0,
+			["prob"] = 100,
+			["enable"] = false,
+			["mmint"] = 1,
+			["id"] = "chute_fail",
+			["mm"] = 0,
+		}, -- end of ["chute_fail"]
+		["AC_BUS_PO7502_FAILURE"] = 
+		{
+			["hh"] = 0,
+			["prob"] = 100,
+			["enable"] = false,
+			["mmint"] = 1,
+			["id"] = "AC_BUS_PO7502_FAILURE",
+			["mm"] = 0,
+		}, -- end of ["AC_BUS_PO7502_FAILURE"]
+		["battery_fail"] = 
+		{
+			["hh"] = 0,
+			["prob"] = 100,
+			["enable"] = false,
+			["mmint"] = 1,
+			["id"] = "battery_fail",
+			["mm"] = 0,
+		}, -- end of ["battery_fail"]
+		["fsf_LeftBoostPump"] = 
+		{
+			["hh"] = 0,
+			["prob"] = 100,
+			["enable"] = false,
+			["mmint"] = 1,
+			["id"] = "fsf_LeftBoostPump",
+			["mm"] = 0,
+		}, -- end of ["fsf_LeftBoostPump"]
+		["electropump_fail"] = 
+		{
+			["hh"] = 0,
+			["prob"] = 100,
+			["enable"] = false,
+			["mmint"] = 1,
+			["id"] = "electropump_fail",
+			["mm"] = 0,
+		}, -- end of ["electropump_fail"]
+		["Failure_Fuel_RightBoostPump"] = 
+		{
+			["hh"] = 0,
+			["prob"] = 100,
+			["enable"] = false,
+			["mmint"] = 1,
+			["id"] = "Failure_Fuel_RightBoostPump",
+			["mm"] = 0,
+		}, -- end of ["Failure_Fuel_RightBoostPump"]
+		["INST_TACH0_LOOM_SEVERED"] = 
+		{
+			["hh"] = 0,
+			["prob"] = 100,
+			["enable"] = false,
+			["mmint"] = 1,
+			["id"] = "INST_TACH0_LOOM_SEVERED",
+			["mm"] = 0,
+		}, -- end of ["INST_TACH0_LOOM_SEVERED"]
+		["DVMS_FAILURE_TOTAL"] = 
+		{
+			["hh"] = 0,
+			["prob"] = 100,
+			["enable"] = false,
+			["mmint"] = 1,
+			["id"] = "DVMS_FAILURE_TOTAL",
+			["mm"] = 0,
+		}, -- end of ["DVMS_FAILURE_TOTAL"]
+		["discharge_valves_fail"] = 
+		{
+			["hh"] = 0,
+			["prob"] = 100,
+			["enable"] = false,
+			["mmint"] = 1,
+			["id"] = "discharge_valves_fail",
+			["mm"] = 0,
+		}, -- end of ["discharge_valves_fail"]
+		["gear_lever_fail"] = 
+		{
+			["hh"] = 0,
+			["prob"] = 100,
+			["enable"] = false,
+			["mmint"] = 1,
+			["id"] = "gear_lever_fail",
+			["mm"] = 0,
+		}, -- end of ["gear_lever_fail"]
+		["r_engine"] = 
+		{
+			["hh"] = 0,
+			["prob"] = 100,
+			["enable"] = false,
+			["mmint"] = 1,
+			["id"] = "r_engine",
+			["mm"] = 0,
+		}, -- end of ["r_engine"]
+		["SMS_FAILURE_TOTAL"] = 
+		{
+			["hh"] = 0,
+			["prob"] = 100,
+			["enable"] = false,
+			["mmint"] = 1,
+			["id"] = "SMS_FAILURE_TOTAL",
+			["mm"] = 0,
+		}, -- end of ["SMS_FAILURE_TOTAL"]
+		["front_central_transfer_fail"] = 
+		{
+			["hh"] = 0,
+			["prob"] = 100,
+			["enable"] = false,
+			["mmint"] = 1,
+			["id"] = "front_central_transfer_fail",
+			["mm"] = 0,
+		}, -- end of ["front_central_transfer_fail"]
+		["Failure_Comp_MC1"] = 
+		{
+			["hh"] = 0,
+			["prob"] = 100,
+			["enable"] = false,
+			["mmint"] = 1,
+			["id"] = "Failure_Comp_MC1",
+			["mm"] = 0,
+		}, -- end of ["Failure_Comp_MC1"]
+		["WEAP_GUN_01_AMMO_BELT_SEVERED"] = 
+		{
+			["hh"] = 0,
+			["prob"] = 100,
+			["enable"] = false,
+			["mmint"] = 1,
+			["id"] = "WEAP_GUN_01_AMMO_BELT_SEVERED",
+			["mm"] = 0,
+		}, -- end of ["WEAP_GUN_01_AMMO_BELT_SEVERED"]
+		["WEAPONS_FAILURE_TOTAL"] = 
+		{
+			["hh"] = 0,
+			["prob"] = 100,
+			["enable"] = false,
+			["mmint"] = 1,
+			["id"] = "WEAPONS_FAILURE_TOTAL",
+			["mm"] = 0,
+		}, -- end of ["WEAPONS_FAILURE_TOTAL"]
+		["Failure_PP_RightAMAD_OilLeak"] = 
+		{
+			["hh"] = 0,
+			["prob"] = 100,
+			["enable"] = false,
+			["mmint"] = 1,
+			["id"] = "Failure_PP_RightAMAD_OilLeak",
+			["mm"] = 0,
+		}, -- end of ["Failure_PP_RightAMAD_OilLeak"]
+		["Failure_Hyd_HYD1A_Leak"] = 
+		{
+			["hh"] = 0,
+			["prob"] = 100,
+			["enable"] = false,
+			["mmint"] = 1,
+			["id"] = "Failure_Hyd_HYD1A_Leak",
+			["mm"] = 0,
+		}, -- end of ["Failure_Hyd_HYD1A_Leak"]
+		["overspeed_fail"] = 
+		{
+			["hh"] = 0,
+			["prob"] = 100,
+			["enable"] = false,
+			["mmint"] = 1,
+			["id"] = "overspeed_fail",
+			["mm"] = 0,
+		}, -- end of ["overspeed_fail"]
+		["trim_pitch_fail"] = 
+		{
+			["hh"] = 0,
+			["prob"] = 100,
+			["enable"] = false,
+			["mmint"] = 1,
+			["id"] = "trim_pitch_fail",
+			["mm"] = 0,
+		}, -- end of ["trim_pitch_fail"]
+		["l_engine"] = 
+		{
+			["hh"] = 0,
+			["prob"] = 100,
+			["enable"] = false,
+			["mmint"] = 1,
+			["id"] = "l_engine",
+			["mm"] = 0,
+		}, -- end of ["l_engine"]
+		["ADC_FAILURE_TOTAL"] = 
+		{
+			["hh"] = 0,
+			["prob"] = 100,
+			["enable"] = false,
+			["mmint"] = 1,
+			["id"] = "ADC_FAILURE_TOTAL",
+			["mm"] = 0,
+		}, -- end of ["ADC_FAILURE_TOTAL"]
+		["SOPLO_FAILURE_PARTIAL"] = 
+		{
+			["hh"] = 0,
+			["prob"] = 100,
+			["enable"] = false,
+			["mmint"] = 1,
+			["id"] = "SOPLO_FAILURE_PARTIAL",
+			["mm"] = 0,
+		}, -- end of ["SOPLO_FAILURE_PARTIAL"]
+		["front_central_leaks"] = 
+		{
+			["hh"] = 0,
+			["prob"] = 100,
+			["enable"] = false,
+			["mmint"] = 1,
+			["id"] = "front_central_leaks",
+			["mm"] = 0,
+		}, -- end of ["front_central_leaks"]
+		["hsf_ControlHydraulic"] = 
+		{
+			["hh"] = 0,
+			["prob"] = 100,
+			["enable"] = false,
+			["mmint"] = 1,
+			["id"] = "hsf_ControlHydraulic",
+			["mm"] = 0,
+		}, -- end of ["hsf_ControlHydraulic"]
+		["WEAP_GUN_06_AMMO_BELT_SEVERED"] = 
+		{
+			["hh"] = 0,
+			["prob"] = 100,
+			["enable"] = false,
+			["mmint"] = 1,
+			["id"] = "WEAP_GUN_06_AMMO_BELT_SEVERED",
+			["mm"] = 0,
+		}, -- end of ["WEAP_GUN_06_AMMO_BELT_SEVERED"]
+		["KPP_FAILURE_PARTIAL"] = 
+		{
+			["hh"] = 0,
+			["prob"] = 100,
+			["enable"] = false,
+			["mmint"] = 1,
+			["id"] = "KPP_FAILURE_PARTIAL",
+			["mm"] = 0,
+		}, -- end of ["KPP_FAILURE_PARTIAL"]
+		["csf_YawDamper"] = 
+		{
+			["hh"] = 0,
+			["prob"] = 100,
+			["enable"] = false,
+			["mmint"] = 1,
+			["id"] = "csf_YawDamper",
+			["mm"] = 0,
+		}, -- end of ["csf_YawDamper"]
+		["Failure_Fuel_ExtTankTransferC"] = 
+		{
+			["hh"] = 0,
+			["prob"] = 100,
+			["enable"] = false,
+			["mmint"] = 1,
+			["id"] = "Failure_Fuel_ExtTankTransferC",
+			["mm"] = 0,
+		}, -- end of ["Failure_Fuel_ExtTankTransferC"]
+		["left_wing_transfer_fail"] = 
+		{
+			["hh"] = 0,
+			["prob"] = 100,
+			["enable"] = false,
+			["mmint"] = 1,
+			["id"] = "left_wing_transfer_fail",
+			["mm"] = 0,
+		}, -- end of ["left_wing_transfer_fail"]
+	}, -- end of ["failures"]
+	["forcedOptions"] = {},
+	["start_time"] = 28800,
+} -- end of mission
